@@ -19,6 +19,9 @@ jQuery(document).ready(function($) {
     // we change the country list label to reference our new country list input
     $('label[for="llc_countries"]').attr('for', 'llc_countries_js');
 
+    // hide elements with .no-js class when javascript is available
+    $('#llc-options-page .no-js').hide();
+
     // we initialize the new country list input
     // TODO: Do this on element creation
     $('#llc_countries_js')
