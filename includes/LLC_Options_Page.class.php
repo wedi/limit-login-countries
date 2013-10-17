@@ -228,7 +228,7 @@ class LLC_Options_Page {
 			wp_die( __('You do not have sufficient permissions to access this page.', 'limit-login-countries') );
 		}?>
 
-		<div class="wrap">
+		<div class="wrap" id="llc-options-page">
 		<div id="icon-options-general" class="icon32"><br></div>
 		<h2><?php echo __('Settings', 'limit-login-countries') . '&nbsp;&rsaquo;&nbsp;' . __('Limit Login Countries', 'limit-login-countries'); ?></h2>
 		<form action="options.php" method="post"><?php
