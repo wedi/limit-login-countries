@@ -217,7 +217,7 @@ msgstr "Bolivien"
 #: ../includes/LLC_GeoIP_Countries.class.php:579
 #: ../includes/LLC_GeoIP_Countries.class.php:834
 msgid "Bonaire, Saint Eustatius and Saba"
-msgstr "Karibischen Niederlande (Bonaire, Sint Eustatius und Saba)"
+msgstr "Karibische Niederlande (Bonaire, Sint Eustatius und Saba)"
 
 #: ../includes/LLC_GeoIP_Countries.class.php:325
 #: ../includes/LLC_GeoIP_Countries.class.php:580
