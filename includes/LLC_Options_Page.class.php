@@ -177,20 +177,12 @@ class LLC_Options_Page {
 
         $llc_countries_label['whitelist'] = __('Exclusive list of allowed countries:', 'limit-login-countries');
         $llc_countries_label['blacklist'] = __('Exclusive list of rejected countries:', 'limit-login-countries');
-        wp_localize_script('limit-login-countries', 'llc_countries_label', json_encode($llc_countries_label) );
+        wp_localize_script('limit-login-countries', 'llc_countries_label', $llc_countries_label) ;
 
         require_once('LLC_GeoIP_Countries.class.php');
         $gc = new LLC_GeoIP_Countries();
-
-        $l10n = json_encode($gc->country_data);
-        wp_localize_script('limit-login-countries', 'llc_countries', $l10n);
-        $l10n = json_encode($gc->country_data_r);
-        wp_localize_script('limit-login-countries', 'llc_countries_r', $l10n);
-        $l10n = json_encode($gc->country_codes);
-        wp_localize_script('limit-login-countries', 'llc_country_codes', $l10n);
-        $l10n = json_encode($gc->country_names);
-        wp_localize_script('limit-login-countries', 'llc_country_names', $l10n);
-	}
+        $gc->wp_localize_country_codes();
+    }
 
     public static function countries_validate( $input ) {
 

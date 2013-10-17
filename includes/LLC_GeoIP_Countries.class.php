@@ -1056,4 +1056,13 @@ class LLC_GeoIP_Countries {
 		$this->country_names[] = __('Zambia', 'limit-login-countries');
 		$this->country_names[] = __('Zimbabwe', 'limit-login-countries');
     }
+
+    /**
+     * Prints an array of all available country codes for use in JavaScript.
+     *
+     * @since 0.6
+     */
+    public function wp_localize_country_codes() {
+        wp_localize_script('limit-login-countries', 'llc_country_codes', $this->country_codes);
+    }
 }

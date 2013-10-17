@@ -94,6 +94,15 @@ $r .= chr(10.) . $r3;
 
 $r .= <<<'EOF'
     }
+
+    /**
+     * Prints an array of all available country codes for use in JavaScript.
+     *
+     * @since 0.6
+     */
+    public function wp_localize_country_codes() {
+        wp_localize_script('limit-login-countries', 'llc_country_codes', $this->country_codes);
+    }
 }
 
 EOF;

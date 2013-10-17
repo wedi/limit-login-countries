@@ -10,7 +10,7 @@ jQuery(document).ready(function($) {
 
     $('#llc_blacklist').change(function() {
         // we change the label of country list according to whitelist or blacklist mode
-       $('label[for="llc_countries_js"]').text($.parseJSON(llc_countries_label)[$(this).val()]);
+       $('label[for="llc_countries_js"]').text(llc_countries_label[$(this).val()]);
     });
 
     // we hide the non JS text input and add the TextExt textarea.
@@ -34,7 +34,7 @@ jQuery(document).ready(function($) {
         })
         .bind('getSuggestions', function(e, data)
         {
-            var list = $.parseJSON(llc_country_codes),
+            var list = llc_country_codes,
                 textext = $(e.target).textext()[0],
                 query = (data ? data.query : '') || ''
                 ;
