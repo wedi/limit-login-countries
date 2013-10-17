@@ -54,7 +54,7 @@ class LLC_GeoIP_Countries {
      */
     public $country_codes =
 EOF;
-$r .= var_export($countryCodes, TRUE);
+$r .= ' ' . var_export($countryCodes, TRUE);
 $r .= <<<'EOF'
 ;
 
@@ -87,15 +87,8 @@ foreach($countryCodeNumbers as $countryCode => $countryCodeNumber) {
     $r .= chr(9) . chr(9) . '$this->country_data[\'' . $countryCode . '\'] = __(\'' . addslashes($cCountryNames) . '\', \'limit-login-countries\');'.chr(10);
     $r2 .= chr(9) . chr(9) . '$this->country_data_r[__(\'' . addslashes($cCountryNames) . '\', \'limit-login-countries\')] = \'' . $countryCode . '\';'.chr(10);
     $r3 .= chr(9) . chr(9) . '$this->country_names[] = __(\'' . addslashes($cCountryNames) . '\', \'limit-login-countries\');'.chr(10);
-    /*
-    // we add a comma after all but the last entry
-    if(++$i !== $numCountries) {
-		$r .= ','.chr(10);
-	} else {
-		$r .= chr(10);
-	}
-    */
 }
+
 $r .= chr(10.) . $r2;
 $r .= chr(10.) . $r3;
 

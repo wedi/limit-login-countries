@@ -1,6 +1,6 @@
 <?php
 /**
- * Class LLC_GeoIP_Countries Contains translatable country data, programmatically extracted from '/vendor/geoip/geoip.inc'
+ * Contains translatable country data, programmatically extracted from '/vendor/geoip/geoip.inc'
  *
  * @package Limit Login Countries
  * @author: Dirk Weise
@@ -26,7 +26,7 @@ class LLC_GeoIP_Countries {
 	/**
      * @var array $country_codes Country codes in array.
      */
-    public $country_codes =array (
+    public $country_codes = array (
   0 => '',
   1 => 'AP',
   2 => 'EU',
