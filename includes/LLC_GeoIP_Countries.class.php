@@ -1,7 +1,9 @@
 <?php
 /**
- * Class LLC_GeoIP_Countries Contains translatable country data, extracted from '/vendor/geoip/geoip.inc'
+ * Class LLC_GeoIP_Countries Contains translatable country data, programmatically extracted from '/vendor/geoip/geoip.inc'
  *
+ * @package Limit Login Countries
+ * @author: Dirk Weise
  * @since 0.4
  */
 class LLC_GeoIP_Countries {
@@ -284,7 +286,7 @@ class LLC_GeoIP_Countries {
 );
 
 	/**
-	 *	Constructor fills our country data array. Static definition is not possible because we need to translate all strings.
+	 *	Constructor fills our country data arrays. Static definition is not possible because we want to translate all strings.
 	 *
 	 * @since 0.4
 	 */

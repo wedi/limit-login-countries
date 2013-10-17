@@ -1,5 +1,13 @@
 #!/usr/bin/php
 <?php
+/**
+ * This script reads country data from GeoIP API and creates 'includes/LLC_GeoIP_Countries.class.php' with translatable country data arrays
+ *
+ * @package Limit Login Countries
+ * @author: Dirk Weise
+ * @since 0.4
+ *
+ */
 
 $output_file = '/includes/LLC_GeoIP_Countries.class.php';
 $input_file = '/vendor/geoip/geoip.inc';
@@ -18,8 +26,10 @@ $countryCodes = $g->GEOIP_COUNTRY_CODES;
 $r = <<<'EOF'
 <?php
 /**
- * Class LLC_GeoIP_Countries Contains translatable country data, extracted from '/vendor/geoip/geoip.inc'
+ * Contains translatable country data, programmatically extracted from '/vendor/geoip/geoip.inc'
  *
+ * @package Limit Login Countries
+ * @author: Dirk Weise
  * @since 0.4
  */
 class LLC_GeoIP_Countries {
@@ -49,7 +59,7 @@ $r .= <<<'EOF'
 ;
 
 	/**
-	 *	Constructor fills our country data array. Static definition is not possible because we need to translate all strings.
+	 *	Constructor fills our country data arrays. Static definition is not possible because we want to translate all strings.
 	 *
 	 * @since 0.4
 	 */

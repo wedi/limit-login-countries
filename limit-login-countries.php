@@ -14,7 +14,7 @@ Limit_Login_Countries::get_instance();
 
 /**
  * Encapsulates Limit_Login_Countries functionality.
- * To keep the global namespace clean this plugin main class is implemented as a singleton.
+ * To keep the global namespace clean this plugin's main class is implemented as a singleton.
  *
  * @since 0.1
  */

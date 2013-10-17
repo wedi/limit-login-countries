@@ -4,6 +4,7 @@
  *
  * This class encapsulates display and change of our plugin's options.
  *
+ * @package Limit Login Countries
  * @author: Dirk Weise
  * @since: 0.3
  *
@@ -36,9 +37,11 @@ class LLC_Options_Page {
 	}
 
 	/**
-	 * Callback function for WP's admin_init hook. We resgiter our setting with WP's settings API.
+	 * Registers all our settings with WP's settings API.
+     * Callback function for WP's admin_init hook.
 	 *
-	 * @see: http://codex.wordpress.org/Settings_API
+     * @see LLC_Options_Page::init()
+	 * @see http://codex.wordpress.org/Settings_API
 	 * @since 0.3
 	 */
 	public static function register_settings() {
@@ -193,8 +196,10 @@ class LLC_Options_Page {
     }
 
 	/**
-	 * Callback function for WP's admin_menu hook. Manages our options page.
+	 * Adds our options page to the admin area.
+     * Callback function for WP's hook 'admin_menu'.
 	 *
+     * @see LLC_Options_Page::init()
 	 * @since 0.3
 	 */
 	public static function settings_menu() {
@@ -208,8 +213,10 @@ class LLC_Options_Page {
 	}
 
 	/**
-	 * Callback function for managing our settings page.
+	 * Prints the actual settings page.
+     * Callback function for add_option_page
 	 *
+     * @see LLC_Options_Page::settings_menu()
 	 * @since 0.3
 	 *
 	 * @return bool
@@ -235,7 +242,16 @@ class LLC_Options_Page {
 		return TRUE;
 	}
 
-	public static function enqueue_scripts() {
+    /**
+     * Registers and enqueues scripts and stylesheets on options page.
+     * Callback function for automagically created WP hook 'admin_print_scripts-settings_page_limit-login-countries'
+     *
+     * @see LLC_Options_Page::init()
+     * @since 0.4
+     *
+     * @return void
+     */
+    public static function enqueue_scripts() {
 		$url = plugins_url('/', __DIR__);
 		wp_register_script('textext-core', $url . 'vendor/TextExt/js/textext.core.js', array('jquery-core'), '1.3.1', true);
 		wp_register_script('textext-autocomplete', $url . 'vendor/TextExt/js/textext.plugin.autocomplete.js', array('textext-core'), '1.3.1', true);

@@ -3,6 +3,8 @@
 /**
  * Class LLC_GeoIP_Tools Contains helper functions for handling the GeoIP database.
  *
+ * @package Limit Login Countries
+ * @author: Dirk Weise
  * @since 0.4
  */
 class LLC_GeoIP_Tools {
@@ -100,7 +102,7 @@ class LLC_GeoIP_Tools {
 
 /**
  * Class GeoIPDatabaseSearchFilter extends RecursiveFilterIterator
- * A filter class for PHP's Iterator that (hopefully) matches GeoIP databases.
+ * A filter class for PHP's iterator that (hopefully) matches GeoIP database files.
  *
  * @since 0.4
  */
@@ -110,7 +112,7 @@ class GeoIPDatabaseSearchFilter extends RecursiveFilterIterator {
 	 *
 	 * @since 0.4
 	 *
-	 * @return bool Returns TRUE if file passes our filter.
+	 * @return bool Returns TRUE if file passes our filter, FALSE otherwise.
 	 */
 	public function accept() {
 		$names= array('geoip', 'geoiplite', 'geoipv6', 'geoipcity', 'geolitecity', 'geolitecityv6');
