@@ -142,8 +142,8 @@ class LLC_Options_Page {
 		$r .= '</select>';
 
         $r .= '<ul>';
-        $r .= '<li>'.__('<em>Whitelist</em> means only the countries listed below are <em>allowed</em> to login. (If country list is empty, no restriction applies.)', 'limit-login-countries').'</li>';
-        $r .= '<li>'.__('<em>Blacklist</em> means only the countries listed below are <em>not allowed</em> to login.', 'limit-login-countries').'</li>';
+        $r .= '<li>'.__('<em>Whitelist</em> means login is allowed from the countries listed below only.', 'limit-login-countries').'</li>';
+        $r .= '<li>'.__('<em>Blacklist</em> means login is not allowed from the countries listed below only.', 'limit-login-countries').'</li>';
         $r .= '</ul>';
 
         echo $r;
@@ -163,8 +163,17 @@ class LLC_Options_Page {
     public static function countries_callback() {
 
 		$setting = esc_attr(get_option('llc_countries'));
-        echo "<input type='text' id='llc_countries' name='llc_countries' value='$setting'>";
-        echo "<div id='llc_test' />";
+        $r = "<input type='text' id='llc_countries' name='llc_countries' value='$setting'>";
+        $r .= "<div id='llc_test' />";
+
+        $r .= '<ul>';
+        $r .= '<li>'.__('List of 2-digit country codes.', 'limit-login-countries').'</li>';
+        $r .= '<li class="no-js">'.__('Use a comma as delimiter.', 'limit-login-countries').'</li>';
+        $r .= '<li>'.__('If list is empty, no login restriction applies.', 'limit-login-countries').'</li>';
+        $r .= '</ul>';
+
+        echo $r;
+
 
         $llc_countries_label['whitelist'] = __('Exclusive list of allowed countries:', 'limit-login-countries');
         $llc_countries_label['blacklist'] = __('Exclusive list of rejected countries:', 'limit-login-countries');

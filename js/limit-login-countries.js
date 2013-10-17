@@ -13,8 +13,8 @@ jQuery(document).ready(function($) {
        $('label[for="llc_countries_js"]').text($.parseJSON(llc_countries_label)[$(this).val()]);
     });
 
-    $('#llc_countries').hide().parent().append("<textarea id='llc_countries_js' name='llc_countries_js' rows='1' cols='52'></textarea>");
     // we hide the non JS text input and add the TextExt textarea.
+    $('#llc_countries').hide().after("<textarea id='llc_countries_js' name='llc_countries_js' rows='1' cols='52'></textarea>");
 
     // we change the country list label to reference our new country list input
     $('label[for="llc_countries"]').attr('for', 'llc_countries_js');
