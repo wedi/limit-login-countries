@@ -2,7 +2,7 @@
 /*
 Plugin Name: Limit Login Countries
 Plugin URI: http://wordpress.org/extend/plugins/limit-login-countries/
-Description: This plugin give you the ability to limit WordPress admin logins based on the country the visitor's IP address is located in.
+Description: This plugin gives you the ability to limit WordPress admin logins based on the country the visitor's IP address is located in.
 Version: 0.5
 Author: Dirk Weise
 Author URI: http://dirk-weise.de/
