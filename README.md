@@ -17,7 +17,7 @@ You can choose between a white- and blacklist mode. In whitelist mode only visit
 
 ### Contribute ###
 
-You are welcome to contribute to this plugin on [GitHub](https://github.com/wedi/limit-login-countries). File an issue or send me a pull request.
+You are welcome to contribute to this plugin on [GitHub](https://github.com/wedi/limit-login-countries). [File an issue](https://github.com/wedi/limit-login-countries/issues) or send a pull request.
 
 ### Credits ###
 
