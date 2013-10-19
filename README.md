@@ -10,23 +10,23 @@
 This plugin gives you the ability to limit WordPress admin logins based on the country the visitor's IP address is located in.
 
 ## Description ##
-
 This plugin gives you the ability to limit WordPress admin logins based on the country the visitor's IP address is located in. It uses Maxmind's GeoIP database which comes in a free lite version.
 
 You can choose between a white- and blacklist mode. In whitelist mode only visitors with IP addresses from the configured countries are allowed. In blacklist mode visitors with IPs from the configured countries are not allowed to login.
 
-### Contribute ###
+### Translation ###
+So far this plugin is available in English and German. If you are interested to translate the plugin to your language, use the included POT file with a programm like [PoEdit](http://www.poedit.net/index.php) and get in touch.
 
-You are welcome to contribute to this plugin on [GitHub](https://github.com/wedi/limit-login-countries). [File an issue](https://github.com/wedi/limit-login-countries/issues) or send a pull request.
+## Development ##
+This plugin is developed by [Dirk Weise](http://www.dirk-weise.de) as a pet project on [GitHub](https://github.com/wedi/limit-login-countries). You are welcome to [file an issue](https://github.com/wedi/limit-login-countries/issues) or send a pull request.
 
-### Credits ###
-
-Kudos go out to the guys over at [*Maxmind*](https://www.maxmind.com/) for providing a lite version of their GeoIP database for free.
-Same to [*Konstantin Kovshenin*](http://kovshenin.com/) who has written a [great tutorial on the WordPress Settings API](http://kovshenin.com/2012/the-wordpress-settings-api/) which helped me a lot while cleaning up the plugin for the public.
-Last but not least I send a thank you note to [*Gabriel Oliveira*](http://think0.deviantart.com/) on whose work the plugin's banner image is based.
+## Credits ##
+* Kudos go out to the guys over at [*Maxmind*](https://www.maxmind.com/) for providing a lite version of their GeoIP database for free.
+* Same to [*Konstantin Kovshenin*](http://kovshenin.com/) who has written a [great tutorial on the WordPress Settings API](http://kovshenin.com/2012/the-wordpress-settings-api/) which helped me a lot while cleaning up the plugin for the public.
+* Give big hands to [sudar](http://sudarmuthu.com) for his [toolset for deploying WordPress plugins from GitHub](https://github.com/sudar/wp-plugin-in-github). A must have, when developing WordPress plugins on GitHub.
+* Last but not least I send a thank you note to [*Gabriel Oliveira*](http://think0.deviantart.com/) on whose work this plugin's banner image is based.
 
 ## Installation ##
-
 This section describes how to install the plugin and get it working.
 
 1. Upload the plugin to your WordPress plugin directory, which is probably `/wp-content/plugins/`.
