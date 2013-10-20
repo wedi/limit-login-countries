@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the Limit Login Countries package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Limit Login Countries 0.5\n"
+"Project-Id-Version: Limit Login Countries 0.6\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/limit-login-"
 "countries\n"
-"POT-Creation-Date: 2013-10-18 21:42:46+00:00\n"
+"POT-Creation-Date: 2013-10-20 02:57:37+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1669,7 +1669,7 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#. #-#-#-#-#  limit-login-countries.pot (Limit Login Countries 0.5)  #-#-#-#-#
+#. #-#-#-#-#  limit-login-countries.pot (Limit Login Countries 0.6)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 #: includes/LLC_Options_Page.class.php:234
 msgid "Limit Login Countries"
