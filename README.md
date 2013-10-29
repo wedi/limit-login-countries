@@ -3,7 +3,7 @@
 **Tags:** login, security
 **Requires at least:** 3.5.0
 **Tested up to:** 3.7.1
-**Stable tag:** 0.6.1
+**Stable tag:** 0.6.2
 **License:** GPLv2 or any later version
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -44,6 +44,12 @@ This section describes how to install the plugin and get it working.
 No worries! Just add `define('LIMIT_LOGIN_COUNTRIES_OVERRIDE', TRUE);` to your `wp-config.php` and you can login again in whichever country you are.
 
 ## Changelog ##
+
+### Version 0.6.2 ###
+* Add missing changelog for 0.6.1
+
+### Version 0.6.1 ###
+* Raise tested WordPress version.
 
 ### Version 0.6 ###
 * Public release in WordPress plugin directory.
