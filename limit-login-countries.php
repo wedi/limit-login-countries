@@ -22,6 +22,9 @@ Limit_Login_Countries::get_instance();
  */
 class Limit_Login_Countries {
 
+    /** @var string The minimum PHP version required by this plugin. */
+    public static $minPHPVersion = '5.3.0';
+
 	/** @var $instance Limit_Login_Countries Stores the single plugin object instance. */
 	protected static $instance;
 
@@ -39,6 +42,9 @@ class Limit_Login_Countries {
 	 * @since 0.1
 	 */
 	protected function __construct() {
+
+        // we use the activation hook to run some code on plugin installation
+        register_activation_hook( __FILE__, array('Limit_Login_Countries', 'install') );
 
 		// we add an init hook for loading options and our textdomain for l10n
 		add_action( 'init', array($this, 'loadOptions') );
@@ -64,7 +70,23 @@ class Limit_Login_Countries {
 		return self::$instance;
 	}
 
-	/**
+    /**
+     * Plugin activation hook callback: checks system requirements
+     *
+     * @since 0.7
+     *
+     * @return void
+     */
+    public static function install()
+    {
+        if( version_compare(PHP_VERSION, self::$minPHPVersion, '<') ) {
+            deactivate_plugins(basename(__FILE__));
+            printf(__('Error: This plugin requires at least PHP version %1$s, your server is running version %2$s! '), self::$minPHPVersion, PHP_VERSION);
+            exit;
+        }
+    }
+
+    /**
 	 * Loads the plugin's options
 	 *
 	 * @since 0.2

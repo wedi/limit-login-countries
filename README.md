@@ -34,6 +34,9 @@ This section describes how to install the plugin and get it working.
 3. Activate the plugin through the 'Plugins' menu in WordPress
 4. Go to settings and configure the plugin
 
+### System Requirements ###
+This plugin requires at least PHP 5.3. The minimum *tested* WordPress version is 3.5.0. Please report if it works in even older versions.
+
 ## Screenshots ##
 ![ScreenShot](https://raw.github.com/wedi/limit-login-countries/master/assets/screenshot-1.png)
 1.  Whoo! The plugin's options page.
