@@ -2,7 +2,7 @@
 **Contributors:** wedi
 **Tags:** login, security
 **Requires at least:** 3.5.0
-**Tested up to:** 3.7.1
+**Tested up to:** 4.0
 **Stable tag:** 0.6.2
 **License:** GPLv2 or any later version
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html
