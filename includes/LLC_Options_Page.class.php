@@ -34,6 +34,9 @@ class LLC_Options_Page {
 		// we add a callback on the incredible admin_print_scripts-settings_limit-login-countries hook to register and enqueue our scripts only on our own settings page
 		add_action('admin_print_scripts-settings_page_limit-login-countries', array('LLC_Options_Page', 'enqueue_scripts'));
 
+		// we add a link to the plugin settings on the plugin page
+		add_filter('plugin_action_links', array('LLC_Options_Page', 'plugin_settings_link'), 10, 2);
+
 	}
 
 	/**
@@ -266,6 +269,24 @@ class LLC_Options_Page {
 		wp_register_style('textext-autocomplete', $url . 'vendor/TextExt/css/textext.plugin.autocomplete.css', array('textext-core'), '0.4');
 		wp_register_style('textext-tags', $url . 'vendor/TextExt/css/textext.plugin.tags.css', array('textext-core'), '0.4');
 		wp_enqueue_style('limit-login-countries', $url . 'css/limit-login-countries.css', array('textext-autocomplete','textext-tags'), '0.4');
+	}
+
+	
+    /**
+     * Add a link to plugin settings on the plugin list page.
+     * Callback function for 'plugin_action_links' filter.
+     *
+     * @see LLC_Options_Page::init()
+     * @since 0.7
+     *
+     * @return void
+     */
+	public static function plugin_settings_link($links, $file) {
+    
+        $settings_link = sprintf( '<a href="' . admin_url( 'options-general.php?page=%s' ) . '">%s</a>', 'limit-login-countries', __('Settings', 'limit-login-countries') );
+        array_unshift($links, $settings_link);
+
+	    return $links;
 	}
 
 }
