@@ -115,7 +115,7 @@ class GeoIPDatabaseSearchFilter extends RecursiveFilterIterator {
 	 * @return bool Returns TRUE if file passes our filter, FALSE otherwise.
 	 */
 	public function accept() {
-		$names= array('geoip', 'geoiplite', 'geoipv6', 'geoipcity', 'geolitecity', 'geolitecityv6');
+		$names= array('geoip', 'geolite', 'geoiplite', 'geoipv6', 'geoipcity', 'geolitecity', 'geolitecityv6');
 		return $this->current()->isReadable() && in_array(strtolower($this->current()->getBasename('.dat')), $names) && 'dat' === strtolower($this->current()->getExtension());
 	}
 }
