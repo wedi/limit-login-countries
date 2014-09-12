@@ -81,8 +81,7 @@ class LLC_Options_Page {
 
 	public static function geoip_settings_callback() {
 
-		$r = '<p>' . sprintf(__('This plugin works with <a href="%1$s" target="_blank">Maxmind\'s GeoIP database</a>. If you are not a paying customer, you can download a lite version for free: <a href="%2$s" title="Direct Download">Download Maxmind\'s GeoIP Lite database</a>.', 'limit-login-countries'), 'http://dev.maxmind.com/geoip/', 'http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz') . '</p>';
-		$r .= '<p><em>' . __('<strong>Note:</strong> It\'s planned to upgrade this plugin to use the new database format ("GeoIP2") soon, but at the moment we still use the legacy ("old") format.', 'limit-login-countries') . '</em></p>';
+		$r = '<p>' . sprintf(__('This plugin works with <a href="%1$s" target="_blank">Maxmind\'s GeoIP database</a>. If you are not a paying customer, you can download a lite version for free: <a href="%2$s" title="Direct Download">Download Maxmind\'s GeoIP Lite database</a>.', 'limit-login-countries'), 'http://dev.maxmind.com/geoip/', 'http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz') . '</p>';
 
 		echo $r;
 	}
