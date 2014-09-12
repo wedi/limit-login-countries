@@ -31,7 +31,7 @@ class Limit_Login_Countries {
 	/** @var $options Array Stores the plugin's options. */
 	protected $options = array();
 
-	/** @var $geoInfo llc_geoInfo Stores the visitor's geo information. */
+	/** @var $geoInfo geoiprecord Stores the visitor's geo information. */
 	protected $geoInfo;
 
 	/**
