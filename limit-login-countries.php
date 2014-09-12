@@ -22,8 +22,8 @@ Limit_Login_Countries::get_instance();
  */
 class Limit_Login_Countries {
 
-    /** @var string The minimum PHP version required by this plugin. */
-    public static $minPHPVersion = '5.3.0';
+	/** @var string The minimum PHP version required by this plugin. */
+	public static $minPHPVersion = '5.3.0';
 
 	/** @var $instance Limit_Login_Countries Stores the single plugin object instance. */
 	protected static $instance;
@@ -43,17 +43,17 @@ class Limit_Login_Countries {
 	 */
 	protected function __construct() {
 
-        // we use the activation hook to run some code on plugin installation
-        register_activation_hook( __FILE__, array('Limit_Login_Countries', 'install') );
+		// we use the activation hook to run some code on plugin installation
+		register_activation_hook( __FILE__, array( 'Limit_Login_Countries', 'install' ) );
 
 		// we add an init hook for loading options and our textdomain for l10n
-		add_action( 'init', array($this, 'loadOptions') );
+		add_action( 'init', array( $this, 'loadOptions' ) );
 
 		// We add the authentication filter
-		add_filter( 'wp_authenticate_user', array($this, 'limit_login_countries'), 31, 1 );
+		add_filter( 'wp_authenticate_user', array( $this, 'limit_login_countries' ), 31, 1 );
 
 		// we set up everything needed for our settings page
-		require_once(__DIR__ . '/includes/LLC_Options_Page.class.php');
+		require_once( __DIR__ . '/includes/LLC_Options_Page.class.php' );
 		LLC_OPTIONS_PAGE::init();
 	}
 
@@ -65,28 +65,29 @@ class Limit_Login_Countries {
 	 * @return Limit_Login_Countries
 	 */
 	public static function get_instance() {
-		if( NULL === self::$instance )
+		if ( null === self::$instance ) {
 			self::$instance = new self;
+		}
+
 		return self::$instance;
 	}
 
-    /**
-     * Plugin activation hook callback: checks system requirements
-     *
-     * @since 0.7
-     *
-     * @return void
-     */
-    public static function install()
-    {
-        if( version_compare(PHP_VERSION, self::$minPHPVersion, '<') ) {
-            deactivate_plugins(basename(__FILE__));
-            printf(__('Error: This plugin requires at least PHP version %1$s, your server is running version %2$s! '), self::$minPHPVersion, PHP_VERSION);
-            exit;
-        }
-    }
+	/**
+	 * Plugin activation hook callback: checks system requirements
+	 *
+	 * @since 0.7
+	 *
+	 * @return void
+	 */
+	public static function install() {
+		if ( version_compare( PHP_VERSION, self::$minPHPVersion, '<' ) ) {
+			deactivate_plugins( basename( __FILE__ ) );
+			printf( __( 'Error: This plugin requires at least PHP version %1$s, your server is running version %2$s! ' ), self::$minPHPVersion, PHP_VERSION );
+			exit;
+		}
+	}
 
-    /**
+	/**
 	 * Loads the plugin's options
 	 *
 	 * @since 0.2
@@ -95,46 +96,14 @@ class Limit_Login_Countries {
 	 */
 	public function loadOptions() {
 
-		$this->options['plugindir'] = plugin_dir_path(__FILE__);
+		$this->options['plugindir'] = plugin_dir_path( __FILE__ );
 
-		$this->options['geoip_database'] = get_option('llc_geoip_database_path');
-		$this->options['blacklist'] = 'whitelist' === get_option('llc_blacklist', 'whitelist') ? FALSE : TRUE;
-		$this->options['countryList'] = explode(',', get_option('llc_countries'));
+		$this->options['geoip_database'] = get_option( 'llc_geoip_database_path' );
+		$this->options['blacklist']      = 'whitelist' === get_option( 'llc_blacklist', 'whitelist' ) ? false : true;
+		$this->options['countryList']    = explode( ',', get_option( 'llc_countries' ) );
 
-		load_plugin_textdomain('limit-login-countries', FALSE, basename(__DIR__).'/l10n/');
+		load_plugin_textdomain( 'limit-login-countries', false, basename( __DIR__ ) . '/l10n/' );
 
-	}
-
-	/**
-	 * Look up of visitor's geo information.
-	 * Done seperately from __construct() because we only need it when authenticating.
-	 *
-	 * @since 0.2
-	 *
-	 * @return bool Returns TRUE on success and FALSE if there is no geo information available (e.g. localhost) or an error occurred.
-	 */
-	protected function geoLookUp() {
-
-		// we check whether geo info is already loaded
-		if( !is_object($this->geoInfo) ) {
-			require_once(__DIR__ . '/includes/LLC_GeoIP_Tools.class.php');
-			$this->geoInfo = LLC_GeoIP_Tools::getGeoInfo($this->options['geoip_database']);
-		}
-
-		// return false if no info was found (e.g. localhost) or there was an error
-		return (NULL === $this->geoInfo OR FALSE === $this->geoInfo) ? FALSE : TRUE;
-	}
-
-	/**
-	 * Checks whether visitor is allowed to login from his country.
-	 *
-	 * @since 0.1
-	 *
-	 * @return bool Returns TRUE if visitor's country is allowed to login, FALSE if not.
-	 */
-	protected function isAllowedCountry() {
-
-		return $this->options['blacklist'] xor in_array($this->geoInfo->country_code, $this->options['countryList']);
 	}
 
 	/**
@@ -148,26 +117,59 @@ class Limit_Login_Countries {
 	 *
 	 * @return Mixed We return WP_Error when the visitor's country is not allowed. In all other cases we pass on whatever we got via $user.
 	 */
-	public function limit_login_countries($user) {
+	public function limit_login_countries( $user ) {
 
 		// In these cases we don't throw an error, but pass on what we got:
-		if(
-			is_wp_error($user)							// there already is an authentication error
-			or !$this->geoLookUp()						// there is no geo info available
-			or empty($this->options['countryList'])		// there is no country set in options
-			or $this->isAllowedCountry()				// the user's country is allowed
-			or (defined('LIMIT_LOGIN_COUNTRIES_OVERRIDE') and TRUE === LIMIT_LOGIN_COUNTRIES_OVERRIDE)	// override constant is defined
-		)
+		if (
+			is_wp_error( $user )                            // there already is an authentication error
+			or ! $this->geoLookUp()                        // there is no geo info available
+			or empty( $this->options['countryList'] )        // there is no country set in options
+			or $this->isAllowedCountry()                // the user's country is allowed
+			or ( defined( 'LIMIT_LOGIN_COUNTRIES_OVERRIDE' ) and true === LIMIT_LOGIN_COUNTRIES_OVERRIDE )    // override constant is defined
+		) {
 			return $user;
+		}
 
 		// we are still here, so we complain about the user's country
-		$user = new WP_Error('country_error', sprintf(__('Login not allowed from your country (%s)!', 'limit-login-countries'),__($this->geoInfo->country_name, 'limit-login-countries')));
+		$user = new WP_Error( 'country_error', sprintf( __( 'Login not allowed from your country (%s)!', 'limit-login-countries' ), __( $this->geoInfo->country_name, 'limit-login-countries' ) ) );
 
 		// we save the unsuccessful country code
 		$log = get_option( 'limit_login_countries_log', array() );
-		$log[$this->geoInfo->country_code] += 1;
+		$log[ $this->geoInfo->country_code ] += 1;
 		update_option( 'limit_login_countries_log', $log );
 
 		return $user;
+	}
+
+	/**
+	 * Look up of visitor's geo information.
+	 * Done seperately from __construct() because we only need it when authenticating.
+	 *
+	 * @since 0.2
+	 *
+	 * @return bool Returns TRUE on success and FALSE if there is no geo information available (e.g. localhost) or an error occurred.
+	 */
+	protected function geoLookUp() {
+
+		// we check whether geo info is already loaded
+		if ( ! is_object( $this->geoInfo ) ) {
+			require_once( __DIR__ . '/includes/LLC_GeoIP_Tools.class.php' );
+			$this->geoInfo = LLC_GeoIP_Tools::getGeoInfo( $this->options['geoip_database'] );
+		}
+
+		// return false if no info was found (e.g. localhost) or there was an error
+		return ( null === $this->geoInfo OR false === $this->geoInfo ) ? false : true;
+	}
+
+	/**
+	 * Checks whether visitor is allowed to login from his country.
+	 *
+	 * @since 0.1
+	 *
+	 * @return bool Returns TRUE if visitor's country is allowed to login, FALSE if not.
+	 */
+	protected function isAllowedCountry() {
+
+		return $this->options['blacklist'] xor in_array( $this->geoInfo->country_code, $this->options['countryList'] );
 	}
 }

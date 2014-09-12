@@ -6,11 +6,11 @@
  * @since 0.4
  */
 
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
 
-    $('#llc_blacklist').change(function() {
+    $('#llc_blacklist').change(function () {
         // we change the label of country list according to whitelist or blacklist mode
-       $('label[for="llc_countries_js"]').text(llc_countries_label[$(this).val()]);
+        $('label[for="llc_countries_js"]').text(llc_countries_label[$(this).val()]);
     });
 
     // we hide the non JS text input and add the TextExt textarea.
@@ -26,14 +26,13 @@ jQuery(document).ready(function($) {
     // TODO: Do this on element creation
     $('#llc_countries_js')
         .textext({
-            plugins : 'autocomplete tags',
+            plugins: 'autocomplete tags',
             tags: {
                 // we preset the list with the current value from no-js text input
                 items: $('#llc_countries').val().split(',')
             }
         })
-        .bind('getSuggestions', function(e, data)
-        {
+        .bind('getSuggestions', function (e, data) {
             var list = llc_country_codes,
                 textext = $(e.target).textext()[0],
                 query = (data ? data.query : '') || ''
@@ -41,12 +40,11 @@ jQuery(document).ready(function($) {
 
             $(this).trigger(
                 'setSuggestions',
-                { result : textext.itemManager().filter(list, query) }
+                {result: textext.itemManager().filter(list, query)}
             );
         })
         // we write all changes in our new input to the old one for submission
-        .bind('setFormData', function(e, data, isEmpty)
-        {
+        .bind('setFormData', function (e, data, isEmpty) {
             var textext = $(e.target).textext()[0];
             textext = textext.hiddenInput().val();
             $('#llc_countries').val(textext);
