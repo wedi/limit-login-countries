@@ -84,7 +84,7 @@ class LLC_GeoIP_Tools {
 	 * @return bool Returns TRUE if user's IP address is an IPv4 address, FALSE otherwise.
 	 */
 	public static function isIPv4() {
-		return (FALSE === filter_var( $_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 ) ) ? FALSE : TRUE;
+		return FALSE !== filter_var( $_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 );
 	}
 
 	/**
@@ -95,7 +95,7 @@ class LLC_GeoIP_Tools {
 	 * @return bool Returns TRUE if user's IP address is an IPv6 address, FALSE otherwise.
 	 */
 	public static function isIPv6() {
-		return (FALSE === filter_var( $_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6 ) ) ? FALSE : TRUE;
+		return FALSE !== filter_var( $_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6 );
 	}
 
 }
