@@ -9,6 +9,7 @@
 
 This plugin gives you the ability to limit WordPress admin logins based on the country the visitor's IP address is located in.
 
+
 ## Description ##
 This plugin gives you the ability to limit WordPress admin logins based on the country the visitor's IP address is located in. It uses Maxmind's GeoIP database which comes in a free lite version.
 
@@ -17,8 +18,10 @@ You can choose between a white- and blacklist mode. In whitelist mode only visit
 ### Translation ###
 So far this plugin is available in English and German. If you are interested to translate the plugin to your language, use the included POT file with a programm like [PoEdit](http://www.poedit.net/index.php) and get in touch.
 
+
 ## Development ##
 This plugin is developed by [Dirk Weise](http://www.dirk-weise.de) as a pet project on [GitHub](https://github.com/wedi/limit-login-countries). You are welcome to [file an issue](https://github.com/wedi/limit-login-countries/issues) or send a pull request.
+
 
 ## Credits ##
 * Kudos go out to the guys over at [*Maxmind*](https://www.maxmind.com/) for providing a lite version of their GeoIP database for free.
@@ -26,25 +29,29 @@ This plugin is developed by [Dirk Weise](http://www.dirk-weise.de) as a pet proj
 * Give big hands to [sudar](http://sudarmuthu.com) for his [toolset for deploying WordPress plugins from GitHub](https://github.com/sudar/wp-plugin-in-github). A must have, when developing WordPress plugins on GitHub.
 * Last but not least I send a thank you note to [*Gabriel Oliveira*](http://think0.deviantart.com/) on whose work this plugin's banner image is based.
 
+
 ## Installation ##
 This section describes how to install the plugin and get it working.
 
 1. Upload the plugin to your WordPress plugin directory, which is probably `/wp-content/plugins/`.
-2. [Download Maxmind's current GeoLite database](http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz) ("legacy" version, an update to GeoIP2 is already planned) and extract it, e.g. to your WordPress uploads directory, which is probably `/wp-content/uploads/`.
+2. [Download Maxmind's current GeoLite database](http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz) and extract it, e.g. to your WordPress uploads directory, which is probably `/wp-content/uploads/`.
 3. Activate the plugin through the 'Plugins' menu in WordPress
 4. Go to settings and configure the plugin
 
 ### System Requirements ###
 This plugin requires at least PHP 5.3. The minimum *tested* WordPress version is 3.5.0. Please report if it works in even older versions.
 
+
 ## Screenshots ##
 ![ScreenShot](https://raw.github.com/wedi/limit-login-countries/master/assets/screenshot-1.png)
 1.  Whoo! The plugin's options page.
+
 
 ## Frequently Asked Questions ##
 
 ### HELP! I locked myself out! How do I get in again? ###
 No worries! Just add `define('LIMIT_LOGIN_COUNTRIES_OVERRIDE', TRUE);` to your `wp-config.php` and you can login again in whichever country you are.
+
 
 ## Changelog ##
 
@@ -83,3 +90,9 @@ No worries! Just add `define('LIMIT_LOGIN_COUNTRIES_OVERRIDE', TRUE);` to your `
 
 ### Version 0.1 ###
 * Initial version. ~2011. Works as intended, but it's not very beautiful.
+
+
+== Upgrade Notice ==
+
+= 0.6.3 =
+This version upgrades, among other things, the bundled geo location API which hopefully fixes problems reading the GeoIP database in some cases.
