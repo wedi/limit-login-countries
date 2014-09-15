@@ -92,7 +92,7 @@ No worries! Just add `define('LIMIT_LOGIN_COUNTRIES_OVERRIDE', TRUE);` to your `
 * Initial version. ~2011. Works as intended, but it's not very beautiful.
 
 
-== Upgrade Notice ==
+## Upgrade Notice ##
 
-= 0.6.3 =
+### 0.6.3 ###
 This version upgrades, among other things, the bundled geo location API which hopefully fixes problems reading the GeoIP database in some cases.
