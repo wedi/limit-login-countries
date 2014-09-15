@@ -53,7 +53,6 @@ No worries! Just add `define('LIMIT_LOGIN_COUNTRIES_OVERRIDE', TRUE);` to your `
 * Enforcing PHP 5.3 requirement now.
 * Updated bundled geoip-api-php.
 * Refactored code to match WordPress coding style (thank you PhpStorm).
-* Suggest download of GeoLiteCountry instead of GeoLiteCity database as the city information is not used.
 
 ### Version 0.6.2 ###
 * Add missing changelog for 0.6.1
