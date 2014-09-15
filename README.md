@@ -3,7 +3,7 @@
 **Tags:** login, security
 **Requires at least:** 3.5.0
 **Tested up to:** 4.0
-**Stable tag:** 0.6.2
+**Stable tag:** 0.6.3
 **License:** GPLv2 or any later version
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,13 @@ This plugin requires at least PHP 5.3. The minimum *tested* WordPress version is
 No worries! Just add `define('LIMIT_LOGIN_COUNTRIES_OVERRIDE', TRUE);` to your `wp-config.php` and you can login again in whichever country you are.
 
 ## Changelog ##
+
+### Version 0.6.3 ###
+* Raise tested WordPress version to 4.0.
+* Enforcing PHP 5.3 requirement now.
+* Updated bundled geoip-api-php.
+* Refactored code to match WordPress coding style (thank you PhpStorm).
+* Suggest download of GeoLiteCountry instead of GeoLiteCity database as the city information is not used.
 
 ### Version 0.6.2 ###
 * Add missing changelog for 0.6.1
