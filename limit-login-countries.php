@@ -158,7 +158,7 @@ class Limit_Login_Countries {
 		}
 
 		// return false if no info was found (e.g. localhost) or there was an error
-		return ( null === $this->geoInfo OR false === $this->geoInfo ) ? false : true;
+		return ( null === $this->geoInfo OR false === $this->geoInfo OR '' === $this->geoInfo->country_code ) ? false : true;
 	}
 
 	/**
