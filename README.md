@@ -3,7 +3,7 @@
 **Tags:** login, security
 **Requires at least:** 3.5.0
 **Tested up to:** 4.0
-**Stable tag:** 0.6.3
+**Stable tag:** 0.6.4
 **License:** GPLv2 or any later version
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,10 +55,14 @@ No worries! Just add `define('LIMIT_LOGIN_COUNTRIES_OVERRIDE', TRUE);` to your `
 
 ## Changelog ##
 
+### Version 0.6.4 ###
+* Hotfix for settings link showing up for all plugins in the Plugins list table.
+
 ### Version 0.6.3 ###
 * Raise tested WordPress version to 4.0.
 * Enforcing PHP 5.3 requirement now.
 * Updated bundled geoip-api-php.
+* Added settings link in the Plugins list table.
 * Refactored code to match WordPress coding style (thank you PhpStorm).
 
 ### Version 0.6.2 ###
@@ -96,3 +100,6 @@ No worries! Just add `define('LIMIT_LOGIN_COUNTRIES_OVERRIDE', TRUE);` to your `
 
 ### 0.6.3 ###
 This version upgrades, among other things, the bundled geo location API which hopefully fixes problems reading the GeoIP database in some cases.
+
+### 0.6.4 ###
+Hotfix for settings link in Plugin list table. The previous release upgraded, among other things, the bundled geo location API.
