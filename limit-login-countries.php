@@ -131,6 +131,7 @@ class Limit_Login_Countries {
 		}
 
 		// we are still here, so we complain about the user's country
+		// translators: %s stands for the country name the user tries to login from
 		$user = new WP_Error( 'country_error', sprintf( __( 'Login not allowed from your country (%s)!', 'limit-login-countries' ), __( $this->geoInfo->country_name, 'limit-login-countries' ) ) );
 
 		// we save the unsuccessful country code

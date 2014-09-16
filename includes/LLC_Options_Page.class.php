@@ -75,7 +75,7 @@ class LLC_Options_Page {
 		), 'limit-login-countries' );
 
 		// we add settings to our settings sections
-		add_settings_field( 'llc_blacklist', __( 'Act as', 'limit-login-countries' ), array(
+		add_settings_field( 'llc_blacklist', __( 'Act as:', 'limit-login-countries' ), array(
 			'LLC_Options_Page',
 			'blacklist_callback'
 		), 'limit-login-countries', 'llc-general', array( 'label_for' => 'llc_blacklist' ) );
@@ -91,7 +91,7 @@ class LLC_Options_Page {
 			'countries_callback'
 		), 'limit-login-countries', 'llc-general', array( 'label_for' => 'llc_countries' ) );
 
-		add_settings_field( 'llc_geoip_database_path', __( 'GeoIP database file', 'limit-login-countries' ), array(
+		add_settings_field( 'llc_geoip_database_path', __( 'GeoIP database file:', 'limit-login-countries' ), array(
 			'LLC_Options_Page',
 			'geoip_database_path_callback'
 		), 'limit-login-countries', 'llc-geoip', array( 'label_for' => 'llc_geoip_database_path' ) );
