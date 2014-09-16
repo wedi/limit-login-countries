@@ -40,7 +40,9 @@ class LLC_Options_Page {
 		) );
 
 		// we add a link to the plugin settings on the plugin page
-		add_filter( 'plugin_action_links', array( 'LLC_Options_Page', 'plugin_settings_link' ), 10, 2 );
+		$meta = new ReflectionClass( 'Limit_Login_Countries' );
+		$plugin_basename = plugin_basename( $meta->getFileName() );
+		add_filter( 'plugin_action_links_' . $plugin_basename, array( 'LLC_Options_Page', 'plugin_settings_link' ), 10, 1 );
 
 	}
 
@@ -315,9 +317,11 @@ class LLC_Options_Page {
 	 * @see LLC_Options_Page::init()
 	 * @since 0.7
 	 *
-	 * @return void
+	 * @param $links Array of plugin action links.
+	 *
+	 * @return Array of modified plugin action links.
 	 */
-	public static function plugin_settings_link( $links, $file ) {
+	public static function plugin_settings_link( $links ) {
 
 		$settings_link = sprintf( '<a href="' . admin_url( 'options-general.php?page=%s' ) . '">%s</a>', 'limit-login-countries', __( 'Settings', 'limit-login-countries' ) );
 		array_unshift( $links, $settings_link );
