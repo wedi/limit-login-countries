@@ -1,11 +1,13 @@
 # Limit Login Countries #
-**Contributors:** wedi
-**Tags:** login, security
-**Requires at least:** 3.5.0
-**Tested up to:** 4.0
-**Stable tag:** 0.6.4
-**License:** GPLv2 or any later version
-**License URI:** http://www.gnu.org/licenses/gpl-2.0.html
+**Contributors:** wedi   
+**Tags:** login, security   
+**Requires at least:** 3.5.0   
+**Tested up to:** 4.0   
+**Stable tag:** 0.6.4   
+**License:** GPLv2 or any later version   
+**License URI:** http://www.gnu.org/licenses/gpl-2.0.html   
+**Text Domain:** limit-login-countries
+**Domain Path:** /languages
 
 This plugin gives you the ability to limit WordPress admin logins based on the country the visitor's IP address is located in.
 
@@ -15,8 +17,29 @@ This plugin gives you the ability to limit WordPress admin logins based on the c
 
 You can choose between a white- and blacklist mode. In whitelist mode only visitors with IP addresses from the configured countries are allowed. In blacklist mode visitors with IPs from the configured countries are not allowed to login.
 
-### Translation ###
-So far this plugin is available in English and German. If you are interested to translate the plugin to your language, use the included POT file with a programm like [PoEdit](http://www.poedit.net/index.php) and get in touch.
+
+### Translations ###
+Big thanks to all the WP-Translations Team Members!
+
+**Included**
+
+* English (English)
+* Deutsch (German)
+* Türkçe (Turkish)
+
+**Upcoming**
+
+* Nederlands (Dutch) – *93% completed*
+* Français (French (France)) – *91% completed*
+* Română (Romanian) – *80% completed*
+
+If you don't see your language or it's not completed yet, join the Community and make it happen.
+
+Thanks to [WP-Translations.org](http://wp-translations.org) it's very easy to translate this plugin:
+
+  1. Go to the [project page on Transifex](https://www.transifex.com/projects/p/limit-login-countries/).
+  2. Register.
+  3. Start translating.
 
 
 ## Development ##
@@ -54,6 +77,9 @@ No worries! Just add `define('LIMIT_LOGIN_COUNTRIES_OVERRIDE', TRUE);` to your `
 
 
 ## Changelog ##
+
+### Version 0.7 ###
+* Joined the translators community on [WP-Translations.org](http://wp-translations.org).
 
 ### Version 0.6.4 ###
 * Hotfix for settings link showing up for all plugins in the Plugins list table.

@@ -1,22 +1,21 @@
+# Copyright (C) 2014 Limit Login Countries
+# This file is distributed under the same license as the Limit Login Countries package.
+# Translators:
+# Translators:
+# Dirk Weise <code@dirk-weise.de>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: Limit_Login_Countries\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/limit-login-"
-"countries\n"
-"POT-Creation-Date: 2014-09-15 03:57:32+00:00\n"
-"PO-Revision-Date: 2014-09-15 06:16+0100\n"
-"Last-Translator: Dirk Weise <code_AT_NOSPAM_dirk-weise.de>\n"
-"Language-Team: Dirk Weise <code_AT_NOSPAM_dirk-weise.de>\n"
-"Language: de\n"
+"Project-Id-Version: Limit Login Countries\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/limit-login-countries\n"
+"POT-Creation-Date: 2014-09-16 18:18:26+00:00\n"
+"PO-Revision-Date: 2014-09-16 18:31+0000\n"
+"Last-Translator: Dirk Weise <code@dirk-weise.de>\n"
+"Language-Team: German (Germany) (http://www.transifex.com/projects/p/limit-login-countries/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.9\n"
-"X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e;translate;sc_attr_e\n"
-"X-Poedit-Basepath: .\n"
-"X-Poedit-SourceCharset: UTF-8\n"
+"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-SearchPath-0: ..\n"
 
 #: includes/LLC_GeoIP_Countries.class.php:295
 #: includes/LLC_GeoIP_Countries.class.php:550
@@ -1542,155 +1541,134 @@ msgstr "Sambia"
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
 
-#: includes/LLC_Options_Page.class.php:66
+#: includes/LLC_Options_Page.class.php:68
 msgid "General Settings"
 msgstr "Allgemeine Einstellungen"
 
-#: includes/LLC_Options_Page.class.php:70
+#: includes/LLC_Options_Page.class.php:72
 msgid "GeoIP Database"
 msgstr "GeoIP Datenbank"
 
-#: includes/LLC_Options_Page.class.php:76
-msgid "Act as"
-msgstr "Arbeite als"
+#: includes/LLC_Options_Page.class.php:78
+msgctxt "limit-login-countries"
+msgid "Act as:"
+msgstr "Arbeite als:"
 
-#: includes/LLC_Options_Page.class.php:83
-#: includes/LLC_Options_Page.class.php:207
+#: includes/LLC_Options_Page.class.php:85
+#: includes/LLC_Options_Page.class.php:209
 msgid "Exclusive list of allowed countries:"
 msgstr "Liste aller zulässigen Länder:"
 
-#: includes/LLC_Options_Page.class.php:85
-#: includes/LLC_Options_Page.class.php:208
+#: includes/LLC_Options_Page.class.php:87
+#: includes/LLC_Options_Page.class.php:210
 msgid "Exclusive list of rejected countries:"
 msgstr "Liste aller zurückzuweisender Länder:"
 
-#: includes/LLC_Options_Page.class.php:92
-msgid "GeoIP database file"
-msgstr "GeoIP Datenbankdatei"
+#: includes/LLC_Options_Page.class.php:94
+msgid "GeoIP database file:"
+msgstr "GeoIP Datenbankdatei:"
 
-#: includes/LLC_Options_Page.class.php:100
+#: includes/LLC_Options_Page.class.php:102
 msgid "Here you configure from which countries admin area logins are allowed."
-msgstr ""
-"Hier konfigurieren Sie aus welchen Ländern der Login in den Admin-Bereich "
-"erlaubt ist."
+msgstr "Hier konfigurieren Sie aus welchen Ländern der Login in den Admin-Bereich erlaubt ist."
 
-#: includes/LLC_Options_Page.class.php:101
+#: includes/LLC_Options_Page.class.php:103
 msgid ""
 "<strong>Remember:</strong> In case you lock yourself out of WP's admin area "
-"you can disable the country check by adding %s to your <code>wp-config.php</"
-"code> file."
-msgstr ""
-"<strong>Erinnerung:</strong> Im Falle, dass Sie sich aus dem Admin-Bereich "
-"von WordPress ausgeschlossen haben, können Sie den Ländercheck deaktivieren, "
-"indem Sie %s zu Ihrer <code>wp-config.php</code> hinzufügen."
+"you can disable the country check by adding %s to your <code>wp-"
+"config.php</code> file."
+msgstr "<strong>Erinnerung:</strong> Im Falle, dass Sie sich aus dem Admin-Bereich von WordPress ausgeschlossen haben, können Sie den Ländercheck deaktivieren, indem Sie %s zu Ihrer <code>wp-config.php</code> hinzufügen."
 
-#: includes/LLC_Options_Page.class.php:108
+#: includes/LLC_Options_Page.class.php:110
 msgid ""
 "This plugin works with <a href=\"%1$s\" target=\"_blank\">Maxmind's GeoIP "
 "database</a>. If you are not a paying customer, you can download a lite "
 "version for free: <a href=\"%2$s\" title=\"Direct Download\">Download "
 "Maxmind's GeoIP Lite database</a>."
-msgstr ""
-"Dieses Plugin verwendet die <a href=\"%1$s\" target=\"_blank\">GeoIP "
-"Datenbank von Maxmind</a>. Wenn Sie kein zahlender Kunde sind, können Sie "
-"kostenlos eine abgespeckte Version herunterladen: <a href=\"%2$s\" title="
-"\"Direkter Download\">Download Maxmind GeoIP Lite database</a>."
+msgstr "Dieses Plugin verwendet die <a href=\"%1$s\" target=\"_blank\">GeoIP Datenbank von Maxmind</a>. Wenn Sie kein zahlender Kunde sind, können Sie kostenlos eine abgespeckte Version herunterladen: <a href=\"%2$s\" title=\"Direkter Download\">Download Maxmind GeoIP Lite database</a>."
 
-#: includes/LLC_Options_Page.class.php:121
+#: includes/LLC_Options_Page.class.php:123
 msgid ""
 "For your convenience we tried to find a database file. We searched this "
 "plugin's directory as well as your WordPress upload directory."
-msgstr ""
-"Wir haben versucht eine GeoIP-Datenbankdatei zu finden. Dazu haben wir "
-"sowohl das Plugin- als auch das Wordpress Upload-Verzeichnis durchsucht."
+msgstr "Wir haben versucht eine GeoIP-Datenbankdatei zu finden. Dazu haben wir sowohl das Plugin- als auch das Wordpress Upload-Verzeichnis durchsucht."
 
-#: includes/LLC_Options_Page.class.php:129
+#: includes/LLC_Options_Page.class.php:131
 msgid ""
 "Unfortunately we couldn't find any database file.<br/>If you are sure you "
-"uploaded (and unzipped) one, it is probably just named differently from what "
-"we expected. No worries, just enter the correct absolute path to your "
+"uploaded (and unzipped) one, it is probably just named differently from what"
+" we expected. No worries, just enter the correct absolute path to your "
 "database file above and we are all fine."
-msgstr ""
-"Leider konnten wir keine Datenbankdatei finden.<br/>Wenn Sie sich sicher "
-"sind, dass Sie eine hochgeladen (und auch entpackt) haben, ist die Datenbank "
-"wahrscheinlich einfach nur anders benannt als wir es erwartet haben. Das ist "
-"nicht weiter schlimm, geben Sie oben einfach den absoluten Pfad zur "
-"Datenbank an und alles ist gut."
+msgstr "Leider konnten wir keine Datenbankdatei finden.<br/>Wenn Sie sich sicher sind, dass Sie eine hochgeladen (und auch entpackt) haben, ist die Datenbank wahrscheinlich einfach nur anders benannt als wir es erwartet haben. Das ist nicht weiter schlimm, geben Sie oben einfach den absoluten Pfad zur Datenbank an und alles ist gut."
 
-#: includes/LLC_Options_Page.class.php:141
+#: includes/LLC_Options_Page.class.php:143
 msgid ""
 "The specified GeoIP database file is outside the WordPress directory and "
 "thus not allowed for security reasons."
-msgstr ""
-"Die angegebene GeoIP-Datenbankdatei liegt außerhalb des WordPress-"
-"Verzeichnisses und ist daher aus Sicherheitsgründen nicht zulässig."
+msgstr "Die angegebene GeoIP-Datenbankdatei liegt außerhalb des WordPress-Verzeichnisses und ist daher aus Sicherheitsgründen nicht zulässig."
 
-#: includes/LLC_Options_Page.class.php:143
+#: includes/LLC_Options_Page.class.php:145
 msgid "The specified GeoIP database file does not exist."
 msgstr "Die angegebene GeoIP-Datenbankdatei existiert nicht."
 
-#: includes/LLC_Options_Page.class.php:145
+#: includes/LLC_Options_Page.class.php:147
 msgid "The specified GeoIP database file is not readable."
 msgstr "Die angegebene GeoIP-Datenbankdatei ist nicht lesbar."
 
-#: includes/LLC_Options_Page.class.php:168
+#: includes/LLC_Options_Page.class.php:170
 msgid "Whitelist"
 msgstr "Whitelist"
 
-#: includes/LLC_Options_Page.class.php:169
+#: includes/LLC_Options_Page.class.php:171
 msgid "Blacklist"
 msgstr "Blacklist"
 
-#: includes/LLC_Options_Page.class.php:173
+#: includes/LLC_Options_Page.class.php:175
 msgid ""
 "<em>Whitelist</em> means login is allowed from the countries listed below "
 "only."
-msgstr ""
-"<em>Whitelist</em> bedeutet, dass der Login nur aus den unten aufgelisteten "
-"Ländern erlaubt ist."
+msgstr "<em>Whitelist</em> bedeutet, dass der Login nur aus den unten aufgelisteten Ländern erlaubt ist."
 
-#: includes/LLC_Options_Page.class.php:174
+#: includes/LLC_Options_Page.class.php:176
 msgid ""
 "<em>Blacklist</em> means login is not allowed from the countries listed "
 "below only."
-msgstr ""
-"<em>Blacklist</em> bedeutet, dass der Login nur aus den unten aufgelisteten "
-"Ländern verboten ist."
+msgstr "<em>Blacklist</em> bedeutet, dass der Login nur aus den unten aufgelisteten Ländern verboten ist."
 
-#: includes/LLC_Options_Page.class.php:186
+#: includes/LLC_Options_Page.class.php:188
 msgid "Invalid value. You must select either whitelist or blacklist."
 msgstr "Ungültiger Wert. Sie müssen entweder White- oder Blacklist auswählen."
 
-#: includes/LLC_Options_Page.class.php:199
+#: includes/LLC_Options_Page.class.php:201
 msgid "List of 2-digit country codes."
 msgstr "Liste mit 2-Buchstaben Ländercodes."
 
-#: includes/LLC_Options_Page.class.php:200
+#: includes/LLC_Options_Page.class.php:202
 msgid "Use a comma as delimiter."
 msgstr "Benutzen Sie Kommas als Trennzeichen."
 
-#: includes/LLC_Options_Page.class.php:201
+#: includes/LLC_Options_Page.class.php:203
 msgid "If list is empty, no login restriction applies."
 msgstr "Wenn die Liste leer ist, ist der Login von überall erlaubt."
 
-#: includes/LLC_Options_Page.class.php:239
+#: includes/LLC_Options_Page.class.php:241
 msgid "Limit Login Countries Options"
 msgstr "Einstellungen zum beschränken von Login-Ländern"
 
-#: includes/LLC_Options_Page.class.php:240
+#: includes/LLC_Options_Page.class.php:242
 msgid "Login Countries"
 msgstr "Login-Länder"
 
-#: includes/LLC_Options_Page.class.php:260
+#: includes/LLC_Options_Page.class.php:262
 msgid "You do not have sufficient permissions to access this page."
 msgstr "Ihre Recht sind nicht ausreichend für diese Seite."
 
-#: includes/LLC_Options_Page.class.php:265
-#: includes/LLC_Options_Page.class.php:322
+#: includes/LLC_Options_Page.class.php:267
+#: includes/LLC_Options_Page.class.php:326
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: includes/LLC_Options_Page.class.php:265
+#: includes/LLC_Options_Page.class.php:267
 msgid "Limit Login Countries"
 msgstr "Login-Länder beschränken"
 
@@ -1698,11 +1676,10 @@ msgstr "Login-Länder beschränken"
 msgid ""
 "Error: This plugin requires at least PHP version %1$s, your server is "
 "running version %2$s! "
-msgstr ""
-"Fehler: Dieses Plugin erfordert mindestens PHP version %1$s, auf ihrem "
-"Server ist leider nur Version %2$s installiert."
+msgstr "Fehler: Dieses Plugin erfordert mindestens PHP version %1$s, auf ihrem Server ist leider nur Version %2$s installiert."
 
-#: limit-login-countries.php:134
+#. translators: %s stands for the country name the user tries to login from
+#: limit-login-countries.php:136
 msgid "Login not allowed from your country (%s)!"
 msgstr "Der Login ist von Ihrem Land (%s) aus nicht erlaubt."
 
@@ -1714,9 +1691,7 @@ msgstr "http://wordpress.org/extend/plugins/limit-login-countries/"
 msgid ""
 "This plugin gives you the ability to limit WordPress admin logins based on "
 "the country the visitor's IP address is located in."
-msgstr ""
-"Dieses Plugin ermöglicht es WordPress Logins anhand des Landes zu "
-"blockieren, in dem die IP-Adresse des Besuchers registriert ist."
+msgstr "Dieses Plugin ermöglicht es WordPress Logins anhand des Landes zu blockieren, in dem die IP-Adresse des Besuchers registriert ist."
 
 #. Author of the plugin/theme
 msgid "Dirk Weise"

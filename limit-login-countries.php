@@ -102,7 +102,7 @@ class Limit_Login_Countries {
 		$this->options['blacklist']      = 'whitelist' === get_option( 'llc_blacklist', 'whitelist' ) ? false : true;
 		$this->options['countryList']    = explode( ',', get_option( 'llc_countries' ) );
 
-		load_plugin_textdomain( 'limit-login-countries', false, basename( __DIR__ ) . '/l10n/' );
+		load_plugin_textdomain( 'limit-login-countries', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
 	}
 

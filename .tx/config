@@ -1,0 +1,8 @@
+[main]
+host = https://www.transifex.com
+[limit-login-countries.limit-login-countries]
+file_filter = languages/limit-login-countries-<lang>.po
+source_file = languages/limit-login-countries.pot
+source_lang = en_US
+type = PO
+minimum_perc = 100
