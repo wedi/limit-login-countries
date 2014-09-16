@@ -1,13 +1,17 @@
+
 # Limit Login Countries #
-**Contributors:** wedi   
-**Tags:** login, security   
-**Requires at least:** 3.5.0   
+
 **Tested up to:** 4.0   
+**Requires at least:** 3.5.0   
 **Stable tag:** 0.6.4   
+**Contributors:** wedi   
 **License:** GPLv2 or any later version   
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html   
+
+**Tags:** login, security   
 **Text Domain:** limit-login-countries
-**Domain Path:** /languages
+**Domain Path:** /languages   
+**GitHub Plugin URI:** https://github.com/wedi/limit-login-countries/
 
 This plugin gives you the ability to limit WordPress admin logins based on the country the visitor's IP address is located in.
 
@@ -47,6 +51,9 @@ This plugin is developed by [Dirk Weise](http://www.dirk-weise.de) as a pet proj
 
 
 ## Credits ##
+* Thanks to all users who [provide feedback](http://wordpress.org/support/plugin/limit-login-countries) for or [rate](http://wordpress.org/support/view/plugin-reviews/limit-login-countries) my plugin.
+* Thank you François-Xavier Bénard for founding [WP-Translations.org](http://wp-translations.org/) a great Community dedicated to globalize WordPress.
+* Thank you all translators on WP-Translations.org for helping to translate this plugin.
 * Kudos go out to the guys over at [*Maxmind*](https://www.maxmind.com/) for providing a lite version of their GeoIP database for free.
 * Same to [*Konstantin Kovshenin*](http://kovshenin.com/) who has written a [great tutorial on the WordPress Settings API](http://kovshenin.com/2012/the-wordpress-settings-api/) which helped me a lot while cleaning up the plugin for the public.
 * Give big hands to [sudar](http://sudarmuthu.com) for his [toolset for deploying WordPress plugins from GitHub](https://github.com/sudar/wp-plugin-in-github). A must have, when developing WordPress plugins on GitHub.
@@ -66,7 +73,7 @@ This plugin requires at least PHP 5.3. The minimum *tested* WordPress version is
 
 
 ## Screenshots ##
-![ScreenShot](https://raw.github.com/wedi/limit-login-countries/master/assets/screenshot-1.png)
+![Screenshot of the plugin's options page](https://raw.githubusercontent.com/wedi/limit-login-countries/master/assets-wp-repo/screenshot-1.png)
 1.  Whoo! The plugin's options page.
 
 
