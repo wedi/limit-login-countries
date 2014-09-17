@@ -315,7 +315,7 @@ class LLC_Options_Page {
 	 * Callback function for 'plugin_action_links' filter.
 	 *
 	 * @see LLC_Options_Page::init()
-	 * @since 0.7
+	 * @since 0.6.3
 	 *
 	 * @param $links Array of plugin action links.
 	 *
