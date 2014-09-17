@@ -123,4 +123,3 @@ echo 'OK.' . chr( 10 );
 fclose( $of );
 
 echo 'We\'re done!' . chr( 10 );
-?>
