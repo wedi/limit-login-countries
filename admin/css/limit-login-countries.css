@@ -6,6 +6,6 @@
  * @since 0.4
  */
 
-div#llc-options-page ul {
+#llc-options-page ul {
     list-style: disc inside;
 }
