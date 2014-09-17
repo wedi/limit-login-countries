@@ -118,7 +118,7 @@ class LLC_Options_Page {
 		echo "<input type='text' id='llc_geoip_database_path' name='llc_geoip_database_path' value='$setting' size='60' />";
 
 		if ( '' === $setting ) {
-			require_once( 'LLC_GeoIP_Tools.class.php' );
+			require_once( dirname( __DIR__ ) . '/includes/LLC_GeoIP_Tools.class.php' );
 			$gds = LLC_GeoIP_Tools::search_geoip_database();
 			echo '<p>' . __( 'For your convenience we tried to find a database file. We searched this plugin\'s directory as well as your WordPress upload directory.', 'limit-login-countries' ) . '</p>';
 			if ( count( $gds ) > 0 ) {
@@ -210,7 +210,7 @@ class LLC_Options_Page {
 		$llc_countries_label['blacklist'] = __( 'Exclusive list of rejected countries:', 'limit-login-countries' );
 		wp_localize_script( 'limit-login-countries', 'llc_countries_label', $llc_countries_label );
 
-		require_once( 'LLC_GeoIP_Countries.class.php' );
+		require_once( dirname( __DIR__ ) . '/includes/LLC_GeoIP_Countries.class.php' );
 		$gc = new LLC_GeoIP_Countries();
 		$gc->wp_localize_country_codes();
 	}
@@ -219,7 +219,7 @@ class LLC_Options_Page {
 
 
 		$countries = array_unique( explode( ',', trim( strtoupper( preg_replace( "/[^,a-zA-Z]/", "", $input ) ), ',' ) ) );
-		require_once( 'LLC_GeoIP_Countries.class.php' );
+		require_once( dirname( __DIR__ ) . '/includes/LLC_GeoIP_Countries.class.php' );
 		$gc = new LLC_GeoIP_Countries();
 
 		$output = array_filter( $countries, function ( $var ) use ( $gc ) {
@@ -288,12 +288,13 @@ class LLC_Options_Page {
 	 */
 	public static function enqueue_scripts() {
 		$url = plugins_url( '/', __DIR__ );
+		$admin_url = plugins_url( '/', __FILE__ );
 		wp_register_script( 'textext-core', $url . 'vendor/TextExt/js/textext.core.js', array( 'jquery-core' ), '1.3.1', true );
 		wp_register_script( 'textext-autocomplete', $url . 'vendor/TextExt/js/textext.plugin.autocomplete.js', array( 'textext-core' ), '1.3.1', true );
 		wp_register_script( 'textext-filter', $url . 'vendor/TextExt/js/textext.plugin.filter.js', array( 'textext-core' ), '1.3.1', true );
 		wp_register_script( 'textext-tags', $url . 'vendor/TextExt/js/textext.plugin.tags.js', array( 'textext-core' ), '1.3.1', true );
 		//wp_register_script('textext-suggestions', $url . 'vendor/TextExt/js/textext.plugin.suggestions.js', array('textext-core'), '1.3.1', true);
-		wp_enqueue_script( 'limit-login-countries', $url . 'js/limit-login-countries.js', array(
+		wp_enqueue_script( 'limit-login-countries', $admin_url . 'js/limit-login-countries.js', array(
 			'textext-autocomplete',
 			'textext-tags',
 			'textext-filter'
@@ -303,7 +304,7 @@ class LLC_Options_Page {
 		wp_register_style( 'textext-core', $url . 'vendor/TextExt/css/textext.core.css', array(), '0.4' );
 		wp_register_style( 'textext-autocomplete', $url . 'vendor/TextExt/css/textext.plugin.autocomplete.css', array( 'textext-core' ), '0.4' );
 		wp_register_style( 'textext-tags', $url . 'vendor/TextExt/css/textext.plugin.tags.css', array( 'textext-core' ), '0.4' );
-		wp_enqueue_style( 'limit-login-countries', $url . 'css/limit-login-countries.css', array(
+		wp_enqueue_style( 'limit-login-countries', $admin_url . 'css/limit-login-countries.css', array(
 			'textext-autocomplete',
 			'textext-tags'
 		), '0.4' );

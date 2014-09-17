@@ -52,8 +52,7 @@ class Limit_Login_Countries {
 
 		// load the admin functionality of the plugin
 		if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
-			require_once( __DIR__ . '/includes/LLC_Options_Page.class.php' );
-			//require_once( __DIR__ . '/admin/LLC_Options_Page.class.php' );
+			require_once( __DIR__ . '/admin/LLC_Options_Page.class.php' );
 			LLC_Options_Page::init();
 		}
 
