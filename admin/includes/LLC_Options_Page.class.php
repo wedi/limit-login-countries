@@ -118,7 +118,7 @@ class LLC_Options_Page {
 		echo "<input type='text' id='llc_geoip_database_path' name='llc_geoip_database_path' value='$setting' size='60' />";
 
 		if ( '' === $setting ) {
-			require_once( dirname( __DIR__ ) . '/includes/LLC_GeoIP_Tools.class.php' );
+			require_once( dirname( dirname( __DIR__ ) ) . '/includes/LLC_GeoIP_Tools.class.php' );
 			$gds = LLC_GeoIP_Tools::search_geoip_database();
 			echo '<p>' . __( 'For your convenience we tried to find a database file. We searched this plugin\'s directory as well as your WordPress upload directory.', 'limit-login-countries' ) . '</p>';
 			if ( count( $gds ) > 0 ) {
@@ -210,7 +210,7 @@ class LLC_Options_Page {
 		$llc_countries_label['blacklist'] = __( 'Exclusive list of rejected countries:', 'limit-login-countries' );
 		wp_localize_script( 'limit-login-countries', 'llc_countries_label', $llc_countries_label );
 
-		require_once( dirname( __DIR__ ) . '/includes/LLC_GeoIP_Countries.class.php' );
+		require_once( dirname( dirname( __DIR__ ) ) . '/includes/LLC_GeoIP_Countries.class.php' );
 		$gc = new LLC_GeoIP_Countries();
 		$gc->wp_localize_country_codes();
 	}
@@ -219,7 +219,7 @@ class LLC_Options_Page {
 
 
 		$countries = array_unique( explode( ',', trim( strtoupper( preg_replace( "/[^,a-zA-Z]/", "", $input ) ), ',' ) ) );
-		require_once( dirname( __DIR__ ) . '/includes/LLC_GeoIP_Countries.class.php' );
+		require_once( dirname( dirname( __DIR__ ) ) . '/includes/LLC_GeoIP_Countries.class.php' );
 		$gc = new LLC_GeoIP_Countries();
 
 		$output = array_filter( $countries, function ( $var ) use ( $gc ) {
@@ -266,7 +266,7 @@ class LLC_Options_Page {
 			<div id="icon-options-general" class="icon32"><br></div>
 			<h2><?php echo __( 'Settings', 'limit-login-countries' ) . '&nbsp;&rsaquo;&nbsp;' . __( 'Limit Login Countries', 'limit-login-countries' ); ?></h2>
 
-			<form action="options.php" method="post"><?php
+			<form action="<?= admin_url('options.php'); ?>" method="post"><?php
 				settings_fields( 'limit-login-countries' );
 				do_settings_sections( 'limit-login-countries' );
 				submit_button();
@@ -275,59 +275,6 @@ class LLC_Options_Page {
 		</div>
 		<?php
 		return true;
-	}
-
-	/**
-	 * Registers and enqueues scripts and stylesheets on options page.
-	 * Callback function for automagically created WP hook 'admin_print_scripts-settings_page_limit-login-countries'
-	 *
-	 * @see LLC_Options_Page::init()
-	 * @since 0.4
-	 *
-	 * @return void
-	 */
-	public static function enqueue_scripts() {
-		$url = plugins_url( '/', __DIR__ );
-		$admin_url = plugins_url( '/', __FILE__ );
-		wp_register_script( 'textext-core', $url . 'vendor/TextExt/js/textext.core.js', array( 'jquery-core' ), '1.3.1', true );
-		wp_register_script( 'textext-autocomplete', $url . 'vendor/TextExt/js/textext.plugin.autocomplete.js', array( 'textext-core' ), '1.3.1', true );
-		wp_register_script( 'textext-filter', $url . 'vendor/TextExt/js/textext.plugin.filter.js', array( 'textext-core' ), '1.3.1', true );
-		wp_register_script( 'textext-tags', $url . 'vendor/TextExt/js/textext.plugin.tags.js', array( 'textext-core' ), '1.3.1', true );
-		//wp_register_script('textext-suggestions', $url . 'vendor/TextExt/js/textext.plugin.suggestions.js', array('textext-core'), '1.3.1', true);
-		wp_enqueue_script( 'limit-login-countries', $admin_url . 'js/limit-login-countries.js', array(
-			'textext-autocomplete',
-			'textext-tags',
-			'textext-filter'
-		), '0.4', true );
-
-
-		wp_register_style( 'textext-core', $url . 'vendor/TextExt/css/textext.core.css', array(), '0.4' );
-		wp_register_style( 'textext-autocomplete', $url . 'vendor/TextExt/css/textext.plugin.autocomplete.css', array( 'textext-core' ), '0.4' );
-		wp_register_style( 'textext-tags', $url . 'vendor/TextExt/css/textext.plugin.tags.css', array( 'textext-core' ), '0.4' );
-		wp_enqueue_style( 'limit-login-countries', $admin_url . 'css/limit-login-countries.css', array(
-			'textext-autocomplete',
-			'textext-tags'
-		), '0.4' );
-	}
-
-
-	/**
-	 * Add a link to plugin settings on the plugin list page.
-	 * Callback function for 'plugin_action_links' filter.
-	 *
-	 * @see LLC_Options_Page::init()
-	 * @since 0.6.3
-	 *
-	 * @param $links Array of plugin action links.
-	 *
-	 * @return Array of modified plugin action links.
-	 */
-	public static function plugin_settings_link( $links ) {
-
-		$settings_link = sprintf( '<a href="' . admin_url( 'options-general.php?page=%s' ) . '">%s</a>', 'limit-login-countries', __( 'Settings', 'limit-login-countries' ) );
-		array_unshift( $links, $settings_link );
-
-		return $links;
 	}
 
 }
