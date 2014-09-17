@@ -73,7 +73,7 @@ This plugin requires at least PHP 5.3. The minimum *tested* WordPress version is
 
 
 ## Screenshots ##
-![Screenshot of the plugin's options page](https://raw.githubusercontent.com/wedi/limit-login-countries/master/assets-wp-repo/screenshot-1.png)
+![ScreenShot](https://raw.githubusercontent.com/wedi/limit-login-countries/master/assets-wp-repo/screenshot-1.png)
 1.  Whoo! The plugin's options page.
 
 
