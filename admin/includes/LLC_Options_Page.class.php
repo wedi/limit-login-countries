@@ -208,7 +208,7 @@ class LLC_Options_Page {
 
 		$llc_countries_label['whitelist'] = __( 'Exclusive list of allowed countries:', 'limit-login-countries' );
 		$llc_countries_label['blacklist'] = __( 'Exclusive list of rejected countries:', 'limit-login-countries' );
-		wp_localize_script( 'limit-login-countries', 'llc_countries_label', $llc_countries_label );
+		wp_localize_script( 'limit-login-countries', 'LLC_COUNTRIES_LABEL', $llc_countries_label );
 
 		require_once( dirname( dirname( __DIR__ ) ) . '/includes/LLC_GeoIP_Countries.class.php' );
 		$gc = new LLC_GeoIP_Countries();

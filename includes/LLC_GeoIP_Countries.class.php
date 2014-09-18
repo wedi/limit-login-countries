@@ -1064,6 +1064,6 @@ class LLC_GeoIP_Countries {
 	 * @since 0.6
 	 */
 	public function wp_localize_country_codes() {
-		wp_localize_script('limit-login-countries', 'llc_country_codes', $this->country_codes);
+		wp_localize_script('limit-login-countries', 'LLC_COUNTRY_CODES', $this->country_codes);
 	}
 }
