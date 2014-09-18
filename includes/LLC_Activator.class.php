@@ -27,7 +27,7 @@ class LLC_Activator {
 	public static function activate() {
 		if ( version_compare( PHP_VERSION, self::$minPHPVersion, '<' ) ) {
 			deactivate_plugins( dirname( __DIR__ ) );
-			wp_die( sprintf( __( 'Error: This plugin requires at least PHP version %1$s, your server is running version %2$s! ' ), self::$minPHPVersion, PHP_VERSION ) );
+			wp_die( sprintf( __( 'Error: This plugin requires at least PHP version %1$s, your server is running version %2$s! ', 'limit-login-countries' ), self::$minPHPVersion, PHP_VERSION ) );
 		}
 	}
 }
