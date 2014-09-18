@@ -1,2 +1,5 @@
 tools*
 .tx
+Gruntfile.js
+.csscomb.json
+node_modules
