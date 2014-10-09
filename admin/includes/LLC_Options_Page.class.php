@@ -21,32 +21,6 @@ class LLC_Options_Page {
 	}
 
 	/**
-	 * Sets up hooks and stuff.
-	 *
-	 * @since 0.3
-	 */
-	public static function init() {
-
-		// we add a callback on admin_init hook to register our settings
-		add_action( 'admin_init', array( 'LLC_Options_Page', 'register_settings' ) );
-
-		// we add a callback on admin_menu hook to add our options page
-		add_action( 'admin_menu', array( 'LLC_Options_Page', 'settings_menu' ) );
-
-		// we add a callback on the incredible admin_print_scripts-settings_limit-login-countries hook to register and enqueue our scripts only on our own settings page
-		add_action( 'admin_print_scripts-settings_page_limit-login-countries', array(
-			'LLC_Options_Page',
-			'enqueue_scripts'
-		) );
-
-		// we add a link to the plugin settings on the plugin page
-		$meta = new ReflectionClass( 'Limit_Login_Countries' );
-		$plugin_basename = plugin_basename( $meta->getFileName() );
-		add_filter( 'plugin_action_links_' . $plugin_basename, array( 'LLC_Options_Page', 'plugin_settings_link' ), 10, 1 );
-
-	}
-
-	/**
 	 * Registers all our settings with WP's settings API.
 	 * Callback function for WP's admin_init hook.
 	 *
