@@ -7,13 +7,6 @@
  * @package Limit_Login_Countries
  * @subpackage Limit_Login_Countries/includes
  */
-/**
- * Fired during plugin activation.
- *
- * This class defines all code necessary to run during the plugin's activation.
- *
- * @since 1.0
- */
 class LLC_Activator {
 
 	/** @var string The minimum PHP version required by this plugin. */
