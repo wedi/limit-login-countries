@@ -39,6 +39,9 @@ class LLC_Admin {
 		// we add a callback on admin_menu hook to add our options page
 		add_action( 'admin_menu', array( 'LLC_Options_Page', 'settings_menu' ) );
 
+		require_once( __DIR__ . '/../includes/LLC_Admin_Notice.class.php' );
+		add_action( 'admin_notices', array( 'LLC_Admin_Notice', 'display_notices' ) );
+
 	}
 
 	/**
