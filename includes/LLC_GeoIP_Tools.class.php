@@ -31,7 +31,7 @@ class LLC_GeoIP_Tools {
 		require_once( dirname( __DIR__ ) . '/vendor/geoip/geoipcity.inc' );
 
 		if ( ! empty( $geoIPDatabase ) and is_readable( $geoIPDatabase ) ) {
-			$gi = @geoip_open( $geoIPDatabase, GEOIP_STANDARD );
+			$gi = geoip_open( $geoIPDatabase, GEOIP_STANDARD );
 		} else {
 			return false;
 		}

@@ -86,6 +86,7 @@ No worries! Just add `define('LIMIT_LOGIN_COUNTRIES_OVERRIDE', TRUE);` to your `
 ## Changelog ##
 
 ### Version 0.7 ###
+* Add custom error handling during login geoip lookup to prevent lock out on error.
 * Joined the translators community on [WP-Translations.org](http://wp-translations.org).
 
 ### Version 0.6.4 ###

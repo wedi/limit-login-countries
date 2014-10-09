@@ -1683,7 +1683,7 @@ msgstr ""
 msgid "Zimbabwe"
 msgstr ""
 
-#: public/LLC_Public.class.php:89
+#: public/LLC_Public.class.php:123
 #. translators: %s stands for the country name the user tries to login from
 msgid "Login not allowed from your country (%s)!"
 msgstr ""

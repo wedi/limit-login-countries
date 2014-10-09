@@ -73,6 +73,37 @@ class LLC_Public {
 	 */
 	public function limit_login_countries( $user ) {
 
+		# set own error handler to gracefully handle errors triggered by geoip lookup
+		set_error_handler(
+			function ( $errno, $errstr, $errfile, $errline ) {
+
+				if ( $errno & E_USER_ERROR ) {
+					require_once( __DIR__ . '/../includes/LLC_Admin_Notice.class.php' );
+					LLC_Admin_Notice::add_notice( $errstr, 'error' );
+					error_log( "Fatal error: $errstr in $errfile on line $errline" );
+
+					return true;
+
+				} elseif ( $errno & ( E_WARNING | E_USER_WARNING ) ) {
+					# we collect warnings too, so we won't need any @-operators.
+					require_once( __DIR__ . '/../includes/LLC_Admin_Notice.class.php' );
+					LLC_Admin_Notice::add_notice( $errstr, 'warning' );
+					error_log( "Warning: $errstr in $errfile on line $errline" );
+
+					return true;
+
+				} elseif ( ( $errno & E_NOTICE ) and ( substr( $errfile, - strlen( 'geoip.inc' ) ) === 'geoip.inc' ) ) {
+					# suppress notices usually preceding a E_USER_ERROR
+					if ( error_reporting() & E_NOTICE )
+						error_log( "Notice: $errstr in $errfile on line $errline" );
+
+					return true;
+				}
+
+				return false;
+			}
+		);
+
 		// In these cases we don't throw an error, but pass on what we got:
 		if (
 			is_wp_error( $user )                            // there already is an authentication error
@@ -83,6 +114,9 @@ class LLC_Public {
 		) {
 			return $user;
 		}
+
+		# own error handling not needed anymore
+		restore_error_handler();
 
 		// we are still here, so we complain about the user's country
 		// translators: %s stands for the country name the user tries to login from
