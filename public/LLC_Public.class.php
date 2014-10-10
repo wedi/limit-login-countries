@@ -147,7 +147,7 @@ class LLC_Public {
 		}
 
 		// return false if no info was found (e.g. localhost) or there was an error
-		return ( null === $this->geoInfo OR false === $this->geoInfo OR '' === $this->geoInfo->country_code ) ? false : true;
+		return ! ( null === $this->geoInfo or false === $this->geoInfo or '' === $this->geoInfo->country_code );
 	}
 
 	/**
