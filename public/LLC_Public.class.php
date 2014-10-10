@@ -107,10 +107,10 @@ class LLC_Public {
 		// In these cases we don't throw an error, but pass on what we got:
 		if (
 			is_wp_error( $user )                            // there already is an authentication error
-			or ! $this->geoLookUp()                        // there is no geo info available
-			or empty( $this->options['countryList'] )        // there is no country set in options
-			or $this->isAllowedCountry()                // the user's country is allowed
 			or ( defined( 'LIMIT_LOGIN_COUNTRIES_OVERRIDE' ) and true === LIMIT_LOGIN_COUNTRIES_OVERRIDE )    // override constant is defined
+			or empty( $this->options['countryList'] )       // there is no country set in options
+			or ! $this->geoLookUp()                         // there is no geo info available
+			or $this->isAllowedCountry()                    // the user's country is allowed
 		) {
 			return $user;
 		}
