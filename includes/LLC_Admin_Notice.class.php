@@ -60,8 +60,7 @@ class LLC_Admin_Notice {
 						default:
 							$class = '';
 					}
-
-					echo "<div class='$class'><p>Limit Login Countries: $notice[text]</p></div>";
+					echo "<div class='$class'><p><strong>Limit Login Countries: $notice[text]</strong></p></div>";
 				}
 			}
 			delete_option( LLC_Admin_Notice::$option_name );
