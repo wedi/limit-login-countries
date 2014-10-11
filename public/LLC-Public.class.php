@@ -77,7 +77,7 @@ class LLC_Public {
 			function ( $errno, $errstr, $errfile, $errline ) {
 
 				if ( $errno & E_USER_ERROR ) {
-					require_once( __DIR__ . '/../includes/LLC_Admin_Notice.class.php' );
+					require_once( __DIR__ . '/../includes/LLC-Admin-Notice.class.php' );
 					LLC_Admin_Notice::add_notice( $errstr, 'error' );
 					error_log( "Fatal error: $errstr in $errfile on line $errline" );
 
@@ -85,7 +85,7 @@ class LLC_Public {
 
 				} elseif ( $errno & ( E_WARNING | E_USER_WARNING ) ) {
 					# we collect warnings too, so we won't need any @-operators.
-					require_once( __DIR__ . '/../includes/LLC_Admin_Notice.class.php' );
+					require_once( __DIR__ . '/../includes/LLC-Admin-Notice.class.php' );
 					LLC_Admin_Notice::add_notice( $errstr, 'warning' );
 					error_log( "Warning: $errstr in $errfile on line $errline" );
 
@@ -134,7 +134,7 @@ class LLC_Public {
 
 		// we check whether geo info is already loaded
 		if ( ! is_object( $this->geoInfo ) ) {
-			require_once( dirname( __DIR__ ) . '/includes/LLC_GeoIP_Tools.class.php' );
+			require_once( dirname( __DIR__ ) . '/includes/LLC-GeoIP-Tools.class.php' );
 			$this->geoInfo = LLC_GeoIP_Tools::get_geo_info( $this->options['geoip_database'] );
 		}
 

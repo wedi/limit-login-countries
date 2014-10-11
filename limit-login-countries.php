@@ -40,19 +40,19 @@ class Limit_Login_Countries {
 	protected function __construct() {
 
 		// The code that runs during plugin activation.
-		require_once __DIR__ . '/includes/LLC_Activator.class.php';
+		require_once __DIR__ . '/includes/LLC-Activator.class.php';
 		register_activation_hook( __FILE__, array( 'LLC_Activator', 'activate' ) );
 
 		// load translation
 		add_action( 'plugins_loaded', array( $this, 'load_plugin_textdomain' ) );
 
 		// load the public functionality of the plugin
-		require_once( __DIR__ . '/public/LLC_Public.class.php' );
+		require_once( __DIR__ . '/public/LLC-Public.class.php' );
 		LLC_Public::get_instance();
 
 		// load the admin functionality of the plugin
 		if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
-			require_once( __DIR__ . '/admin/LLC_Admin.class.php' );
+			require_once( __DIR__ . '/admin/LLC-Admin.class.php' );
 			LLC_Admin::get_instance();
 		}
 

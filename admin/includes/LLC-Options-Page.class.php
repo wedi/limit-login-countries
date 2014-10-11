@@ -35,13 +35,13 @@ class LLC_Options_Page {
 		if ( ! isset( $_GET['settings-updated'] ) and ! isset( $_POST['llc_geoip_database_path'] ) ) {
 			// check llc_database_path
 			$db_path = get_option( 'llc_geoip_database_path' );
-			require_once( __DIR__ . '/../../includes/LLC_GeoIP_Tools.class.php' );
+			require_once( __DIR__ . '/../../includes/LLC-GeoIP-Tools.class.php' );
 			if ( ! LLC_GeoIP_Tools::is_valid_geoip_database( $db_path, $errmsg ) ) {
 				global $pagenow;
 				if ( 'options-general.php' === $pagenow and isset( $_GET['page'] ) and 'limit-login-countries' === $_GET['page'] ) {
 					add_settings_error( 'llc_geoip_database_path', 'geoip-database-not-existent', $errmsg );
 				} else {
-					require_once( __DIR__ . '/../../includes/LLC_Admin_Notice.class.php' );
+					require_once( __DIR__ . '/../../includes/LLC-Admin-Notice.class.php' );
 					LLC_Admin_Notice::add_notice( $errmsg . ' ' . self::get_link(), 'error' );
 				}
 			}
@@ -134,7 +134,7 @@ class LLC_Options_Page {
 		$setting = esc_attr( $geoip_database_path );
 		echo "<input type='text' id='llc_geoip_database_path' name='llc_geoip_database_path' value='$setting' size='60' />";
 
-		require_once( __DIR__ . '/../../includes/LLC_GeoIP_Tools.class.php' );
+		require_once( __DIR__ . '/../../includes/LLC-GeoIP-Tools.class.php' );
 		if ( LLC_GeoIP_Tools::is_valid_geoip_database( $geoip_database_path, $msg ) ) {
 			$dashicon = 'dashicons-yes';
 			$color    = '#7ad03a';
@@ -145,7 +145,7 @@ class LLC_Options_Page {
 		echo sprintf( '<p><span style="color:%2$s;font-size:20px;" class="dashicons %3$s" title="%1$s"></span>&nbsp;<em>%1$s</em><br><br></p>', $msg, $color, $dashicon );
 
 		if ( '' === $setting ) {
-			require_once( dirname( dirname( __DIR__ ) ) . '/includes/LLC_GeoIP_Tools.class.php' );
+			require_once( dirname( dirname( __DIR__ ) ) . '/includes/LLC-GeoIP-Tools.class.php' );
 			$gds = LLC_GeoIP_Tools::search_geoip_database();
 			echo '<p>' . __( 'For your convenience we tried to find a database file.', 'limit-login-countries' ) . '</p>';
 			if ( count( $gds ) > 0 ) {
@@ -163,9 +163,7 @@ class LLC_Options_Page {
 	public static function geoip_database_path_validate( $new_db_path ) {
 
 		$current_db_path = get_option( 'llc_geoip_database_path' );
-
-		require_once( __DIR__ . '/../../includes/LLC_GeoIP_Tools.class.php' );
-
+		require_once( __DIR__ . '/../../includes/LLC-GeoIP-Tools.class.php' );
 		if ( ! LLC_GeoIP_Tools::is_valid_geoip_database( $new_db_path, $errmsg ) ) {
 			add_settings_error( 'llc_geoip_database_path', 'geoip-database-not-existent', $errmsg );
 			if ( LLC_GeoIP_Tools::is_valid_geoip_database( $current_db_path ) ) {
@@ -238,7 +236,7 @@ class LLC_Options_Page {
 		$llc_countries_label['blacklist'] = __( 'Exclusive list of rejected countries:', 'limit-login-countries' );
 		wp_localize_script( 'limit-login-countries', 'LLC_COUNTRIES_LABEL', $llc_countries_label );
 
-		require_once( dirname( dirname( __DIR__ ) ) . '/includes/LLC_GeoIP_Countries.class.php' );
+		require_once( dirname( dirname( __DIR__ ) ) . '/includes/LLC-GeoIP-Countries.class.php' );
 		$gc = new LLC_GeoIP_Countries();
 		$gc->wp_localize_country_codes();
 	}
@@ -246,7 +244,7 @@ class LLC_Options_Page {
 	public static function countries_validate( $input ) {
 
 		$countries = array_unique( explode( ',', trim( strtoupper( preg_replace( '/[^,a-zA-Z]/', '', $input ) ), ',' ) ) );
-		require_once( dirname( dirname( __DIR__ ) ) . '/includes/LLC_GeoIP_Countries.class.php' );
+		require_once( dirname( dirname( __DIR__ ) ) . '/includes/LLC-GeoIP-Countries.class.php' );
 		$gc = new LLC_GeoIP_Countries();
 
 		$output = array_filter( $countries, function ( $var ) use ( $gc ) {

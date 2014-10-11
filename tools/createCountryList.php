@@ -3,7 +3,7 @@
 
 /**
  * This script reads country data from GeoIP API and creates
- * 'includes/LLC_GeoIP_Countries.class.php' with translatable
+ * 'includes/LLC-GeoIP-Countries.class.php' with translatable
  * country data arrays
  *
  * @package Limit Login Countries
@@ -12,7 +12,7 @@
  *
  */
 
-$output_file = '/includes/LLC_GeoIP_Countries.class.php';
+$output_file = '/includes/LLC-GeoIP-Countries.class.php';
 
 echo 'Extracting country data from vendor/geoip/geoip.inc ... ';
 require_once( __DIR__ . '/../vendor/geoip/geoip.inc' );

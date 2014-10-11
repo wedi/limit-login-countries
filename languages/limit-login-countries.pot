@@ -24,49 +24,49 @@ msgstr ""
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
 
-#: admin/includes/LLC_Options_Page.class.php:61
-#: admin/includes/LLC_Options_Page.class.php:297
+#: admin/includes/LLC-Options-Page.class.php:61
+#: admin/includes/LLC-Options-Page.class.php:295
 msgid "Settings"
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:83
+#: admin/includes/LLC-Options-Page.class.php:83
 msgid "General Settings"
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:87
+#: admin/includes/LLC-Options-Page.class.php:87
 msgid "GeoIP Database"
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:93
+#: admin/includes/LLC-Options-Page.class.php:93
 msgid "Act as:"
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:100
-#: admin/includes/LLC_Options_Page.class.php:237
+#: admin/includes/LLC-Options-Page.class.php:100
+#: admin/includes/LLC-Options-Page.class.php:235
 msgid "Exclusive list of allowed countries:"
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:102
-#: admin/includes/LLC_Options_Page.class.php:238
+#: admin/includes/LLC-Options-Page.class.php:102
+#: admin/includes/LLC-Options-Page.class.php:236
 msgid "Exclusive list of rejected countries:"
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:109
+#: admin/includes/LLC-Options-Page.class.php:109
 msgid "GeoIP database file:"
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:117
+#: admin/includes/LLC-Options-Page.class.php:117
 msgid "Here you configure from which countries admin area logins are allowed."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:118
+#: admin/includes/LLC-Options-Page.class.php:118
 msgid ""
 "<strong>Remember:</strong> In case you lock yourself out of WP's admin area "
 "you can disable the country check by adding %s to your "
 "<code>wp-config.php</code> file."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:125
+#: admin/includes/LLC-Options-Page.class.php:125
 msgid ""
 "This plugin works with <a href=\"%1$s\" target=\"_blank\">Maxmind's GeoIP "
 "database</a>. If you are not a paying customer, you can download a lite "
@@ -74,11 +74,11 @@ msgid ""
 "Maxmind's GeoIP Lite database</a>."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:150
+#: admin/includes/LLC-Options-Page.class.php:150
 msgid "For your convenience we tried to find a database file."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:158
+#: admin/includes/LLC-Options-Page.class.php:158
 msgid ""
 "Unfortunately we couldn't find any database file.<br/>If you are sure you "
 "uploaded (and unzipped) one, it is probably just named differently from "
@@ -86,53 +86,53 @@ msgid ""
 "database file above and we are all fine."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:199
+#: admin/includes/LLC-Options-Page.class.php:197
 msgid "Whitelist"
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:200
+#: admin/includes/LLC-Options-Page.class.php:198
 msgid "Blacklist"
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:204
+#: admin/includes/LLC-Options-Page.class.php:202
 msgid ""
 "<em>Whitelist</em> means login is allowed from the countries listed below "
 "only."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:205
+#: admin/includes/LLC-Options-Page.class.php:203
 msgid ""
 "<em>Blacklist</em> means login is not allowed from the countries listed "
 "below only."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:217
+#: admin/includes/LLC-Options-Page.class.php:215
 msgid "Invalid value. You must select either whitelist or blacklist."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:230
+#: admin/includes/LLC-Options-Page.class.php:228
 msgid "List of 2-digit country codes."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:231
+#: admin/includes/LLC-Options-Page.class.php:229
 msgid "Use a comma as delimiter."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:232
+#: admin/includes/LLC-Options-Page.class.php:230
 msgid "If list is empty, no login restriction applies."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:269
+#: admin/includes/LLC-Options-Page.class.php:267
 msgid "Limit Login Countries Options"
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:271
+#: admin/includes/LLC-Options-Page.class.php:269
 #. translators: this is the menu title for the plugin's settings page in the
 #. WordPress admin area.
 msgid "Login Countries"
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:291
+#: admin/includes/LLC-Options-Page.class.php:289
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
@@ -140,1559 +140,1559 @@ msgstr ""
 msgid "Limit Login Countries"
 msgstr ""
 
-#: includes/LLC_Activator.class.php:23
+#: includes/LLC-Activator.class.php:23
 msgid ""
 "Error: This plugin requires at least PHP version %1$s, your server is "
 "running version %2$s! "
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:297
-#: includes/LLC_GeoIP_Countries.class.php:552
-#: includes/LLC_GeoIP_Countries.class.php:807
+#: includes/LLC-GeoIP-Countries.class.php:297
+#: includes/LLC-GeoIP-Countries.class.php:552
+#: includes/LLC-GeoIP-Countries.class.php:807
 msgid "Anonymous Proxy"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:298
-#: includes/LLC_GeoIP_Countries.class.php:553
-#: includes/LLC_GeoIP_Countries.class.php:808
+#: includes/LLC-GeoIP-Countries.class.php:298
+#: includes/LLC-GeoIP-Countries.class.php:553
+#: includes/LLC-GeoIP-Countries.class.php:808
 msgid "Satellite Provider"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:299
-#: includes/LLC_GeoIP_Countries.class.php:554
-#: includes/LLC_GeoIP_Countries.class.php:809
+#: includes/LLC-GeoIP-Countries.class.php:299
+#: includes/LLC-GeoIP-Countries.class.php:554
+#: includes/LLC-GeoIP-Countries.class.php:809
 msgid "Andorra"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:300
-#: includes/LLC_GeoIP_Countries.class.php:555
-#: includes/LLC_GeoIP_Countries.class.php:810
+#: includes/LLC-GeoIP-Countries.class.php:300
+#: includes/LLC-GeoIP-Countries.class.php:555
+#: includes/LLC-GeoIP-Countries.class.php:810
 msgid "United Arab Emirates"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:301
-#: includes/LLC_GeoIP_Countries.class.php:556
-#: includes/LLC_GeoIP_Countries.class.php:811
+#: includes/LLC-GeoIP-Countries.class.php:301
+#: includes/LLC-GeoIP-Countries.class.php:556
+#: includes/LLC-GeoIP-Countries.class.php:811
 msgid "Afghanistan"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:302
-#: includes/LLC_GeoIP_Countries.class.php:557
-#: includes/LLC_GeoIP_Countries.class.php:812
+#: includes/LLC-GeoIP-Countries.class.php:302
+#: includes/LLC-GeoIP-Countries.class.php:557
+#: includes/LLC-GeoIP-Countries.class.php:812
 msgid "Antigua and Barbuda"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:303
-#: includes/LLC_GeoIP_Countries.class.php:558
-#: includes/LLC_GeoIP_Countries.class.php:813
+#: includes/LLC-GeoIP-Countries.class.php:303
+#: includes/LLC-GeoIP-Countries.class.php:558
+#: includes/LLC-GeoIP-Countries.class.php:813
 msgid "Anguilla"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:304
-#: includes/LLC_GeoIP_Countries.class.php:559
-#: includes/LLC_GeoIP_Countries.class.php:814
+#: includes/LLC-GeoIP-Countries.class.php:304
+#: includes/LLC-GeoIP-Countries.class.php:559
+#: includes/LLC-GeoIP-Countries.class.php:814
 msgid "Albania"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:305
-#: includes/LLC_GeoIP_Countries.class.php:560
-#: includes/LLC_GeoIP_Countries.class.php:815
+#: includes/LLC-GeoIP-Countries.class.php:305
+#: includes/LLC-GeoIP-Countries.class.php:560
+#: includes/LLC-GeoIP-Countries.class.php:815
 msgid "Armenia"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:306
-#: includes/LLC_GeoIP_Countries.class.php:561
-#: includes/LLC_GeoIP_Countries.class.php:816
+#: includes/LLC-GeoIP-Countries.class.php:306
+#: includes/LLC-GeoIP-Countries.class.php:561
+#: includes/LLC-GeoIP-Countries.class.php:816
 msgid "Angola"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:307
-#: includes/LLC_GeoIP_Countries.class.php:562
-#: includes/LLC_GeoIP_Countries.class.php:817
+#: includes/LLC-GeoIP-Countries.class.php:307
+#: includes/LLC-GeoIP-Countries.class.php:562
+#: includes/LLC-GeoIP-Countries.class.php:817
 msgid "Asia/Pacific Region"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:308
-#: includes/LLC_GeoIP_Countries.class.php:563
-#: includes/LLC_GeoIP_Countries.class.php:818
+#: includes/LLC-GeoIP-Countries.class.php:308
+#: includes/LLC-GeoIP-Countries.class.php:563
+#: includes/LLC-GeoIP-Countries.class.php:818
 msgid "Antarctica"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:309
-#: includes/LLC_GeoIP_Countries.class.php:564
-#: includes/LLC_GeoIP_Countries.class.php:819
+#: includes/LLC-GeoIP-Countries.class.php:309
+#: includes/LLC-GeoIP-Countries.class.php:564
+#: includes/LLC-GeoIP-Countries.class.php:819
 msgid "Argentina"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:310
-#: includes/LLC_GeoIP_Countries.class.php:565
-#: includes/LLC_GeoIP_Countries.class.php:820
+#: includes/LLC-GeoIP-Countries.class.php:310
+#: includes/LLC-GeoIP-Countries.class.php:565
+#: includes/LLC-GeoIP-Countries.class.php:820
 msgid "American Samoa"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:311
-#: includes/LLC_GeoIP_Countries.class.php:566
-#: includes/LLC_GeoIP_Countries.class.php:821
+#: includes/LLC-GeoIP-Countries.class.php:311
+#: includes/LLC-GeoIP-Countries.class.php:566
+#: includes/LLC-GeoIP-Countries.class.php:821
 msgid "Austria"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:312
-#: includes/LLC_GeoIP_Countries.class.php:567
-#: includes/LLC_GeoIP_Countries.class.php:822
+#: includes/LLC-GeoIP-Countries.class.php:312
+#: includes/LLC-GeoIP-Countries.class.php:567
+#: includes/LLC-GeoIP-Countries.class.php:822
 msgid "Australia"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:313
-#: includes/LLC_GeoIP_Countries.class.php:568
-#: includes/LLC_GeoIP_Countries.class.php:823
+#: includes/LLC-GeoIP-Countries.class.php:313
+#: includes/LLC-GeoIP-Countries.class.php:568
+#: includes/LLC-GeoIP-Countries.class.php:823
 msgid "Aruba"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:314
-#: includes/LLC_GeoIP_Countries.class.php:569
-#: includes/LLC_GeoIP_Countries.class.php:824
+#: includes/LLC-GeoIP-Countries.class.php:314
+#: includes/LLC-GeoIP-Countries.class.php:569
+#: includes/LLC-GeoIP-Countries.class.php:824
 msgid "Aland Islands"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:315
-#: includes/LLC_GeoIP_Countries.class.php:570
-#: includes/LLC_GeoIP_Countries.class.php:825
+#: includes/LLC-GeoIP-Countries.class.php:315
+#: includes/LLC-GeoIP-Countries.class.php:570
+#: includes/LLC-GeoIP-Countries.class.php:825
 msgid "Azerbaijan"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:316
-#: includes/LLC_GeoIP_Countries.class.php:571
-#: includes/LLC_GeoIP_Countries.class.php:826
+#: includes/LLC-GeoIP-Countries.class.php:316
+#: includes/LLC-GeoIP-Countries.class.php:571
+#: includes/LLC-GeoIP-Countries.class.php:826
 msgid "Bosnia and Herzegovina"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:317
-#: includes/LLC_GeoIP_Countries.class.php:572
-#: includes/LLC_GeoIP_Countries.class.php:827
+#: includes/LLC-GeoIP-Countries.class.php:317
+#: includes/LLC-GeoIP-Countries.class.php:572
+#: includes/LLC-GeoIP-Countries.class.php:827
 msgid "Barbados"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:318
-#: includes/LLC_GeoIP_Countries.class.php:573
-#: includes/LLC_GeoIP_Countries.class.php:828
+#: includes/LLC-GeoIP-Countries.class.php:318
+#: includes/LLC-GeoIP-Countries.class.php:573
+#: includes/LLC-GeoIP-Countries.class.php:828
 msgid "Bangladesh"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:319
-#: includes/LLC_GeoIP_Countries.class.php:574
-#: includes/LLC_GeoIP_Countries.class.php:829
+#: includes/LLC-GeoIP-Countries.class.php:319
+#: includes/LLC-GeoIP-Countries.class.php:574
+#: includes/LLC-GeoIP-Countries.class.php:829
 msgid "Belgium"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:320
-#: includes/LLC_GeoIP_Countries.class.php:575
-#: includes/LLC_GeoIP_Countries.class.php:830
+#: includes/LLC-GeoIP-Countries.class.php:320
+#: includes/LLC-GeoIP-Countries.class.php:575
+#: includes/LLC-GeoIP-Countries.class.php:830
 msgid "Burkina Faso"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:321
-#: includes/LLC_GeoIP_Countries.class.php:576
-#: includes/LLC_GeoIP_Countries.class.php:831
+#: includes/LLC-GeoIP-Countries.class.php:321
+#: includes/LLC-GeoIP-Countries.class.php:576
+#: includes/LLC-GeoIP-Countries.class.php:831
 msgid "Bulgaria"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:322
-#: includes/LLC_GeoIP_Countries.class.php:577
-#: includes/LLC_GeoIP_Countries.class.php:832
+#: includes/LLC-GeoIP-Countries.class.php:322
+#: includes/LLC-GeoIP-Countries.class.php:577
+#: includes/LLC-GeoIP-Countries.class.php:832
 msgid "Bahrain"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:323
-#: includes/LLC_GeoIP_Countries.class.php:578
-#: includes/LLC_GeoIP_Countries.class.php:833
+#: includes/LLC-GeoIP-Countries.class.php:323
+#: includes/LLC-GeoIP-Countries.class.php:578
+#: includes/LLC-GeoIP-Countries.class.php:833
 msgid "Burundi"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:324
-#: includes/LLC_GeoIP_Countries.class.php:579
-#: includes/LLC_GeoIP_Countries.class.php:834
+#: includes/LLC-GeoIP-Countries.class.php:324
+#: includes/LLC-GeoIP-Countries.class.php:579
+#: includes/LLC-GeoIP-Countries.class.php:834
 msgid "Benin"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:325
-#: includes/LLC_GeoIP_Countries.class.php:580
-#: includes/LLC_GeoIP_Countries.class.php:835
+#: includes/LLC-GeoIP-Countries.class.php:325
+#: includes/LLC-GeoIP-Countries.class.php:580
+#: includes/LLC-GeoIP-Countries.class.php:835
 msgid "Saint Barthelemy"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:326
-#: includes/LLC_GeoIP_Countries.class.php:581
-#: includes/LLC_GeoIP_Countries.class.php:836
+#: includes/LLC-GeoIP-Countries.class.php:326
+#: includes/LLC-GeoIP-Countries.class.php:581
+#: includes/LLC-GeoIP-Countries.class.php:836
 msgid "Bermuda"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:327
-#: includes/LLC_GeoIP_Countries.class.php:582
-#: includes/LLC_GeoIP_Countries.class.php:837
+#: includes/LLC-GeoIP-Countries.class.php:327
+#: includes/LLC-GeoIP-Countries.class.php:582
+#: includes/LLC-GeoIP-Countries.class.php:837
 msgid "Brunei Darussalam"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:328
-#: includes/LLC_GeoIP_Countries.class.php:583
-#: includes/LLC_GeoIP_Countries.class.php:838
+#: includes/LLC-GeoIP-Countries.class.php:328
+#: includes/LLC-GeoIP-Countries.class.php:583
+#: includes/LLC-GeoIP-Countries.class.php:838
 msgid "Bolivia"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:329
-#: includes/LLC_GeoIP_Countries.class.php:584
-#: includes/LLC_GeoIP_Countries.class.php:839
+#: includes/LLC-GeoIP-Countries.class.php:329
+#: includes/LLC-GeoIP-Countries.class.php:584
+#: includes/LLC-GeoIP-Countries.class.php:839
 msgid "Bonaire, Saint Eustatius and Saba"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:330
-#: includes/LLC_GeoIP_Countries.class.php:585
-#: includes/LLC_GeoIP_Countries.class.php:840
+#: includes/LLC-GeoIP-Countries.class.php:330
+#: includes/LLC-GeoIP-Countries.class.php:585
+#: includes/LLC-GeoIP-Countries.class.php:840
 msgid "Brazil"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:331
-#: includes/LLC_GeoIP_Countries.class.php:586
-#: includes/LLC_GeoIP_Countries.class.php:841
+#: includes/LLC-GeoIP-Countries.class.php:331
+#: includes/LLC-GeoIP-Countries.class.php:586
+#: includes/LLC-GeoIP-Countries.class.php:841
 msgid "Bahamas"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:332
-#: includes/LLC_GeoIP_Countries.class.php:587
-#: includes/LLC_GeoIP_Countries.class.php:842
+#: includes/LLC-GeoIP-Countries.class.php:332
+#: includes/LLC-GeoIP-Countries.class.php:587
+#: includes/LLC-GeoIP-Countries.class.php:842
 msgid "Bhutan"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:333
-#: includes/LLC_GeoIP_Countries.class.php:588
-#: includes/LLC_GeoIP_Countries.class.php:843
+#: includes/LLC-GeoIP-Countries.class.php:333
+#: includes/LLC-GeoIP-Countries.class.php:588
+#: includes/LLC-GeoIP-Countries.class.php:843
 msgid "Bouvet Island"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:334
-#: includes/LLC_GeoIP_Countries.class.php:589
-#: includes/LLC_GeoIP_Countries.class.php:844
+#: includes/LLC-GeoIP-Countries.class.php:334
+#: includes/LLC-GeoIP-Countries.class.php:589
+#: includes/LLC-GeoIP-Countries.class.php:844
 msgid "Botswana"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:335
-#: includes/LLC_GeoIP_Countries.class.php:590
-#: includes/LLC_GeoIP_Countries.class.php:845
+#: includes/LLC-GeoIP-Countries.class.php:335
+#: includes/LLC-GeoIP-Countries.class.php:590
+#: includes/LLC-GeoIP-Countries.class.php:845
 msgid "Belarus"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:336
-#: includes/LLC_GeoIP_Countries.class.php:591
-#: includes/LLC_GeoIP_Countries.class.php:846
+#: includes/LLC-GeoIP-Countries.class.php:336
+#: includes/LLC-GeoIP-Countries.class.php:591
+#: includes/LLC-GeoIP-Countries.class.php:846
 msgid "Belize"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:337
-#: includes/LLC_GeoIP_Countries.class.php:592
-#: includes/LLC_GeoIP_Countries.class.php:847
+#: includes/LLC-GeoIP-Countries.class.php:337
+#: includes/LLC-GeoIP-Countries.class.php:592
+#: includes/LLC-GeoIP-Countries.class.php:847
 msgid "Canada"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:338
-#: includes/LLC_GeoIP_Countries.class.php:593
-#: includes/LLC_GeoIP_Countries.class.php:848
+#: includes/LLC-GeoIP-Countries.class.php:338
+#: includes/LLC-GeoIP-Countries.class.php:593
+#: includes/LLC-GeoIP-Countries.class.php:848
 msgid "Cocos (Keeling) Islands"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:339
-#: includes/LLC_GeoIP_Countries.class.php:594
-#: includes/LLC_GeoIP_Countries.class.php:849
+#: includes/LLC-GeoIP-Countries.class.php:339
+#: includes/LLC-GeoIP-Countries.class.php:594
+#: includes/LLC-GeoIP-Countries.class.php:849
 msgid "The Democratic Republic of the Congo"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:340
-#: includes/LLC_GeoIP_Countries.class.php:595
-#: includes/LLC_GeoIP_Countries.class.php:850
+#: includes/LLC-GeoIP-Countries.class.php:340
+#: includes/LLC-GeoIP-Countries.class.php:595
+#: includes/LLC-GeoIP-Countries.class.php:850
 msgid "Central African Republic"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:341
-#: includes/LLC_GeoIP_Countries.class.php:596
-#: includes/LLC_GeoIP_Countries.class.php:851
+#: includes/LLC-GeoIP-Countries.class.php:341
+#: includes/LLC-GeoIP-Countries.class.php:596
+#: includes/LLC-GeoIP-Countries.class.php:851
 msgid "Congo"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:342
-#: includes/LLC_GeoIP_Countries.class.php:597
-#: includes/LLC_GeoIP_Countries.class.php:852
+#: includes/LLC-GeoIP-Countries.class.php:342
+#: includes/LLC-GeoIP-Countries.class.php:597
+#: includes/LLC-GeoIP-Countries.class.php:852
 msgid "Switzerland"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:343
-#: includes/LLC_GeoIP_Countries.class.php:598
-#: includes/LLC_GeoIP_Countries.class.php:853
+#: includes/LLC-GeoIP-Countries.class.php:343
+#: includes/LLC-GeoIP-Countries.class.php:598
+#: includes/LLC-GeoIP-Countries.class.php:853
 msgid "Cote D'Ivoire"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:344
-#: includes/LLC_GeoIP_Countries.class.php:599
-#: includes/LLC_GeoIP_Countries.class.php:854
+#: includes/LLC-GeoIP-Countries.class.php:344
+#: includes/LLC-GeoIP-Countries.class.php:599
+#: includes/LLC-GeoIP-Countries.class.php:854
 msgid "Cook Islands"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:345
-#: includes/LLC_GeoIP_Countries.class.php:600
-#: includes/LLC_GeoIP_Countries.class.php:855
+#: includes/LLC-GeoIP-Countries.class.php:345
+#: includes/LLC-GeoIP-Countries.class.php:600
+#: includes/LLC-GeoIP-Countries.class.php:855
 msgid "Chile"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:346
-#: includes/LLC_GeoIP_Countries.class.php:601
-#: includes/LLC_GeoIP_Countries.class.php:856
+#: includes/LLC-GeoIP-Countries.class.php:346
+#: includes/LLC-GeoIP-Countries.class.php:601
+#: includes/LLC-GeoIP-Countries.class.php:856
 msgid "Cameroon"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:347
-#: includes/LLC_GeoIP_Countries.class.php:602
-#: includes/LLC_GeoIP_Countries.class.php:857
+#: includes/LLC-GeoIP-Countries.class.php:347
+#: includes/LLC-GeoIP-Countries.class.php:602
+#: includes/LLC-GeoIP-Countries.class.php:857
 msgid "China"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:348
-#: includes/LLC_GeoIP_Countries.class.php:603
-#: includes/LLC_GeoIP_Countries.class.php:858
+#: includes/LLC-GeoIP-Countries.class.php:348
+#: includes/LLC-GeoIP-Countries.class.php:603
+#: includes/LLC-GeoIP-Countries.class.php:858
 msgid "Colombia"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:349
-#: includes/LLC_GeoIP_Countries.class.php:604
-#: includes/LLC_GeoIP_Countries.class.php:859
+#: includes/LLC-GeoIP-Countries.class.php:349
+#: includes/LLC-GeoIP-Countries.class.php:604
+#: includes/LLC-GeoIP-Countries.class.php:859
 msgid "Costa Rica"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:350
-#: includes/LLC_GeoIP_Countries.class.php:605
-#: includes/LLC_GeoIP_Countries.class.php:860
+#: includes/LLC-GeoIP-Countries.class.php:350
+#: includes/LLC-GeoIP-Countries.class.php:605
+#: includes/LLC-GeoIP-Countries.class.php:860
 msgid "Cuba"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:351
-#: includes/LLC_GeoIP_Countries.class.php:606
-#: includes/LLC_GeoIP_Countries.class.php:861
+#: includes/LLC-GeoIP-Countries.class.php:351
+#: includes/LLC-GeoIP-Countries.class.php:606
+#: includes/LLC-GeoIP-Countries.class.php:861
 msgid "Cape Verde"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:352
-#: includes/LLC_GeoIP_Countries.class.php:607
-#: includes/LLC_GeoIP_Countries.class.php:862
+#: includes/LLC-GeoIP-Countries.class.php:352
+#: includes/LLC-GeoIP-Countries.class.php:607
+#: includes/LLC-GeoIP-Countries.class.php:862
 msgid "Curacao"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:353
-#: includes/LLC_GeoIP_Countries.class.php:608
-#: includes/LLC_GeoIP_Countries.class.php:863
+#: includes/LLC-GeoIP-Countries.class.php:353
+#: includes/LLC-GeoIP-Countries.class.php:608
+#: includes/LLC-GeoIP-Countries.class.php:863
 msgid "Christmas Island"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:354
-#: includes/LLC_GeoIP_Countries.class.php:609
-#: includes/LLC_GeoIP_Countries.class.php:864
+#: includes/LLC-GeoIP-Countries.class.php:354
+#: includes/LLC-GeoIP-Countries.class.php:609
+#: includes/LLC-GeoIP-Countries.class.php:864
 msgid "Cyprus"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:355
-#: includes/LLC_GeoIP_Countries.class.php:610
-#: includes/LLC_GeoIP_Countries.class.php:865
+#: includes/LLC-GeoIP-Countries.class.php:355
+#: includes/LLC-GeoIP-Countries.class.php:610
+#: includes/LLC-GeoIP-Countries.class.php:865
 msgid "Czech Republic"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:356
-#: includes/LLC_GeoIP_Countries.class.php:611
-#: includes/LLC_GeoIP_Countries.class.php:866
+#: includes/LLC-GeoIP-Countries.class.php:356
+#: includes/LLC-GeoIP-Countries.class.php:611
+#: includes/LLC-GeoIP-Countries.class.php:866
 msgid "Germany"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:357
-#: includes/LLC_GeoIP_Countries.class.php:612
-#: includes/LLC_GeoIP_Countries.class.php:867
+#: includes/LLC-GeoIP-Countries.class.php:357
+#: includes/LLC-GeoIP-Countries.class.php:612
+#: includes/LLC-GeoIP-Countries.class.php:867
 msgid "Djibouti"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:358
-#: includes/LLC_GeoIP_Countries.class.php:613
-#: includes/LLC_GeoIP_Countries.class.php:868
+#: includes/LLC-GeoIP-Countries.class.php:358
+#: includes/LLC-GeoIP-Countries.class.php:613
+#: includes/LLC-GeoIP-Countries.class.php:868
 msgid "Denmark"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:359
-#: includes/LLC_GeoIP_Countries.class.php:614
-#: includes/LLC_GeoIP_Countries.class.php:869
+#: includes/LLC-GeoIP-Countries.class.php:359
+#: includes/LLC-GeoIP-Countries.class.php:614
+#: includes/LLC-GeoIP-Countries.class.php:869
 msgid "Dominica"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:360
-#: includes/LLC_GeoIP_Countries.class.php:615
-#: includes/LLC_GeoIP_Countries.class.php:870
+#: includes/LLC-GeoIP-Countries.class.php:360
+#: includes/LLC-GeoIP-Countries.class.php:615
+#: includes/LLC-GeoIP-Countries.class.php:870
 msgid "Dominican Republic"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:361
-#: includes/LLC_GeoIP_Countries.class.php:616
-#: includes/LLC_GeoIP_Countries.class.php:871
+#: includes/LLC-GeoIP-Countries.class.php:361
+#: includes/LLC-GeoIP-Countries.class.php:616
+#: includes/LLC-GeoIP-Countries.class.php:871
 msgid "Algeria"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:362
-#: includes/LLC_GeoIP_Countries.class.php:617
-#: includes/LLC_GeoIP_Countries.class.php:872
+#: includes/LLC-GeoIP-Countries.class.php:362
+#: includes/LLC-GeoIP-Countries.class.php:617
+#: includes/LLC-GeoIP-Countries.class.php:872
 msgid "Ecuador"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:363
-#: includes/LLC_GeoIP_Countries.class.php:618
-#: includes/LLC_GeoIP_Countries.class.php:873
+#: includes/LLC-GeoIP-Countries.class.php:363
+#: includes/LLC-GeoIP-Countries.class.php:618
+#: includes/LLC-GeoIP-Countries.class.php:873
 msgid "Estonia"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:364
-#: includes/LLC_GeoIP_Countries.class.php:619
-#: includes/LLC_GeoIP_Countries.class.php:874
+#: includes/LLC-GeoIP-Countries.class.php:364
+#: includes/LLC-GeoIP-Countries.class.php:619
+#: includes/LLC-GeoIP-Countries.class.php:874
 msgid "Egypt"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:365
-#: includes/LLC_GeoIP_Countries.class.php:620
-#: includes/LLC_GeoIP_Countries.class.php:875
+#: includes/LLC-GeoIP-Countries.class.php:365
+#: includes/LLC-GeoIP-Countries.class.php:620
+#: includes/LLC-GeoIP-Countries.class.php:875
 msgid "Western Sahara"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:366
-#: includes/LLC_GeoIP_Countries.class.php:621
-#: includes/LLC_GeoIP_Countries.class.php:876
+#: includes/LLC-GeoIP-Countries.class.php:366
+#: includes/LLC-GeoIP-Countries.class.php:621
+#: includes/LLC-GeoIP-Countries.class.php:876
 msgid "Eritrea"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:367
-#: includes/LLC_GeoIP_Countries.class.php:622
-#: includes/LLC_GeoIP_Countries.class.php:877
+#: includes/LLC-GeoIP-Countries.class.php:367
+#: includes/LLC-GeoIP-Countries.class.php:622
+#: includes/LLC-GeoIP-Countries.class.php:877
 msgid "Spain"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:368
-#: includes/LLC_GeoIP_Countries.class.php:623
-#: includes/LLC_GeoIP_Countries.class.php:878
+#: includes/LLC-GeoIP-Countries.class.php:368
+#: includes/LLC-GeoIP-Countries.class.php:623
+#: includes/LLC-GeoIP-Countries.class.php:878
 msgid "Ethiopia"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:369
-#: includes/LLC_GeoIP_Countries.class.php:624
-#: includes/LLC_GeoIP_Countries.class.php:879
+#: includes/LLC-GeoIP-Countries.class.php:369
+#: includes/LLC-GeoIP-Countries.class.php:624
+#: includes/LLC-GeoIP-Countries.class.php:879
 msgid "Europe"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:370
-#: includes/LLC_GeoIP_Countries.class.php:625
-#: includes/LLC_GeoIP_Countries.class.php:880
+#: includes/LLC-GeoIP-Countries.class.php:370
+#: includes/LLC-GeoIP-Countries.class.php:625
+#: includes/LLC-GeoIP-Countries.class.php:880
 msgid "Finland"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:371
-#: includes/LLC_GeoIP_Countries.class.php:626
-#: includes/LLC_GeoIP_Countries.class.php:881
+#: includes/LLC-GeoIP-Countries.class.php:371
+#: includes/LLC-GeoIP-Countries.class.php:626
+#: includes/LLC-GeoIP-Countries.class.php:881
 msgid "Fiji"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:372
-#: includes/LLC_GeoIP_Countries.class.php:627
-#: includes/LLC_GeoIP_Countries.class.php:882
+#: includes/LLC-GeoIP-Countries.class.php:372
+#: includes/LLC-GeoIP-Countries.class.php:627
+#: includes/LLC-GeoIP-Countries.class.php:882
 msgid "Falkland Islands (Malvinas)"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:373
-#: includes/LLC_GeoIP_Countries.class.php:628
-#: includes/LLC_GeoIP_Countries.class.php:883
+#: includes/LLC-GeoIP-Countries.class.php:373
+#: includes/LLC-GeoIP-Countries.class.php:628
+#: includes/LLC-GeoIP-Countries.class.php:883
 msgid "Federated States of Micronesia"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:374
-#: includes/LLC_GeoIP_Countries.class.php:629
-#: includes/LLC_GeoIP_Countries.class.php:884
+#: includes/LLC-GeoIP-Countries.class.php:374
+#: includes/LLC-GeoIP-Countries.class.php:629
+#: includes/LLC-GeoIP-Countries.class.php:884
 msgid "Faroe Islands"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:375
-#: includes/LLC_GeoIP_Countries.class.php:630
-#: includes/LLC_GeoIP_Countries.class.php:885
+#: includes/LLC-GeoIP-Countries.class.php:375
+#: includes/LLC-GeoIP-Countries.class.php:630
+#: includes/LLC-GeoIP-Countries.class.php:885
 msgid "France"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:376
-#: includes/LLC_GeoIP_Countries.class.php:631
-#: includes/LLC_GeoIP_Countries.class.php:886
+#: includes/LLC-GeoIP-Countries.class.php:376
+#: includes/LLC-GeoIP-Countries.class.php:631
+#: includes/LLC-GeoIP-Countries.class.php:886
 msgid "Gabon"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:377
-#: includes/LLC_GeoIP_Countries.class.php:632
-#: includes/LLC_GeoIP_Countries.class.php:887
+#: includes/LLC-GeoIP-Countries.class.php:377
+#: includes/LLC-GeoIP-Countries.class.php:632
+#: includes/LLC-GeoIP-Countries.class.php:887
 msgid "United Kingdom"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:378
-#: includes/LLC_GeoIP_Countries.class.php:633
-#: includes/LLC_GeoIP_Countries.class.php:888
+#: includes/LLC-GeoIP-Countries.class.php:378
+#: includes/LLC-GeoIP-Countries.class.php:633
+#: includes/LLC-GeoIP-Countries.class.php:888
 msgid "Grenada"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:379
-#: includes/LLC_GeoIP_Countries.class.php:634
-#: includes/LLC_GeoIP_Countries.class.php:889
+#: includes/LLC-GeoIP-Countries.class.php:379
+#: includes/LLC-GeoIP-Countries.class.php:634
+#: includes/LLC-GeoIP-Countries.class.php:889
 msgid "Georgia"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:380
-#: includes/LLC_GeoIP_Countries.class.php:635
-#: includes/LLC_GeoIP_Countries.class.php:890
+#: includes/LLC-GeoIP-Countries.class.php:380
+#: includes/LLC-GeoIP-Countries.class.php:635
+#: includes/LLC-GeoIP-Countries.class.php:890
 msgid "French Guiana"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:381
-#: includes/LLC_GeoIP_Countries.class.php:636
-#: includes/LLC_GeoIP_Countries.class.php:891
+#: includes/LLC-GeoIP-Countries.class.php:381
+#: includes/LLC-GeoIP-Countries.class.php:636
+#: includes/LLC-GeoIP-Countries.class.php:891
 msgid "Guernsey"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:382
-#: includes/LLC_GeoIP_Countries.class.php:637
-#: includes/LLC_GeoIP_Countries.class.php:892
+#: includes/LLC-GeoIP-Countries.class.php:382
+#: includes/LLC-GeoIP-Countries.class.php:637
+#: includes/LLC-GeoIP-Countries.class.php:892
 msgid "Ghana"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:383
-#: includes/LLC_GeoIP_Countries.class.php:638
-#: includes/LLC_GeoIP_Countries.class.php:893
+#: includes/LLC-GeoIP-Countries.class.php:383
+#: includes/LLC-GeoIP-Countries.class.php:638
+#: includes/LLC-GeoIP-Countries.class.php:893
 msgid "Gibraltar"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:384
-#: includes/LLC_GeoIP_Countries.class.php:639
-#: includes/LLC_GeoIP_Countries.class.php:894
+#: includes/LLC-GeoIP-Countries.class.php:384
+#: includes/LLC-GeoIP-Countries.class.php:639
+#: includes/LLC-GeoIP-Countries.class.php:894
 msgid "Greenland"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:385
-#: includes/LLC_GeoIP_Countries.class.php:640
-#: includes/LLC_GeoIP_Countries.class.php:895
+#: includes/LLC-GeoIP-Countries.class.php:385
+#: includes/LLC-GeoIP-Countries.class.php:640
+#: includes/LLC-GeoIP-Countries.class.php:895
 msgid "Gambia"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:386
-#: includes/LLC_GeoIP_Countries.class.php:641
-#: includes/LLC_GeoIP_Countries.class.php:896
+#: includes/LLC-GeoIP-Countries.class.php:386
+#: includes/LLC-GeoIP-Countries.class.php:641
+#: includes/LLC-GeoIP-Countries.class.php:896
 msgid "Guinea"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:387
-#: includes/LLC_GeoIP_Countries.class.php:642
-#: includes/LLC_GeoIP_Countries.class.php:897
+#: includes/LLC-GeoIP-Countries.class.php:387
+#: includes/LLC-GeoIP-Countries.class.php:642
+#: includes/LLC-GeoIP-Countries.class.php:897
 msgid "Guadeloupe"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:388
-#: includes/LLC_GeoIP_Countries.class.php:643
-#: includes/LLC_GeoIP_Countries.class.php:898
+#: includes/LLC-GeoIP-Countries.class.php:388
+#: includes/LLC-GeoIP-Countries.class.php:643
+#: includes/LLC-GeoIP-Countries.class.php:898
 msgid "Equatorial Guinea"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:389
-#: includes/LLC_GeoIP_Countries.class.php:644
-#: includes/LLC_GeoIP_Countries.class.php:899
+#: includes/LLC-GeoIP-Countries.class.php:389
+#: includes/LLC-GeoIP-Countries.class.php:644
+#: includes/LLC-GeoIP-Countries.class.php:899
 msgid "Greece"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:390
-#: includes/LLC_GeoIP_Countries.class.php:645
-#: includes/LLC_GeoIP_Countries.class.php:900
+#: includes/LLC-GeoIP-Countries.class.php:390
+#: includes/LLC-GeoIP-Countries.class.php:645
+#: includes/LLC-GeoIP-Countries.class.php:900
 msgid "South Georgia and the South Sandwich Islands"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:391
-#: includes/LLC_GeoIP_Countries.class.php:646
-#: includes/LLC_GeoIP_Countries.class.php:901
+#: includes/LLC-GeoIP-Countries.class.php:391
+#: includes/LLC-GeoIP-Countries.class.php:646
+#: includes/LLC-GeoIP-Countries.class.php:901
 msgid "Guatemala"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:392
-#: includes/LLC_GeoIP_Countries.class.php:647
-#: includes/LLC_GeoIP_Countries.class.php:902
+#: includes/LLC-GeoIP-Countries.class.php:392
+#: includes/LLC-GeoIP-Countries.class.php:647
+#: includes/LLC-GeoIP-Countries.class.php:902
 msgid "Guam"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:393
-#: includes/LLC_GeoIP_Countries.class.php:648
-#: includes/LLC_GeoIP_Countries.class.php:903
+#: includes/LLC-GeoIP-Countries.class.php:393
+#: includes/LLC-GeoIP-Countries.class.php:648
+#: includes/LLC-GeoIP-Countries.class.php:903
 msgid "Guinea-Bissau"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:394
-#: includes/LLC_GeoIP_Countries.class.php:649
-#: includes/LLC_GeoIP_Countries.class.php:904
+#: includes/LLC-GeoIP-Countries.class.php:394
+#: includes/LLC-GeoIP-Countries.class.php:649
+#: includes/LLC-GeoIP-Countries.class.php:904
 msgid "Guyana"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:395
-#: includes/LLC_GeoIP_Countries.class.php:650
-#: includes/LLC_GeoIP_Countries.class.php:905
+#: includes/LLC-GeoIP-Countries.class.php:395
+#: includes/LLC-GeoIP-Countries.class.php:650
+#: includes/LLC-GeoIP-Countries.class.php:905
 msgid "Hong Kong"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:396
-#: includes/LLC_GeoIP_Countries.class.php:651
-#: includes/LLC_GeoIP_Countries.class.php:906
+#: includes/LLC-GeoIP-Countries.class.php:396
+#: includes/LLC-GeoIP-Countries.class.php:651
+#: includes/LLC-GeoIP-Countries.class.php:906
 msgid "Heard Island and McDonald Islands"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:397
-#: includes/LLC_GeoIP_Countries.class.php:652
-#: includes/LLC_GeoIP_Countries.class.php:907
+#: includes/LLC-GeoIP-Countries.class.php:397
+#: includes/LLC-GeoIP-Countries.class.php:652
+#: includes/LLC-GeoIP-Countries.class.php:907
 msgid "Honduras"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:398
-#: includes/LLC_GeoIP_Countries.class.php:653
-#: includes/LLC_GeoIP_Countries.class.php:908
+#: includes/LLC-GeoIP-Countries.class.php:398
+#: includes/LLC-GeoIP-Countries.class.php:653
+#: includes/LLC-GeoIP-Countries.class.php:908
 msgid "Croatia"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:399
-#: includes/LLC_GeoIP_Countries.class.php:654
-#: includes/LLC_GeoIP_Countries.class.php:909
+#: includes/LLC-GeoIP-Countries.class.php:399
+#: includes/LLC-GeoIP-Countries.class.php:654
+#: includes/LLC-GeoIP-Countries.class.php:909
 msgid "Haiti"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:400
-#: includes/LLC_GeoIP_Countries.class.php:655
-#: includes/LLC_GeoIP_Countries.class.php:910
+#: includes/LLC-GeoIP-Countries.class.php:400
+#: includes/LLC-GeoIP-Countries.class.php:655
+#: includes/LLC-GeoIP-Countries.class.php:910
 msgid "Hungary"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:401
-#: includes/LLC_GeoIP_Countries.class.php:656
-#: includes/LLC_GeoIP_Countries.class.php:911
+#: includes/LLC-GeoIP-Countries.class.php:401
+#: includes/LLC-GeoIP-Countries.class.php:656
+#: includes/LLC-GeoIP-Countries.class.php:911
 msgid "Indonesia"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:402
-#: includes/LLC_GeoIP_Countries.class.php:657
-#: includes/LLC_GeoIP_Countries.class.php:912
+#: includes/LLC-GeoIP-Countries.class.php:402
+#: includes/LLC-GeoIP-Countries.class.php:657
+#: includes/LLC-GeoIP-Countries.class.php:912
 msgid "Ireland"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:403
-#: includes/LLC_GeoIP_Countries.class.php:658
-#: includes/LLC_GeoIP_Countries.class.php:913
+#: includes/LLC-GeoIP-Countries.class.php:403
+#: includes/LLC-GeoIP-Countries.class.php:658
+#: includes/LLC-GeoIP-Countries.class.php:913
 msgid "Israel"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:404
-#: includes/LLC_GeoIP_Countries.class.php:659
-#: includes/LLC_GeoIP_Countries.class.php:914
+#: includes/LLC-GeoIP-Countries.class.php:404
+#: includes/LLC-GeoIP-Countries.class.php:659
+#: includes/LLC-GeoIP-Countries.class.php:914
 msgid "Isle of Man"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:405
-#: includes/LLC_GeoIP_Countries.class.php:660
-#: includes/LLC_GeoIP_Countries.class.php:915
+#: includes/LLC-GeoIP-Countries.class.php:405
+#: includes/LLC-GeoIP-Countries.class.php:660
+#: includes/LLC-GeoIP-Countries.class.php:915
 msgid "India"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:406
-#: includes/LLC_GeoIP_Countries.class.php:661
-#: includes/LLC_GeoIP_Countries.class.php:916
+#: includes/LLC-GeoIP-Countries.class.php:406
+#: includes/LLC-GeoIP-Countries.class.php:661
+#: includes/LLC-GeoIP-Countries.class.php:916
 msgid "British Indian Ocean Territory"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:407
-#: includes/LLC_GeoIP_Countries.class.php:662
-#: includes/LLC_GeoIP_Countries.class.php:917
+#: includes/LLC-GeoIP-Countries.class.php:407
+#: includes/LLC-GeoIP-Countries.class.php:662
+#: includes/LLC-GeoIP-Countries.class.php:917
 msgid "Iraq"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:408
-#: includes/LLC_GeoIP_Countries.class.php:663
-#: includes/LLC_GeoIP_Countries.class.php:918
+#: includes/LLC-GeoIP-Countries.class.php:408
+#: includes/LLC-GeoIP-Countries.class.php:663
+#: includes/LLC-GeoIP-Countries.class.php:918
 msgid "Islamic Republic of Iran"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:409
-#: includes/LLC_GeoIP_Countries.class.php:664
-#: includes/LLC_GeoIP_Countries.class.php:919
+#: includes/LLC-GeoIP-Countries.class.php:409
+#: includes/LLC-GeoIP-Countries.class.php:664
+#: includes/LLC-GeoIP-Countries.class.php:919
 msgid "Iceland"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:410
-#: includes/LLC_GeoIP_Countries.class.php:665
-#: includes/LLC_GeoIP_Countries.class.php:920
+#: includes/LLC-GeoIP-Countries.class.php:410
+#: includes/LLC-GeoIP-Countries.class.php:665
+#: includes/LLC-GeoIP-Countries.class.php:920
 msgid "Italy"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:411
-#: includes/LLC_GeoIP_Countries.class.php:666
-#: includes/LLC_GeoIP_Countries.class.php:921
+#: includes/LLC-GeoIP-Countries.class.php:411
+#: includes/LLC-GeoIP-Countries.class.php:666
+#: includes/LLC-GeoIP-Countries.class.php:921
 msgid "Jersey"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:412
-#: includes/LLC_GeoIP_Countries.class.php:667
-#: includes/LLC_GeoIP_Countries.class.php:922
+#: includes/LLC-GeoIP-Countries.class.php:412
+#: includes/LLC-GeoIP-Countries.class.php:667
+#: includes/LLC-GeoIP-Countries.class.php:922
 msgid "Jamaica"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:413
-#: includes/LLC_GeoIP_Countries.class.php:668
-#: includes/LLC_GeoIP_Countries.class.php:923
+#: includes/LLC-GeoIP-Countries.class.php:413
+#: includes/LLC-GeoIP-Countries.class.php:668
+#: includes/LLC-GeoIP-Countries.class.php:923
 msgid "Jordan"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:414
-#: includes/LLC_GeoIP_Countries.class.php:669
-#: includes/LLC_GeoIP_Countries.class.php:924
+#: includes/LLC-GeoIP-Countries.class.php:414
+#: includes/LLC-GeoIP-Countries.class.php:669
+#: includes/LLC-GeoIP-Countries.class.php:924
 msgid "Japan"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:415
-#: includes/LLC_GeoIP_Countries.class.php:670
-#: includes/LLC_GeoIP_Countries.class.php:925
+#: includes/LLC-GeoIP-Countries.class.php:415
+#: includes/LLC-GeoIP-Countries.class.php:670
+#: includes/LLC-GeoIP-Countries.class.php:925
 msgid "Kenya"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:416
-#: includes/LLC_GeoIP_Countries.class.php:671
-#: includes/LLC_GeoIP_Countries.class.php:926
+#: includes/LLC-GeoIP-Countries.class.php:416
+#: includes/LLC-GeoIP-Countries.class.php:671
+#: includes/LLC-GeoIP-Countries.class.php:926
 msgid "Kyrgyzstan"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:417
-#: includes/LLC_GeoIP_Countries.class.php:672
-#: includes/LLC_GeoIP_Countries.class.php:927
+#: includes/LLC-GeoIP-Countries.class.php:417
+#: includes/LLC-GeoIP-Countries.class.php:672
+#: includes/LLC-GeoIP-Countries.class.php:927
 msgid "Cambodia"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:418
-#: includes/LLC_GeoIP_Countries.class.php:673
-#: includes/LLC_GeoIP_Countries.class.php:928
+#: includes/LLC-GeoIP-Countries.class.php:418
+#: includes/LLC-GeoIP-Countries.class.php:673
+#: includes/LLC-GeoIP-Countries.class.php:928
 msgid "Kiribati"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:419
-#: includes/LLC_GeoIP_Countries.class.php:674
-#: includes/LLC_GeoIP_Countries.class.php:929
+#: includes/LLC-GeoIP-Countries.class.php:419
+#: includes/LLC-GeoIP-Countries.class.php:674
+#: includes/LLC-GeoIP-Countries.class.php:929
 msgid "Comoros"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:420
-#: includes/LLC_GeoIP_Countries.class.php:675
-#: includes/LLC_GeoIP_Countries.class.php:930
+#: includes/LLC-GeoIP-Countries.class.php:420
+#: includes/LLC-GeoIP-Countries.class.php:675
+#: includes/LLC-GeoIP-Countries.class.php:930
 msgid "Saint Kitts and Nevis"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:421
-#: includes/LLC_GeoIP_Countries.class.php:676
-#: includes/LLC_GeoIP_Countries.class.php:931
+#: includes/LLC-GeoIP-Countries.class.php:421
+#: includes/LLC-GeoIP-Countries.class.php:676
+#: includes/LLC-GeoIP-Countries.class.php:931
 msgid "Democratic People's Republic of Korea"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:422
-#: includes/LLC_GeoIP_Countries.class.php:677
-#: includes/LLC_GeoIP_Countries.class.php:932
+#: includes/LLC-GeoIP-Countries.class.php:422
+#: includes/LLC-GeoIP-Countries.class.php:677
+#: includes/LLC-GeoIP-Countries.class.php:932
 msgid "Republic of Korea"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:423
-#: includes/LLC_GeoIP_Countries.class.php:678
-#: includes/LLC_GeoIP_Countries.class.php:933
+#: includes/LLC-GeoIP-Countries.class.php:423
+#: includes/LLC-GeoIP-Countries.class.php:678
+#: includes/LLC-GeoIP-Countries.class.php:933
 msgid "Kuwait"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:424
-#: includes/LLC_GeoIP_Countries.class.php:679
-#: includes/LLC_GeoIP_Countries.class.php:934
+#: includes/LLC-GeoIP-Countries.class.php:424
+#: includes/LLC-GeoIP-Countries.class.php:679
+#: includes/LLC-GeoIP-Countries.class.php:934
 msgid "Cayman Islands"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:425
-#: includes/LLC_GeoIP_Countries.class.php:680
-#: includes/LLC_GeoIP_Countries.class.php:935
+#: includes/LLC-GeoIP-Countries.class.php:425
+#: includes/LLC-GeoIP-Countries.class.php:680
+#: includes/LLC-GeoIP-Countries.class.php:935
 msgid "Kazakhstan"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:426
-#: includes/LLC_GeoIP_Countries.class.php:681
-#: includes/LLC_GeoIP_Countries.class.php:936
+#: includes/LLC-GeoIP-Countries.class.php:426
+#: includes/LLC-GeoIP-Countries.class.php:681
+#: includes/LLC-GeoIP-Countries.class.php:936
 msgid "Lao People's Democratic Republic"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:427
-#: includes/LLC_GeoIP_Countries.class.php:682
-#: includes/LLC_GeoIP_Countries.class.php:937
+#: includes/LLC-GeoIP-Countries.class.php:427
+#: includes/LLC-GeoIP-Countries.class.php:682
+#: includes/LLC-GeoIP-Countries.class.php:937
 msgid "Lebanon"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:428
-#: includes/LLC_GeoIP_Countries.class.php:683
-#: includes/LLC_GeoIP_Countries.class.php:938
+#: includes/LLC-GeoIP-Countries.class.php:428
+#: includes/LLC-GeoIP-Countries.class.php:683
+#: includes/LLC-GeoIP-Countries.class.php:938
 msgid "Saint Lucia"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:429
-#: includes/LLC_GeoIP_Countries.class.php:684
-#: includes/LLC_GeoIP_Countries.class.php:939
+#: includes/LLC-GeoIP-Countries.class.php:429
+#: includes/LLC-GeoIP-Countries.class.php:684
+#: includes/LLC-GeoIP-Countries.class.php:939
 msgid "Liechtenstein"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:430
-#: includes/LLC_GeoIP_Countries.class.php:685
-#: includes/LLC_GeoIP_Countries.class.php:940
+#: includes/LLC-GeoIP-Countries.class.php:430
+#: includes/LLC-GeoIP-Countries.class.php:685
+#: includes/LLC-GeoIP-Countries.class.php:940
 msgid "Sri Lanka"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:431
-#: includes/LLC_GeoIP_Countries.class.php:686
-#: includes/LLC_GeoIP_Countries.class.php:941
+#: includes/LLC-GeoIP-Countries.class.php:431
+#: includes/LLC-GeoIP-Countries.class.php:686
+#: includes/LLC-GeoIP-Countries.class.php:941
 msgid "Liberia"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:432
-#: includes/LLC_GeoIP_Countries.class.php:687
-#: includes/LLC_GeoIP_Countries.class.php:942
+#: includes/LLC-GeoIP-Countries.class.php:432
+#: includes/LLC-GeoIP-Countries.class.php:687
+#: includes/LLC-GeoIP-Countries.class.php:942
 msgid "Lesotho"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:433
-#: includes/LLC_GeoIP_Countries.class.php:688
-#: includes/LLC_GeoIP_Countries.class.php:943
+#: includes/LLC-GeoIP-Countries.class.php:433
+#: includes/LLC-GeoIP-Countries.class.php:688
+#: includes/LLC-GeoIP-Countries.class.php:943
 msgid "Lithuania"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:434
-#: includes/LLC_GeoIP_Countries.class.php:689
-#: includes/LLC_GeoIP_Countries.class.php:944
+#: includes/LLC-GeoIP-Countries.class.php:434
+#: includes/LLC-GeoIP-Countries.class.php:689
+#: includes/LLC-GeoIP-Countries.class.php:944
 msgid "Luxembourg"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:435
-#: includes/LLC_GeoIP_Countries.class.php:690
-#: includes/LLC_GeoIP_Countries.class.php:945
+#: includes/LLC-GeoIP-Countries.class.php:435
+#: includes/LLC-GeoIP-Countries.class.php:690
+#: includes/LLC-GeoIP-Countries.class.php:945
 msgid "Latvia"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:436
-#: includes/LLC_GeoIP_Countries.class.php:691
-#: includes/LLC_GeoIP_Countries.class.php:946
+#: includes/LLC-GeoIP-Countries.class.php:436
+#: includes/LLC-GeoIP-Countries.class.php:691
+#: includes/LLC-GeoIP-Countries.class.php:946
 msgid "Libya"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:437
-#: includes/LLC_GeoIP_Countries.class.php:692
-#: includes/LLC_GeoIP_Countries.class.php:947
+#: includes/LLC-GeoIP-Countries.class.php:437
+#: includes/LLC-GeoIP-Countries.class.php:692
+#: includes/LLC-GeoIP-Countries.class.php:947
 msgid "Morocco"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:438
-#: includes/LLC_GeoIP_Countries.class.php:693
-#: includes/LLC_GeoIP_Countries.class.php:948
+#: includes/LLC-GeoIP-Countries.class.php:438
+#: includes/LLC-GeoIP-Countries.class.php:693
+#: includes/LLC-GeoIP-Countries.class.php:948
 msgid "Monaco"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:439
-#: includes/LLC_GeoIP_Countries.class.php:694
-#: includes/LLC_GeoIP_Countries.class.php:949
+#: includes/LLC-GeoIP-Countries.class.php:439
+#: includes/LLC-GeoIP-Countries.class.php:694
+#: includes/LLC-GeoIP-Countries.class.php:949
 msgid "Republic of Moldova"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:440
-#: includes/LLC_GeoIP_Countries.class.php:695
-#: includes/LLC_GeoIP_Countries.class.php:950
+#: includes/LLC-GeoIP-Countries.class.php:440
+#: includes/LLC-GeoIP-Countries.class.php:695
+#: includes/LLC-GeoIP-Countries.class.php:950
 msgid "Montenegro"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:441
-#: includes/LLC_GeoIP_Countries.class.php:696
-#: includes/LLC_GeoIP_Countries.class.php:951
+#: includes/LLC-GeoIP-Countries.class.php:441
+#: includes/LLC-GeoIP-Countries.class.php:696
+#: includes/LLC-GeoIP-Countries.class.php:951
 msgid "Saint Martin"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:442
-#: includes/LLC_GeoIP_Countries.class.php:697
-#: includes/LLC_GeoIP_Countries.class.php:952
+#: includes/LLC-GeoIP-Countries.class.php:442
+#: includes/LLC-GeoIP-Countries.class.php:697
+#: includes/LLC-GeoIP-Countries.class.php:952
 msgid "Madagascar"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:443
-#: includes/LLC_GeoIP_Countries.class.php:698
-#: includes/LLC_GeoIP_Countries.class.php:953
+#: includes/LLC-GeoIP-Countries.class.php:443
+#: includes/LLC-GeoIP-Countries.class.php:698
+#: includes/LLC-GeoIP-Countries.class.php:953
 msgid "Marshall Islands"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:444
-#: includes/LLC_GeoIP_Countries.class.php:699
-#: includes/LLC_GeoIP_Countries.class.php:954
+#: includes/LLC-GeoIP-Countries.class.php:444
+#: includes/LLC-GeoIP-Countries.class.php:699
+#: includes/LLC-GeoIP-Countries.class.php:954
 msgid "Macedonia"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:445
-#: includes/LLC_GeoIP_Countries.class.php:700
-#: includes/LLC_GeoIP_Countries.class.php:955
+#: includes/LLC-GeoIP-Countries.class.php:445
+#: includes/LLC-GeoIP-Countries.class.php:700
+#: includes/LLC-GeoIP-Countries.class.php:955
 msgid "Mali"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:446
-#: includes/LLC_GeoIP_Countries.class.php:701
-#: includes/LLC_GeoIP_Countries.class.php:956
+#: includes/LLC-GeoIP-Countries.class.php:446
+#: includes/LLC-GeoIP-Countries.class.php:701
+#: includes/LLC-GeoIP-Countries.class.php:956
 msgid "Myanmar"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:447
-#: includes/LLC_GeoIP_Countries.class.php:702
-#: includes/LLC_GeoIP_Countries.class.php:957
+#: includes/LLC-GeoIP-Countries.class.php:447
+#: includes/LLC-GeoIP-Countries.class.php:702
+#: includes/LLC-GeoIP-Countries.class.php:957
 msgid "Mongolia"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:448
-#: includes/LLC_GeoIP_Countries.class.php:703
-#: includes/LLC_GeoIP_Countries.class.php:958
+#: includes/LLC-GeoIP-Countries.class.php:448
+#: includes/LLC-GeoIP-Countries.class.php:703
+#: includes/LLC-GeoIP-Countries.class.php:958
 msgid "Macau"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:449
-#: includes/LLC_GeoIP_Countries.class.php:704
-#: includes/LLC_GeoIP_Countries.class.php:959
+#: includes/LLC-GeoIP-Countries.class.php:449
+#: includes/LLC-GeoIP-Countries.class.php:704
+#: includes/LLC-GeoIP-Countries.class.php:959
 msgid "Northern Mariana Islands"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:450
-#: includes/LLC_GeoIP_Countries.class.php:705
-#: includes/LLC_GeoIP_Countries.class.php:960
+#: includes/LLC-GeoIP-Countries.class.php:450
+#: includes/LLC-GeoIP-Countries.class.php:705
+#: includes/LLC-GeoIP-Countries.class.php:960
 msgid "Martinique"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:451
-#: includes/LLC_GeoIP_Countries.class.php:706
-#: includes/LLC_GeoIP_Countries.class.php:961
+#: includes/LLC-GeoIP-Countries.class.php:451
+#: includes/LLC-GeoIP-Countries.class.php:706
+#: includes/LLC-GeoIP-Countries.class.php:961
 msgid "Mauritania"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:452
-#: includes/LLC_GeoIP_Countries.class.php:707
-#: includes/LLC_GeoIP_Countries.class.php:962
+#: includes/LLC-GeoIP-Countries.class.php:452
+#: includes/LLC-GeoIP-Countries.class.php:707
+#: includes/LLC-GeoIP-Countries.class.php:962
 msgid "Montserrat"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:453
-#: includes/LLC_GeoIP_Countries.class.php:708
-#: includes/LLC_GeoIP_Countries.class.php:963
+#: includes/LLC-GeoIP-Countries.class.php:453
+#: includes/LLC-GeoIP-Countries.class.php:708
+#: includes/LLC-GeoIP-Countries.class.php:963
 msgid "Malta"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:454
-#: includes/LLC_GeoIP_Countries.class.php:709
-#: includes/LLC_GeoIP_Countries.class.php:964
+#: includes/LLC-GeoIP-Countries.class.php:454
+#: includes/LLC-GeoIP-Countries.class.php:709
+#: includes/LLC-GeoIP-Countries.class.php:964
 msgid "Mauritius"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:455
-#: includes/LLC_GeoIP_Countries.class.php:710
-#: includes/LLC_GeoIP_Countries.class.php:965
+#: includes/LLC-GeoIP-Countries.class.php:455
+#: includes/LLC-GeoIP-Countries.class.php:710
+#: includes/LLC-GeoIP-Countries.class.php:965
 msgid "Maldives"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:456
-#: includes/LLC_GeoIP_Countries.class.php:711
-#: includes/LLC_GeoIP_Countries.class.php:966
+#: includes/LLC-GeoIP-Countries.class.php:456
+#: includes/LLC-GeoIP-Countries.class.php:711
+#: includes/LLC-GeoIP-Countries.class.php:966
 msgid "Malawi"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:457
-#: includes/LLC_GeoIP_Countries.class.php:712
-#: includes/LLC_GeoIP_Countries.class.php:967
+#: includes/LLC-GeoIP-Countries.class.php:457
+#: includes/LLC-GeoIP-Countries.class.php:712
+#: includes/LLC-GeoIP-Countries.class.php:967
 msgid "Mexico"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:458
-#: includes/LLC_GeoIP_Countries.class.php:713
-#: includes/LLC_GeoIP_Countries.class.php:968
+#: includes/LLC-GeoIP-Countries.class.php:458
+#: includes/LLC-GeoIP-Countries.class.php:713
+#: includes/LLC-GeoIP-Countries.class.php:968
 msgid "Malaysia"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:459
-#: includes/LLC_GeoIP_Countries.class.php:714
-#: includes/LLC_GeoIP_Countries.class.php:969
+#: includes/LLC-GeoIP-Countries.class.php:459
+#: includes/LLC-GeoIP-Countries.class.php:714
+#: includes/LLC-GeoIP-Countries.class.php:969
 msgid "Mozambique"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:460
-#: includes/LLC_GeoIP_Countries.class.php:715
-#: includes/LLC_GeoIP_Countries.class.php:970
+#: includes/LLC-GeoIP-Countries.class.php:460
+#: includes/LLC-GeoIP-Countries.class.php:715
+#: includes/LLC-GeoIP-Countries.class.php:970
 msgid "Namibia"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:461
-#: includes/LLC_GeoIP_Countries.class.php:716
-#: includes/LLC_GeoIP_Countries.class.php:971
+#: includes/LLC-GeoIP-Countries.class.php:461
+#: includes/LLC-GeoIP-Countries.class.php:716
+#: includes/LLC-GeoIP-Countries.class.php:971
 msgid "New Caledonia"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:462
-#: includes/LLC_GeoIP_Countries.class.php:717
-#: includes/LLC_GeoIP_Countries.class.php:972
+#: includes/LLC-GeoIP-Countries.class.php:462
+#: includes/LLC-GeoIP-Countries.class.php:717
+#: includes/LLC-GeoIP-Countries.class.php:972
 msgid "Niger"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:463
-#: includes/LLC_GeoIP_Countries.class.php:718
-#: includes/LLC_GeoIP_Countries.class.php:973
+#: includes/LLC-GeoIP-Countries.class.php:463
+#: includes/LLC-GeoIP-Countries.class.php:718
+#: includes/LLC-GeoIP-Countries.class.php:973
 msgid "Norfolk Island"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:464
-#: includes/LLC_GeoIP_Countries.class.php:719
-#: includes/LLC_GeoIP_Countries.class.php:974
+#: includes/LLC-GeoIP-Countries.class.php:464
+#: includes/LLC-GeoIP-Countries.class.php:719
+#: includes/LLC-GeoIP-Countries.class.php:974
 msgid "Nigeria"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:465
-#: includes/LLC_GeoIP_Countries.class.php:720
-#: includes/LLC_GeoIP_Countries.class.php:975
+#: includes/LLC-GeoIP-Countries.class.php:465
+#: includes/LLC-GeoIP-Countries.class.php:720
+#: includes/LLC-GeoIP-Countries.class.php:975
 msgid "Nicaragua"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:466
-#: includes/LLC_GeoIP_Countries.class.php:721
-#: includes/LLC_GeoIP_Countries.class.php:976
+#: includes/LLC-GeoIP-Countries.class.php:466
+#: includes/LLC-GeoIP-Countries.class.php:721
+#: includes/LLC-GeoIP-Countries.class.php:976
 msgid "Netherlands"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:467
-#: includes/LLC_GeoIP_Countries.class.php:722
-#: includes/LLC_GeoIP_Countries.class.php:977
+#: includes/LLC-GeoIP-Countries.class.php:467
+#: includes/LLC-GeoIP-Countries.class.php:722
+#: includes/LLC-GeoIP-Countries.class.php:977
 msgid "Norway"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:468
-#: includes/LLC_GeoIP_Countries.class.php:723
-#: includes/LLC_GeoIP_Countries.class.php:978
+#: includes/LLC-GeoIP-Countries.class.php:468
+#: includes/LLC-GeoIP-Countries.class.php:723
+#: includes/LLC-GeoIP-Countries.class.php:978
 msgid "Nepal"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:469
-#: includes/LLC_GeoIP_Countries.class.php:724
-#: includes/LLC_GeoIP_Countries.class.php:979
+#: includes/LLC-GeoIP-Countries.class.php:469
+#: includes/LLC-GeoIP-Countries.class.php:724
+#: includes/LLC-GeoIP-Countries.class.php:979
 msgid "Nauru"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:470
-#: includes/LLC_GeoIP_Countries.class.php:725
-#: includes/LLC_GeoIP_Countries.class.php:980
+#: includes/LLC-GeoIP-Countries.class.php:470
+#: includes/LLC-GeoIP-Countries.class.php:725
+#: includes/LLC-GeoIP-Countries.class.php:980
 msgid "Niue"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:471
-#: includes/LLC_GeoIP_Countries.class.php:726
-#: includes/LLC_GeoIP_Countries.class.php:981
+#: includes/LLC-GeoIP-Countries.class.php:471
+#: includes/LLC-GeoIP-Countries.class.php:726
+#: includes/LLC-GeoIP-Countries.class.php:981
 msgid "New Zealand"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:472
-#: includes/LLC_GeoIP_Countries.class.php:727
-#: includes/LLC_GeoIP_Countries.class.php:982
+#: includes/LLC-GeoIP-Countries.class.php:472
+#: includes/LLC-GeoIP-Countries.class.php:727
+#: includes/LLC-GeoIP-Countries.class.php:982
 msgid "Other"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:473
-#: includes/LLC_GeoIP_Countries.class.php:728
-#: includes/LLC_GeoIP_Countries.class.php:983
+#: includes/LLC-GeoIP-Countries.class.php:473
+#: includes/LLC-GeoIP-Countries.class.php:728
+#: includes/LLC-GeoIP-Countries.class.php:983
 msgid "Oman"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:474
-#: includes/LLC_GeoIP_Countries.class.php:729
-#: includes/LLC_GeoIP_Countries.class.php:984
+#: includes/LLC-GeoIP-Countries.class.php:474
+#: includes/LLC-GeoIP-Countries.class.php:729
+#: includes/LLC-GeoIP-Countries.class.php:984
 msgid "Panama"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:475
-#: includes/LLC_GeoIP_Countries.class.php:730
-#: includes/LLC_GeoIP_Countries.class.php:985
+#: includes/LLC-GeoIP-Countries.class.php:475
+#: includes/LLC-GeoIP-Countries.class.php:730
+#: includes/LLC-GeoIP-Countries.class.php:985
 msgid "Peru"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:476
-#: includes/LLC_GeoIP_Countries.class.php:731
-#: includes/LLC_GeoIP_Countries.class.php:986
+#: includes/LLC-GeoIP-Countries.class.php:476
+#: includes/LLC-GeoIP-Countries.class.php:731
+#: includes/LLC-GeoIP-Countries.class.php:986
 msgid "French Polynesia"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:477
-#: includes/LLC_GeoIP_Countries.class.php:732
-#: includes/LLC_GeoIP_Countries.class.php:987
+#: includes/LLC-GeoIP-Countries.class.php:477
+#: includes/LLC-GeoIP-Countries.class.php:732
+#: includes/LLC-GeoIP-Countries.class.php:987
 msgid "Papua New Guinea"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:478
-#: includes/LLC_GeoIP_Countries.class.php:733
-#: includes/LLC_GeoIP_Countries.class.php:988
+#: includes/LLC-GeoIP-Countries.class.php:478
+#: includes/LLC-GeoIP-Countries.class.php:733
+#: includes/LLC-GeoIP-Countries.class.php:988
 msgid "Philippines"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:479
-#: includes/LLC_GeoIP_Countries.class.php:734
-#: includes/LLC_GeoIP_Countries.class.php:989
+#: includes/LLC-GeoIP-Countries.class.php:479
+#: includes/LLC-GeoIP-Countries.class.php:734
+#: includes/LLC-GeoIP-Countries.class.php:989
 msgid "Pakistan"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:480
-#: includes/LLC_GeoIP_Countries.class.php:735
-#: includes/LLC_GeoIP_Countries.class.php:990
+#: includes/LLC-GeoIP-Countries.class.php:480
+#: includes/LLC-GeoIP-Countries.class.php:735
+#: includes/LLC-GeoIP-Countries.class.php:990
 msgid "Poland"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:481
-#: includes/LLC_GeoIP_Countries.class.php:736
-#: includes/LLC_GeoIP_Countries.class.php:991
+#: includes/LLC-GeoIP-Countries.class.php:481
+#: includes/LLC-GeoIP-Countries.class.php:736
+#: includes/LLC-GeoIP-Countries.class.php:991
 msgid "Saint Pierre and Miquelon"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:482
-#: includes/LLC_GeoIP_Countries.class.php:737
-#: includes/LLC_GeoIP_Countries.class.php:992
+#: includes/LLC-GeoIP-Countries.class.php:482
+#: includes/LLC-GeoIP-Countries.class.php:737
+#: includes/LLC-GeoIP-Countries.class.php:992
 msgid "Pitcairn Islands"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:483
-#: includes/LLC_GeoIP_Countries.class.php:738
-#: includes/LLC_GeoIP_Countries.class.php:993
+#: includes/LLC-GeoIP-Countries.class.php:483
+#: includes/LLC-GeoIP-Countries.class.php:738
+#: includes/LLC-GeoIP-Countries.class.php:993
 msgid "Puerto Rico"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:484
-#: includes/LLC_GeoIP_Countries.class.php:739
-#: includes/LLC_GeoIP_Countries.class.php:994
+#: includes/LLC-GeoIP-Countries.class.php:484
+#: includes/LLC-GeoIP-Countries.class.php:739
+#: includes/LLC-GeoIP-Countries.class.php:994
 msgid "Palestinian Territory"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:485
-#: includes/LLC_GeoIP_Countries.class.php:740
-#: includes/LLC_GeoIP_Countries.class.php:995
+#: includes/LLC-GeoIP-Countries.class.php:485
+#: includes/LLC-GeoIP-Countries.class.php:740
+#: includes/LLC-GeoIP-Countries.class.php:995
 msgid "Portugal"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:486
-#: includes/LLC_GeoIP_Countries.class.php:741
-#: includes/LLC_GeoIP_Countries.class.php:996
+#: includes/LLC-GeoIP-Countries.class.php:486
+#: includes/LLC-GeoIP-Countries.class.php:741
+#: includes/LLC-GeoIP-Countries.class.php:996
 msgid "Palau"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:487
-#: includes/LLC_GeoIP_Countries.class.php:742
-#: includes/LLC_GeoIP_Countries.class.php:997
+#: includes/LLC-GeoIP-Countries.class.php:487
+#: includes/LLC-GeoIP-Countries.class.php:742
+#: includes/LLC-GeoIP-Countries.class.php:997
 msgid "Paraguay"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:488
-#: includes/LLC_GeoIP_Countries.class.php:743
-#: includes/LLC_GeoIP_Countries.class.php:998
+#: includes/LLC-GeoIP-Countries.class.php:488
+#: includes/LLC-GeoIP-Countries.class.php:743
+#: includes/LLC-GeoIP-Countries.class.php:998
 msgid "Qatar"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:489
-#: includes/LLC_GeoIP_Countries.class.php:744
-#: includes/LLC_GeoIP_Countries.class.php:999
+#: includes/LLC-GeoIP-Countries.class.php:489
+#: includes/LLC-GeoIP-Countries.class.php:744
+#: includes/LLC-GeoIP-Countries.class.php:999
 msgid "Reunion"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:490
-#: includes/LLC_GeoIP_Countries.class.php:745
-#: includes/LLC_GeoIP_Countries.class.php:1000
+#: includes/LLC-GeoIP-Countries.class.php:490
+#: includes/LLC-GeoIP-Countries.class.php:745
+#: includes/LLC-GeoIP-Countries.class.php:1000
 msgid "Romania"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:491
-#: includes/LLC_GeoIP_Countries.class.php:746
-#: includes/LLC_GeoIP_Countries.class.php:1001
+#: includes/LLC-GeoIP-Countries.class.php:491
+#: includes/LLC-GeoIP-Countries.class.php:746
+#: includes/LLC-GeoIP-Countries.class.php:1001
 msgid "Serbia"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:492
-#: includes/LLC_GeoIP_Countries.class.php:747
-#: includes/LLC_GeoIP_Countries.class.php:1002
+#: includes/LLC-GeoIP-Countries.class.php:492
+#: includes/LLC-GeoIP-Countries.class.php:747
+#: includes/LLC-GeoIP-Countries.class.php:1002
 msgid "Russian Federation"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:493
-#: includes/LLC_GeoIP_Countries.class.php:748
-#: includes/LLC_GeoIP_Countries.class.php:1003
+#: includes/LLC-GeoIP-Countries.class.php:493
+#: includes/LLC-GeoIP-Countries.class.php:748
+#: includes/LLC-GeoIP-Countries.class.php:1003
 msgid "Rwanda"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:494
-#: includes/LLC_GeoIP_Countries.class.php:749
-#: includes/LLC_GeoIP_Countries.class.php:1004
+#: includes/LLC-GeoIP-Countries.class.php:494
+#: includes/LLC-GeoIP-Countries.class.php:749
+#: includes/LLC-GeoIP-Countries.class.php:1004
 msgid "Saudi Arabia"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:495
-#: includes/LLC_GeoIP_Countries.class.php:750
-#: includes/LLC_GeoIP_Countries.class.php:1005
+#: includes/LLC-GeoIP-Countries.class.php:495
+#: includes/LLC-GeoIP-Countries.class.php:750
+#: includes/LLC-GeoIP-Countries.class.php:1005
 msgid "Solomon Islands"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:496
-#: includes/LLC_GeoIP_Countries.class.php:751
-#: includes/LLC_GeoIP_Countries.class.php:1006
+#: includes/LLC-GeoIP-Countries.class.php:496
+#: includes/LLC-GeoIP-Countries.class.php:751
+#: includes/LLC-GeoIP-Countries.class.php:1006
 msgid "Seychelles"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:497
-#: includes/LLC_GeoIP_Countries.class.php:752
-#: includes/LLC_GeoIP_Countries.class.php:1007
+#: includes/LLC-GeoIP-Countries.class.php:497
+#: includes/LLC-GeoIP-Countries.class.php:752
+#: includes/LLC-GeoIP-Countries.class.php:1007
 msgid "Sudan"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:498
-#: includes/LLC_GeoIP_Countries.class.php:753
-#: includes/LLC_GeoIP_Countries.class.php:1008
+#: includes/LLC-GeoIP-Countries.class.php:498
+#: includes/LLC-GeoIP-Countries.class.php:753
+#: includes/LLC-GeoIP-Countries.class.php:1008
 msgid "Sweden"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:499
-#: includes/LLC_GeoIP_Countries.class.php:754
-#: includes/LLC_GeoIP_Countries.class.php:1009
+#: includes/LLC-GeoIP-Countries.class.php:499
+#: includes/LLC-GeoIP-Countries.class.php:754
+#: includes/LLC-GeoIP-Countries.class.php:1009
 msgid "Singapore"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:500
-#: includes/LLC_GeoIP_Countries.class.php:755
-#: includes/LLC_GeoIP_Countries.class.php:1010
+#: includes/LLC-GeoIP-Countries.class.php:500
+#: includes/LLC-GeoIP-Countries.class.php:755
+#: includes/LLC-GeoIP-Countries.class.php:1010
 msgid "Saint Helena"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:501
-#: includes/LLC_GeoIP_Countries.class.php:756
-#: includes/LLC_GeoIP_Countries.class.php:1011
+#: includes/LLC-GeoIP-Countries.class.php:501
+#: includes/LLC-GeoIP-Countries.class.php:756
+#: includes/LLC-GeoIP-Countries.class.php:1011
 msgid "Slovenia"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:502
-#: includes/LLC_GeoIP_Countries.class.php:757
-#: includes/LLC_GeoIP_Countries.class.php:1012
+#: includes/LLC-GeoIP-Countries.class.php:502
+#: includes/LLC-GeoIP-Countries.class.php:757
+#: includes/LLC-GeoIP-Countries.class.php:1012
 msgid "Svalbard and Jan Mayen"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:503
-#: includes/LLC_GeoIP_Countries.class.php:758
-#: includes/LLC_GeoIP_Countries.class.php:1013
+#: includes/LLC-GeoIP-Countries.class.php:503
+#: includes/LLC-GeoIP-Countries.class.php:758
+#: includes/LLC-GeoIP-Countries.class.php:1013
 msgid "Slovakia"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:504
-#: includes/LLC_GeoIP_Countries.class.php:759
-#: includes/LLC_GeoIP_Countries.class.php:1014
+#: includes/LLC-GeoIP-Countries.class.php:504
+#: includes/LLC-GeoIP-Countries.class.php:759
+#: includes/LLC-GeoIP-Countries.class.php:1014
 msgid "Sierra Leone"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:505
-#: includes/LLC_GeoIP_Countries.class.php:760
-#: includes/LLC_GeoIP_Countries.class.php:1015
+#: includes/LLC-GeoIP-Countries.class.php:505
+#: includes/LLC-GeoIP-Countries.class.php:760
+#: includes/LLC-GeoIP-Countries.class.php:1015
 msgid "San Marino"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:506
-#: includes/LLC_GeoIP_Countries.class.php:761
-#: includes/LLC_GeoIP_Countries.class.php:1016
+#: includes/LLC-GeoIP-Countries.class.php:506
+#: includes/LLC-GeoIP-Countries.class.php:761
+#: includes/LLC-GeoIP-Countries.class.php:1016
 msgid "Senegal"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:507
-#: includes/LLC_GeoIP_Countries.class.php:762
-#: includes/LLC_GeoIP_Countries.class.php:1017
+#: includes/LLC-GeoIP-Countries.class.php:507
+#: includes/LLC-GeoIP-Countries.class.php:762
+#: includes/LLC-GeoIP-Countries.class.php:1017
 msgid "Somalia"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:508
-#: includes/LLC_GeoIP_Countries.class.php:763
-#: includes/LLC_GeoIP_Countries.class.php:1018
+#: includes/LLC-GeoIP-Countries.class.php:508
+#: includes/LLC-GeoIP-Countries.class.php:763
+#: includes/LLC-GeoIP-Countries.class.php:1018
 msgid "Suriname"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:509
-#: includes/LLC_GeoIP_Countries.class.php:764
-#: includes/LLC_GeoIP_Countries.class.php:1019
+#: includes/LLC-GeoIP-Countries.class.php:509
+#: includes/LLC-GeoIP-Countries.class.php:764
+#: includes/LLC-GeoIP-Countries.class.php:1019
 msgid "South Sudan"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:510
-#: includes/LLC_GeoIP_Countries.class.php:765
-#: includes/LLC_GeoIP_Countries.class.php:1020
+#: includes/LLC-GeoIP-Countries.class.php:510
+#: includes/LLC-GeoIP-Countries.class.php:765
+#: includes/LLC-GeoIP-Countries.class.php:1020
 msgid "Sao Tome and Principe"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:511
-#: includes/LLC_GeoIP_Countries.class.php:766
-#: includes/LLC_GeoIP_Countries.class.php:1021
+#: includes/LLC-GeoIP-Countries.class.php:511
+#: includes/LLC-GeoIP-Countries.class.php:766
+#: includes/LLC-GeoIP-Countries.class.php:1021
 msgid "El Salvador"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:512
-#: includes/LLC_GeoIP_Countries.class.php:767
-#: includes/LLC_GeoIP_Countries.class.php:1022
+#: includes/LLC-GeoIP-Countries.class.php:512
+#: includes/LLC-GeoIP-Countries.class.php:767
+#: includes/LLC-GeoIP-Countries.class.php:1022
 msgid "Sint Maarten (Dutch part)"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:513
-#: includes/LLC_GeoIP_Countries.class.php:768
-#: includes/LLC_GeoIP_Countries.class.php:1023
+#: includes/LLC-GeoIP-Countries.class.php:513
+#: includes/LLC-GeoIP-Countries.class.php:768
+#: includes/LLC-GeoIP-Countries.class.php:1023
 msgid "Syrian Arab Republic"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:514
-#: includes/LLC_GeoIP_Countries.class.php:769
-#: includes/LLC_GeoIP_Countries.class.php:1024
+#: includes/LLC-GeoIP-Countries.class.php:514
+#: includes/LLC-GeoIP-Countries.class.php:769
+#: includes/LLC-GeoIP-Countries.class.php:1024
 msgid "Swaziland"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:515
-#: includes/LLC_GeoIP_Countries.class.php:770
-#: includes/LLC_GeoIP_Countries.class.php:1025
+#: includes/LLC-GeoIP-Countries.class.php:515
+#: includes/LLC-GeoIP-Countries.class.php:770
+#: includes/LLC-GeoIP-Countries.class.php:1025
 msgid "Turks and Caicos Islands"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:516
-#: includes/LLC_GeoIP_Countries.class.php:771
-#: includes/LLC_GeoIP_Countries.class.php:1026
+#: includes/LLC-GeoIP-Countries.class.php:516
+#: includes/LLC-GeoIP-Countries.class.php:771
+#: includes/LLC-GeoIP-Countries.class.php:1026
 msgid "Chad"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:517
-#: includes/LLC_GeoIP_Countries.class.php:772
-#: includes/LLC_GeoIP_Countries.class.php:1027
+#: includes/LLC-GeoIP-Countries.class.php:517
+#: includes/LLC-GeoIP-Countries.class.php:772
+#: includes/LLC-GeoIP-Countries.class.php:1027
 msgid "French Southern Territories"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:518
-#: includes/LLC_GeoIP_Countries.class.php:773
-#: includes/LLC_GeoIP_Countries.class.php:1028
+#: includes/LLC-GeoIP-Countries.class.php:518
+#: includes/LLC-GeoIP-Countries.class.php:773
+#: includes/LLC-GeoIP-Countries.class.php:1028
 msgid "Togo"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:519
-#: includes/LLC_GeoIP_Countries.class.php:774
-#: includes/LLC_GeoIP_Countries.class.php:1029
+#: includes/LLC-GeoIP-Countries.class.php:519
+#: includes/LLC-GeoIP-Countries.class.php:774
+#: includes/LLC-GeoIP-Countries.class.php:1029
 msgid "Thailand"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:520
-#: includes/LLC_GeoIP_Countries.class.php:775
-#: includes/LLC_GeoIP_Countries.class.php:1030
+#: includes/LLC-GeoIP-Countries.class.php:520
+#: includes/LLC-GeoIP-Countries.class.php:775
+#: includes/LLC-GeoIP-Countries.class.php:1030
 msgid "Tajikistan"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:521
-#: includes/LLC_GeoIP_Countries.class.php:776
-#: includes/LLC_GeoIP_Countries.class.php:1031
+#: includes/LLC-GeoIP-Countries.class.php:521
+#: includes/LLC-GeoIP-Countries.class.php:776
+#: includes/LLC-GeoIP-Countries.class.php:1031
 msgid "Tokelau"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:522
-#: includes/LLC_GeoIP_Countries.class.php:777
-#: includes/LLC_GeoIP_Countries.class.php:1032
+#: includes/LLC-GeoIP-Countries.class.php:522
+#: includes/LLC-GeoIP-Countries.class.php:777
+#: includes/LLC-GeoIP-Countries.class.php:1032
 msgid "Timor-Leste"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:523
-#: includes/LLC_GeoIP_Countries.class.php:778
-#: includes/LLC_GeoIP_Countries.class.php:1033
+#: includes/LLC-GeoIP-Countries.class.php:523
+#: includes/LLC-GeoIP-Countries.class.php:778
+#: includes/LLC-GeoIP-Countries.class.php:1033
 msgid "Turkmenistan"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:524
-#: includes/LLC_GeoIP_Countries.class.php:779
-#: includes/LLC_GeoIP_Countries.class.php:1034
+#: includes/LLC-GeoIP-Countries.class.php:524
+#: includes/LLC-GeoIP-Countries.class.php:779
+#: includes/LLC-GeoIP-Countries.class.php:1034
 msgid "Tunisia"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:525
-#: includes/LLC_GeoIP_Countries.class.php:780
-#: includes/LLC_GeoIP_Countries.class.php:1035
+#: includes/LLC-GeoIP-Countries.class.php:525
+#: includes/LLC-GeoIP-Countries.class.php:780
+#: includes/LLC-GeoIP-Countries.class.php:1035
 msgid "Tonga"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:526
-#: includes/LLC_GeoIP_Countries.class.php:781
-#: includes/LLC_GeoIP_Countries.class.php:1036
+#: includes/LLC-GeoIP-Countries.class.php:526
+#: includes/LLC-GeoIP-Countries.class.php:781
+#: includes/LLC-GeoIP-Countries.class.php:1036
 msgid "Turkey"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:527
-#: includes/LLC_GeoIP_Countries.class.php:782
-#: includes/LLC_GeoIP_Countries.class.php:1037
+#: includes/LLC-GeoIP-Countries.class.php:527
+#: includes/LLC-GeoIP-Countries.class.php:782
+#: includes/LLC-GeoIP-Countries.class.php:1037
 msgid "Trinidad and Tobago"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:528
-#: includes/LLC_GeoIP_Countries.class.php:783
-#: includes/LLC_GeoIP_Countries.class.php:1038
+#: includes/LLC-GeoIP-Countries.class.php:528
+#: includes/LLC-GeoIP-Countries.class.php:783
+#: includes/LLC-GeoIP-Countries.class.php:1038
 msgid "Tuvalu"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:529
-#: includes/LLC_GeoIP_Countries.class.php:784
-#: includes/LLC_GeoIP_Countries.class.php:1039
+#: includes/LLC-GeoIP-Countries.class.php:529
+#: includes/LLC-GeoIP-Countries.class.php:784
+#: includes/LLC-GeoIP-Countries.class.php:1039
 msgid "Taiwan"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:530
-#: includes/LLC_GeoIP_Countries.class.php:785
-#: includes/LLC_GeoIP_Countries.class.php:1040
+#: includes/LLC-GeoIP-Countries.class.php:530
+#: includes/LLC-GeoIP-Countries.class.php:785
+#: includes/LLC-GeoIP-Countries.class.php:1040
 msgid "United Republic of Tanzania"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:531
-#: includes/LLC_GeoIP_Countries.class.php:786
-#: includes/LLC_GeoIP_Countries.class.php:1041
+#: includes/LLC-GeoIP-Countries.class.php:531
+#: includes/LLC-GeoIP-Countries.class.php:786
+#: includes/LLC-GeoIP-Countries.class.php:1041
 msgid "Ukraine"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:532
-#: includes/LLC_GeoIP_Countries.class.php:787
-#: includes/LLC_GeoIP_Countries.class.php:1042
+#: includes/LLC-GeoIP-Countries.class.php:532
+#: includes/LLC-GeoIP-Countries.class.php:787
+#: includes/LLC-GeoIP-Countries.class.php:1042
 msgid "Uganda"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:533
-#: includes/LLC_GeoIP_Countries.class.php:788
-#: includes/LLC_GeoIP_Countries.class.php:1043
+#: includes/LLC-GeoIP-Countries.class.php:533
+#: includes/LLC-GeoIP-Countries.class.php:788
+#: includes/LLC-GeoIP-Countries.class.php:1043
 msgid "United States Minor Outlying Islands"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:534
-#: includes/LLC_GeoIP_Countries.class.php:789
-#: includes/LLC_GeoIP_Countries.class.php:1044
+#: includes/LLC-GeoIP-Countries.class.php:534
+#: includes/LLC-GeoIP-Countries.class.php:789
+#: includes/LLC-GeoIP-Countries.class.php:1044
 msgid "United States"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:535
-#: includes/LLC_GeoIP_Countries.class.php:790
-#: includes/LLC_GeoIP_Countries.class.php:1045
+#: includes/LLC-GeoIP-Countries.class.php:535
+#: includes/LLC-GeoIP-Countries.class.php:790
+#: includes/LLC-GeoIP-Countries.class.php:1045
 msgid "Uruguay"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:536
-#: includes/LLC_GeoIP_Countries.class.php:791
-#: includes/LLC_GeoIP_Countries.class.php:1046
+#: includes/LLC-GeoIP-Countries.class.php:536
+#: includes/LLC-GeoIP-Countries.class.php:791
+#: includes/LLC-GeoIP-Countries.class.php:1046
 msgid "Uzbekistan"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:537
-#: includes/LLC_GeoIP_Countries.class.php:792
-#: includes/LLC_GeoIP_Countries.class.php:1047
+#: includes/LLC-GeoIP-Countries.class.php:537
+#: includes/LLC-GeoIP-Countries.class.php:792
+#: includes/LLC-GeoIP-Countries.class.php:1047
 msgid "Holy See (Vatican City State)"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:538
-#: includes/LLC_GeoIP_Countries.class.php:793
-#: includes/LLC_GeoIP_Countries.class.php:1048
+#: includes/LLC-GeoIP-Countries.class.php:538
+#: includes/LLC-GeoIP-Countries.class.php:793
+#: includes/LLC-GeoIP-Countries.class.php:1048
 msgid "Saint Vincent and the Grenadines"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:539
-#: includes/LLC_GeoIP_Countries.class.php:794
-#: includes/LLC_GeoIP_Countries.class.php:1049
+#: includes/LLC-GeoIP-Countries.class.php:539
+#: includes/LLC-GeoIP-Countries.class.php:794
+#: includes/LLC-GeoIP-Countries.class.php:1049
 msgid "Venezuela"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:540
-#: includes/LLC_GeoIP_Countries.class.php:795
-#: includes/LLC_GeoIP_Countries.class.php:1050
+#: includes/LLC-GeoIP-Countries.class.php:540
+#: includes/LLC-GeoIP-Countries.class.php:795
+#: includes/LLC-GeoIP-Countries.class.php:1050
 msgid "British Virgin Islands"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:541
-#: includes/LLC_GeoIP_Countries.class.php:796
-#: includes/LLC_GeoIP_Countries.class.php:1051
+#: includes/LLC-GeoIP-Countries.class.php:541
+#: includes/LLC-GeoIP-Countries.class.php:796
+#: includes/LLC-GeoIP-Countries.class.php:1051
 msgid "U.S. Virgin Islands"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:542
-#: includes/LLC_GeoIP_Countries.class.php:797
-#: includes/LLC_GeoIP_Countries.class.php:1052
+#: includes/LLC-GeoIP-Countries.class.php:542
+#: includes/LLC-GeoIP-Countries.class.php:797
+#: includes/LLC-GeoIP-Countries.class.php:1052
 msgid "Vietnam"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:543
-#: includes/LLC_GeoIP_Countries.class.php:798
-#: includes/LLC_GeoIP_Countries.class.php:1053
+#: includes/LLC-GeoIP-Countries.class.php:543
+#: includes/LLC-GeoIP-Countries.class.php:798
+#: includes/LLC-GeoIP-Countries.class.php:1053
 msgid "Vanuatu"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:544
-#: includes/LLC_GeoIP_Countries.class.php:799
-#: includes/LLC_GeoIP_Countries.class.php:1054
+#: includes/LLC-GeoIP-Countries.class.php:544
+#: includes/LLC-GeoIP-Countries.class.php:799
+#: includes/LLC-GeoIP-Countries.class.php:1054
 msgid "Wallis and Futuna"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:545
-#: includes/LLC_GeoIP_Countries.class.php:800
-#: includes/LLC_GeoIP_Countries.class.php:1055
+#: includes/LLC-GeoIP-Countries.class.php:545
+#: includes/LLC-GeoIP-Countries.class.php:800
+#: includes/LLC-GeoIP-Countries.class.php:1055
 msgid "Samoa"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:546
-#: includes/LLC_GeoIP_Countries.class.php:801
-#: includes/LLC_GeoIP_Countries.class.php:1056
+#: includes/LLC-GeoIP-Countries.class.php:546
+#: includes/LLC-GeoIP-Countries.class.php:801
+#: includes/LLC-GeoIP-Countries.class.php:1056
 msgid "Yemen"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:547
-#: includes/LLC_GeoIP_Countries.class.php:802
-#: includes/LLC_GeoIP_Countries.class.php:1057
+#: includes/LLC-GeoIP-Countries.class.php:547
+#: includes/LLC-GeoIP-Countries.class.php:802
+#: includes/LLC-GeoIP-Countries.class.php:1057
 msgid "Mayotte"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:548
-#: includes/LLC_GeoIP_Countries.class.php:803
-#: includes/LLC_GeoIP_Countries.class.php:1058
+#: includes/LLC-GeoIP-Countries.class.php:548
+#: includes/LLC-GeoIP-Countries.class.php:803
+#: includes/LLC-GeoIP-Countries.class.php:1058
 msgid "South Africa"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:549
-#: includes/LLC_GeoIP_Countries.class.php:804
-#: includes/LLC_GeoIP_Countries.class.php:1059
+#: includes/LLC-GeoIP-Countries.class.php:549
+#: includes/LLC-GeoIP-Countries.class.php:804
+#: includes/LLC-GeoIP-Countries.class.php:1059
 msgid "Zambia"
 msgstr ""
 
-#: includes/LLC_GeoIP_Countries.class.php:550
-#: includes/LLC_GeoIP_Countries.class.php:805
-#: includes/LLC_GeoIP_Countries.class.php:1060
+#: includes/LLC-GeoIP-Countries.class.php:550
+#: includes/LLC-GeoIP-Countries.class.php:805
+#: includes/LLC-GeoIP-Countries.class.php:1060
 msgid "Zimbabwe"
 msgstr ""
 
-#: includes/LLC_GeoIP_Tools.class.php:70
+#: includes/LLC-GeoIP-Tools.class.php:70
 msgid "You have not specified a GeoIP database."
 msgstr ""
 
-#: includes/LLC_GeoIP_Tools.class.php:73
+#: includes/LLC-GeoIP-Tools.class.php:73
 msgid ""
 "The specified GeoIP database file does not exist or your file access "
 "permissons aren't sufficient."
 msgstr ""
 
-#: includes/LLC_GeoIP_Tools.class.php:76
+#: includes/LLC-GeoIP-Tools.class.php:76
 msgid "The specified GeoIP database file is not readable."
 msgstr ""
 
-#: includes/LLC_GeoIP_Tools.class.php:79 includes/LLC_GeoIP_Tools.class.php:90
+#: includes/LLC-GeoIP-Tools.class.php:79 includes/LLC-GeoIP-Tools.class.php:90
 msgid "The specified GeoIP database file is invalid."
 msgstr ""
 
-#: includes/LLC_GeoIP_Tools.class.php:83
+#: includes/LLC-GeoIP-Tools.class.php:83
 msgid "The GeoIP database file (published on %s) is valid."
 msgstr ""
 
-#: public/LLC_Public.class.php:115
+#: public/LLC-Public.class.php:115
 #. translators: %s stands for the country name the user tries to login from
 msgid "Login not allowed from your country (%s)!"
 msgstr ""

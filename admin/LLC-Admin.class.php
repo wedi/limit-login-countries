@@ -31,7 +31,7 @@ class LLC_Admin {
 			array( $this, 'plugin_settings_link' ), 10, 1
 		);
 
-		require_once( __DIR__ . '/includes/LLC_Options_Page.class.php' );
+		require_once( __DIR__ . '/includes/LLC-Options-Page.class.php' );
 
 		// we add a callback on admin_init hook to register our settings
 		add_action( 'admin_init', array( 'LLC_Options_Page', 'register_settings' ) );
@@ -40,7 +40,7 @@ class LLC_Admin {
 		// we add a callback on admin_menu hook to add our options page
 		add_action( 'admin_menu', array( 'LLC_Options_Page', 'settings_menu' ) );
 
-		require_once( __DIR__ . '/../includes/LLC_Admin_Notice.class.php' );
+		require_once( __DIR__ . '/../includes/LLC-Admin-Notice.class.php' );
 		add_action( 'admin_notices', array( 'LLC_Admin_Notice', 'display_notices' ) );
 
 	}
