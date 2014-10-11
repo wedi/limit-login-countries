@@ -266,7 +266,9 @@ class LLC_Options_Page {
 	 */
 	public static function settings_menu() {
 
-		add_options_page( __( 'Limit Login Countries Options', 'limit-login-countries' ),
+		add_options_page(
+			__( 'Limit Login Countries Options', 'limit-login-countries' ),
+			// translators: this is the menu title for the plugin's settings page in the WordPress admin area.
 			__( 'Login Countries', 'limit-login-countries' ),
 			'manage_options',
 			'limit-login-countries',
@@ -292,7 +294,10 @@ class LLC_Options_Page {
 
 		<div class="wrap" id="llc-options-page">
 			<div id="icon-options-general" class="icon32"><br></div>
-			<h2><?php echo __( 'Settings', 'limit-login-countries' ) . '&nbsp;&rsaquo;&nbsp;' . __( 'Limit Login Countries', 'limit-login-countries' ); ?></h2>
+			<h2><?php
+				echo __( 'Settings', 'limit-login-countries' ) . '&nbsp;&rsaquo;&nbsp;' .
+					// translators: This translation of the plugin name is used as the title of the plugin's settings page in the WordPress Admin area
+					__( 'Limit Login Countries', 'limit-login-countries' ); ?></h2>
 
 			<form action="<?= admin_url('options.php'); ?>" method="post"><?php
 				settings_fields( 'limit-login-countries' );

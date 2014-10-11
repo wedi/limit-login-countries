@@ -25,7 +25,7 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 
 #: admin/includes/LLC_Options_Page.class.php:60
-#: admin/includes/LLC_Options_Page.class.php:295
+#: admin/includes/LLC_Options_Page.class.php:298
 msgid "Settings"
 msgstr ""
 
@@ -122,15 +122,17 @@ msgstr ""
 msgid "If list is empty, no login restriction applies."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:269
+#: admin/includes/LLC_Options_Page.class.php:270
 msgid "Limit Login Countries Options"
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:270
+#: admin/includes/LLC_Options_Page.class.php:272
+#. translators: this is the menu title for the plugin's settings page in the
+#. WordPress admin area.
 msgid "Login Countries"
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:290
+#: admin/includes/LLC_Options_Page.class.php:292
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
