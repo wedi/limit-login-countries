@@ -34,8 +34,9 @@ class LLC_Admin_Notice {
 		if ( ! in_array( $notice, $notices ) ) {
 			$notices[] = $notice;
 		}
-		update_option( LLC_Admin_Notice::$option_name, $notices );
+		update_option( self::$option_name, $notices );
 	}
+
 
 	/**
 	 * Displays registered admin_notices. Runs on admin_notices hook.
@@ -44,7 +45,7 @@ class LLC_Admin_Notice {
 	 */
 	public static function display_notices() {
 
-		if ( $notices = get_option( LLC_Admin_Notice::$option_name ) ) {
+		if ( $notices = get_option( self::$option_name ) ) {
 			foreach ( $notices as $notice ) {
 				if ( ! isset( $notice['capability'] ) or empty( $notice['capability'] ) or current_user_can( $notice['capability'] ) ) {
 					switch ( $notice['type'] ) {
@@ -63,7 +64,7 @@ class LLC_Admin_Notice {
 					echo "<div class='$class'><p><strong>Limit Login Countries: $notice[text]</strong></p></div>";
 				}
 			}
-			delete_option( LLC_Admin_Notice::$option_name );
+			delete_option( self::$option_name );
 		}
 	}
 }

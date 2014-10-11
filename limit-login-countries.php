@@ -80,7 +80,7 @@ class Limit_Login_Countries {
 	 */
 	public function load_plugin_textdomain() {
 		load_plugin_textdomain(
-			Limit_Login_Countries::$slug,
+			self::$slug,
 			false,
 			dirname( plugin_basename( __FILE__ ) ) . '/languages/'
 		);

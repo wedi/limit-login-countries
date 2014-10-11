@@ -39,9 +39,9 @@ class LLC_GeoIP_Tools {
 			return false;
 		}
 
-		if ( LLC_GeoIP_Tools::isIPv4() ) {
+		if ( self::isIPv4() ) {
 			$geoInfo = geoip_record_by_addr( $gi, $_SERVER['REMOTE_ADDR'] );
-		} elseif ( LLC_GeoIP_Tools::isIPv6() ) {
+		} elseif ( self::isIPv6() ) {
 			$geoInfo = geoip_record_by_addr_v6( $gi, $_SERVER['REMOTE_ADDR'] );
 		} else {
 			$geoInfo = false;
