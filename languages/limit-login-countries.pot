@@ -1692,7 +1692,7 @@ msgstr ""
 msgid "The GeoIP database file (published on %s) is valid."
 msgstr ""
 
-#: public/LLC-Public.class.php:115
+#: public/LLC-Public.class.php:119
 #. translators: %s stands for the country name the user tries to login from
 msgid "Login not allowed from your country (%s)!"
 msgstr ""

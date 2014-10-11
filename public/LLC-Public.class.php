@@ -75,23 +75,27 @@ class LLC_Public {
 		# set own error handler to gracefully handle errors triggered by geoip lookup
 		set_error_handler(
 			function ( $errno, $errstr, $errfile, $errline ) {
-
+				// Having no whitespace here looks a bit messy but phpcs has an
+				// issue with empty lines
+				// https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/249
 				if ( $errno & E_USER_ERROR ) {
 					require_once( __DIR__ . '/../includes/LLC-Admin-Notice.class.php' );
 					LLC_Admin_Notice::add_notice( $errstr, 'error' );
 					error_log( "Fatal error: $errstr in $errfile on line $errline" );
-
 					return true;
-
 				} elseif ( $errno & ( E_WARNING | E_USER_WARNING ) ) {
 					# we collect warnings too, so we won't need any @-operators.
 					require_once( __DIR__ . '/../includes/LLC-Admin-Notice.class.php' );
 					LLC_Admin_Notice::add_notice( $errstr, 'warning' );
 					error_log( "Warning: $errstr in $errfile on line $errline" );
-
+					return true;
+				} elseif ( ( $errno & E_NOTICE ) and ( 'geoip.inc' === substr( $errfile, - strlen( 'geoip.inc' ) ) ) ) {
+					# suppress notices usually preceding a E_USER_ERROR
+					if ( error_reporting() & E_NOTICE ) {
+						error_log( "Notice: $errstr in $errfile on line $errline" );
+					}
 					return true;
 				}
-
 				return false;
 			}
 		);
