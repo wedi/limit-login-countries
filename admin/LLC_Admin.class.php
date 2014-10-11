@@ -80,16 +80,15 @@ class LLC_Admin {
 		wp_enqueue_script( 'limit-login-countries', $admin_url . 'js/limit-login-countries.js', array(
 			'textext-autocomplete',
 			'textext-tags',
-			'textext-filter'
+			'textext-filter',
 		), '0.4', true );
-
 
 		wp_register_style( 'textext-core', $url . 'vendor/TextExt/css/textext.core.css', array(), '0.4' );
 		wp_register_style( 'textext-autocomplete', $url . 'vendor/TextExt/css/textext.plugin.autocomplete.css', array( 'textext-core' ), '0.4' );
 		wp_register_style( 'textext-tags', $url . 'vendor/TextExt/css/textext.plugin.tags.css', array( 'textext-core' ), '0.4' );
 		wp_enqueue_style( 'limit-login-countries', $admin_url . 'css/limit-login-countries.css', array(
 			'textext-autocomplete',
-			'textext-tags'
+			'textext-tags',
 		), '0.4' );
 	}
 

@@ -2,7 +2,9 @@
 <?php
 
 /**
- * This script reads country data from GeoIP API and creates 'includes/LLC_GeoIP_Countries.class.php' with translatable country data arrays
+ * This script reads country data from GeoIP API and creates
+ * 'includes/LLC_GeoIP_Countries.class.php' with translatable
+ * country data arrays
  *
  * @package Limit Login Countries
  * @author: Dirk Weise
@@ -11,10 +13,9 @@
  */
 
 $output_file = '/includes/LLC_GeoIP_Countries.class.php';
-$input_file  = '/vendor/geoip/geoip.inc';
 
-echo "Extracting country data from $input_file ... ";
-require_once( dirname( __DIR__ ) . $input_file );
+echo 'Extracting country data from vendor/geoip/geoip.inc ... ';
+require_once( __DIR__ . '/../vendor/geoip/geoip.inc' );
 echo 'OK.' . chr( 10 );
 
 $g = new GeoIP();
@@ -28,11 +29,12 @@ $r = <<<'EOF'
 <?php
 
 /**
- * Contains translatable country data, programmatically extracted from '/vendor/geoip/geoip.inc'
+ * Contains translatable country data, programmatically extracted from
+ * '/vendor/geoip/geoip.inc'
  *
  * @package Limit Login Countries
- * @author: Dirk Weise
- * @since 0.4
+ * @author  Dirk Weise
+ * @since   0.4
  */
 class LLC_GeoIP_Countries {
 
@@ -56,12 +58,22 @@ class LLC_GeoIP_Countries {
 	 */
 	public $country_codes =
 EOF;
-$r .= ' ' . preg_replace( "/^  /m", "		", var_export( $countryCodes, true ) );
+
+$v = var_export( $countryCodes, true );
+// we do some transformations to make the output look nice / adhere to the coding style
+$v = preg_replace( '/^  /m', '		', $v );
+$v = preg_replace( '/array \(/', 'array(', $v );
+$v = preg_replace( '/^\)/m', '	)', $v );
+$v = preg_replace( '/\t\t([0-9]{1,1}) =>/m', '		\1   =>', $v );
+$v = preg_replace( '/\t\t([0-9]{2,2}) =>/m', '		\1  =>', $v );
+
+$r .= ' ' . $v . ';';
 $r .= <<<'EOF'
-;
+
 
 	/**
-	 *	Constructor fills our country data arrays. Static definition is not possible because we want to translate all strings.
+	 * Constructor fills our country data arrays. Static definition is not
+	 * possible because we want to translate all strings.
 	 *
 	 * @since 0.4
 	 */
@@ -88,9 +100,9 @@ foreach ( $countryCodeNumbers as $countryCode => $countryCodeNumber ) {
 	}
 
 	// we create
-	$r .= chr( 9 ) . chr( 9 ) . '$this->country_data[\'' . $countryCode . '\'] = __(\'' . addslashes( $cCountryNames ) . '\', \'limit-login-countries\');' . chr( 10 );
-	$r2 .= chr( 9 ) . chr( 9 ) . '$this->country_data_r[__(\'' . addslashes( $cCountryNames ) . '\', \'limit-login-countries\')] = \'' . $countryCode . '\';' . chr( 10 );
-	$r3 .= chr( 9 ) . chr( 9 ) . '$this->country_names[] = __(\'' . addslashes( $cCountryNames ) . '\', \'limit-login-countries\');' . chr( 10 );
+	$r .= chr( 9 ) . chr( 9 ) . '$this->country_data[\'' . $countryCode . '\'] = __( \'' . addslashes( $cCountryNames ) . '\', \'limit-login-countries\' );' . chr( 10 );
+	$r2 .= chr( 9 ) . chr( 9 ) . '$this->country_data_r[ __( \'' . addslashes( $cCountryNames ) . '\', \'limit-login-countries\' ) ] = \'' . $countryCode . '\';' . chr( 10 );
+	$r3 .= chr( 9 ) . chr( 9 ) . '$this->country_names[] = __( \'' . addslashes( $cCountryNames ) . '\', \'limit-login-countries\' );' . chr( 10 );
 }
 
 $r .= chr( 10. ) . $r2;
@@ -105,7 +117,7 @@ $r .= <<<'EOF'
 	 * @since 0.6
 	 */
 	public function wp_localize_country_codes() {
-		wp_localize_script('limit-login-countries', 'llc_country_codes', $this->country_codes);
+		wp_localize_script( 'limit-login-countries', 'LLC_COUNTRY_CODES', $this->country_codes );
 	}
 }
 
@@ -115,7 +127,7 @@ echo "Writing to $output_file ... ";
 $of = fopen( dirname( __DIR__ ) . $output_file, 'w' ) or die( 'ERROR: Could not open output file for writing!' . chr( 10 ) );
 
 if ( file_exists( dirname( __DIR__ ) . $output_file ) ) {
-	echo "WARNING! Output file exists and will be overwritten! ";
+	echo 'WARNING! Output file exists and will be overwritten! ';
 }
 
 fwrite( $of, $r );

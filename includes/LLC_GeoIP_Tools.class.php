@@ -20,7 +20,7 @@ class LLC_GeoIP_Tools {
 	}
 
 	/**
-     * Look up visitor geo information in GeoIP database.
+	 * Look up visitor geo information in GeoIP database.
 	 *
 	 * @since 0.4
 	 *
@@ -29,7 +29,7 @@ class LLC_GeoIP_Tools {
 	 * @return geoiprecord|null|false Returns geoiprecord on sucess, NULL if no
 	 *                                geo info is available and FALSE on error.
 	 */
-	public static function getGeoInfo( $geoIPDatabase ) {
+	public static function get_geo_info( $geoIPDatabase ) {
 
 		require_once( dirname( __DIR__ ) . '/vendor/geoip/geoipcity.inc' );
 
@@ -39,9 +39,9 @@ class LLC_GeoIP_Tools {
 			return false;
 		}
 
-		if ( self::isIPv4() ) {
+		if ( self::is_ip_v4() ) {
 			$geoInfo = geoip_record_by_addr( $gi, $_SERVER['REMOTE_ADDR'] );
-		} elseif ( self::isIPv6() ) {
+		} elseif ( self::is_ip_v6() ) {
 			$geoInfo = geoip_record_by_addr_v6( $gi, $_SERVER['REMOTE_ADDR'] );
 		} else {
 			$geoInfo = false;
@@ -152,7 +152,7 @@ class LLC_GeoIP_Tools {
 	 *
 	 * @return bool True if user's IP address is IPv4, false otherwise.
 	 */
-	public static function isIPv4() {
+	public static function is_ip_v4() {
 		return false !== filter_var( $_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 );
 	}
 
@@ -163,7 +163,7 @@ class LLC_GeoIP_Tools {
 	 *
 	 * @return bool True if user's IP address is IPv6, false otherwise.
 	 */
-	public static function isIPv6() {
+	public static function is_ip_v6() {
 		return false !== filter_var( $_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6 );
 	}
 
@@ -183,7 +183,7 @@ class LLC_GeoIP_Tools {
 
 		$wpud = wp_upload_dir();
 		$wpud = $wpud['basedir'];
-		if ( false === strpos( $wpud, $search_paths[0] ) ){
+		if ( false === strpos( $wpud, $search_paths[0] ) ) {
 			$search_paths[] = $wpud;
 		}
 
@@ -199,8 +199,8 @@ class LLC_GeoIP_Tools {
 			foreach ( $iterator as $file ) {
 				$filepath = $file->getPathInfo() . DIRECTORY_SEPARATOR . $file->getBasename();
 				$res[ realpath( $filepath ) ] = array( 'filepath' => $filepath, 'CTime' => $file->getCTime() );
-				}
-			foreach( $res as $key => $r ) {
+			}
+			foreach ( $res as $key => $r ) {
 				if ( self::is_valid_geoip_database( $r['filepath'], $msg, $ts ) ) {
 					$res[ $key ]['publish_date'] = $ts;
 				} else {
@@ -208,6 +208,7 @@ class LLC_GeoIP_Tools {
 				}
 			}
 		}
+
 		return $res;
 	}
 
@@ -241,8 +242,9 @@ class GeoIPDatabaseSearchFilter extends RecursiveFilterIterator {
 		}
 
 		// allow directories, otherwise we cannot recurse
-		if ( $this->current()->isDir() and $this->current()->isReadable() and $this->current()->isExecutable() )
+		if ( $this->current()->isDir() and $this->current()->isReadable() and $this->current()->isExecutable() ) {
 			return true;
+		}
 
 		if ( $this->current()->isReadable() and self::looks_like_geoip_db_file( $this->current()->getPathname() ) ) {
 			return true;

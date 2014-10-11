@@ -74,7 +74,7 @@ class LLC_Options_Page {
 		// we register all our settings
 		register_setting( 'limit-login-countries', 'llc_geoip_database_path', array(
 			'LLC_Options_PAGE',
-			'geoip_database_path_validate'
+			'geoip_database_path_validate',
 		) );
 		register_setting( 'limit-login-countries', 'llc_blacklist', array( 'LLC_Options_PAGE', 'blacklist_validate' ) );
 		register_setting( 'limit-login-countries', 'llc_countries', array( 'LLC_Options_PAGE', 'countries_validate' ) );
@@ -82,33 +82,33 @@ class LLC_Options_Page {
 		// we add settings sections
 		add_settings_section( 'llc-general', __( 'General Settings', 'limit-login-countries' ), array(
 			'LLC_Options_Page',
-			'general_settings_callback'
+			'general_settings_callback',
 		), 'limit-login-countries' );
 		add_settings_section( 'llc-geoip', __( 'GeoIP Database', 'limit-login-countries' ), array(
 			'LLC_Options_Page',
-			'geoip_settings_callback'
+			'geoip_settings_callback',
 		), 'limit-login-countries' );
 
 		// we add settings to our settings sections
 		add_settings_field( 'llc_blacklist', __( 'Act as:', 'limit-login-countries' ), array(
 			'LLC_Options_Page',
-			'blacklist_callback'
+			'blacklist_callback',
 		), 'limit-login-countries', 'llc-general', array( 'label_for' => 'llc_blacklist' ) );
 
 		// we figure out the appropriate label
-		if ( get_option( 'llc_blacklist', 'whitelist' ) === 'whitelist' ) {
+		if ( 'whitelist' === get_option( 'llc_blacklist', 'whitelist' ) ) {
 			$label = __( 'Exclusive list of allowed countries:', 'limit-login-countries' );
 		} else {
 			$label = __( 'Exclusive list of rejected countries:', 'limit-login-countries' );
 		}
 		add_settings_field( 'llc_countries', $label, array(
 			'LLC_Options_Page',
-			'countries_callback'
+			'countries_callback',
 		), 'limit-login-countries', 'llc-general', array( 'label_for' => 'llc_countries' ) );
 
 		add_settings_field( 'llc_geoip_database_path', __( 'GeoIP database file:', 'limit-login-countries' ), array(
 			'LLC_Options_Page',
-			'geoip_database_path_callback'
+			'geoip_database_path_callback',
 		), 'limit-login-countries', 'llc-geoip', array( 'label_for' => 'llc_geoip_database_path' ) );
 	}
 
@@ -172,9 +172,9 @@ class LLC_Options_Page {
 				return $current_db_path;
 			} elseif ( ! empty( $new_db_path ) ) {
 				return $new_db_path;
-    		} else {
-    				return '';
-    		}
+			} else {
+				return '';
+			}
 		} else {
 
 			return $new_db_path;
@@ -223,7 +223,7 @@ class LLC_Options_Page {
 	public static function countries_callback() {
 
 		$setting = esc_attr( get_option( 'llc_countries' ) );
-		$r       = "<input type='text' id='llc_countries' name='llc_countries' value='$setting'>";
+		$r  = "<input type='text' id='llc_countries' name='llc_countries' value='$setting'>";
 		$r .= "<div id='llc_test' />";
 
 		$r .= '<ul>';
@@ -233,7 +233,6 @@ class LLC_Options_Page {
 		$r .= '</ul>';
 
 		echo $r;
-
 
 		$llc_countries_label['whitelist'] = __( 'Exclusive list of allowed countries:', 'limit-login-countries' );
 		$llc_countries_label['blacklist'] = __( 'Exclusive list of rejected countries:', 'limit-login-countries' );
@@ -246,8 +245,7 @@ class LLC_Options_Page {
 
 	public static function countries_validate( $input ) {
 
-
-		$countries = array_unique( explode( ',', trim( strtoupper( preg_replace( "/[^,a-zA-Z]/", "", $input ) ), ',' ) ) );
+		$countries = array_unique( explode( ',', trim( strtoupper( preg_replace( '/[^,a-zA-Z]/', '', $input ) ), ',' ) ) );
 		require_once( dirname( dirname( __DIR__ ) ) . '/includes/LLC_GeoIP_Countries.class.php' );
 		$gc = new LLC_GeoIP_Countries();
 
@@ -262,7 +260,7 @@ class LLC_Options_Page {
 	 * Adds our options page to the admin area.
 	 * Callback function for WP's hook 'admin_menu'.
 	 *
-	 * @see    LLC_Admin::__construct()
+	 * @see   LLC_Admin::__construct()
 	 * @since 0.3
 	 */
 	public static function settings_menu() {
@@ -294,13 +292,13 @@ class LLC_Options_Page {
 		}?>
 
 		<div class="wrap" id="llc-options-page">
-			<div id="icon-options-general" class="icon32"><br></div>
+			<div id="icon-options-general" class="icon32"><br></div><?php // The icon is outdated with MP6 in WP 4.0 but we keep it for backwards compatibility. ?>
 			<h2><?php
-				echo __( 'Settings', 'limit-login-countries' ) . '&nbsp;&rsaquo;&nbsp;' .
-					// translators: This translation of the plugin name is used as the title of the plugin's settings page in the WordPress Admin area
-					__( 'Limit Login Countries', 'limit-login-countries' ); ?></h2>
-
-			<form action="<?= admin_url('options.php'); ?>" method="post"><?php
+				echo __( 'Settings', 'limit-login-countries' ) . '&nbsp;&rsaquo;&nbsp;';
+				// translators: This translation of the plugin name is used as the title of the plugin's settings page in the WordPress Admin area
+				echo __( 'Limit Login Countries', 'limit-login-countries' );
+				?></h2>
+			<form action="<?php echo admin_url( 'options.php' ); ?>" method="post"><?php
 				settings_fields( 'limit-login-countries' );
 				do_settings_sections( 'limit-login-countries' );
 				submit_button();

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Encapsulates the public functionality of the plugin aka the login checking.
  *
@@ -25,7 +24,7 @@ class LLC_Public {
 	protected function __construct() {
 
 		// we add an init hook for loading options
-		add_action( 'init', array( $this, 'loadOptions' ) );
+		add_action( 'init', array( $this, 'load_options' ) );
 
 		// We add the authentication filter
 		add_filter( 'wp_authenticate_user', array( $this, 'limit_login_countries' ), 31, 1 );
@@ -54,7 +53,7 @@ class LLC_Public {
 	 *
 	 * @return void
 	 */
-	public function loadOptions() {
+	public function load_options() {
 		$this->options['geoip_database'] = get_option( 'llc_geoip_database_path' );
 		$this->options['blacklist']      = 'whitelist' === get_option( 'llc_blacklist', 'whitelist' ) ? false : true;
 		$this->options['countryList']    = explode( ',', get_option( 'llc_countries' ) );
@@ -91,13 +90,6 @@ class LLC_Public {
 					error_log( "Warning: $errstr in $errfile on line $errline" );
 
 					return true;
-
-				} elseif ( ( $errno & E_NOTICE ) and ( substr( $errfile, - strlen( 'geoip.inc' ) ) === 'geoip.inc' ) ) {
-					# suppress notices usually preceding a E_USER_ERROR
-					if ( error_reporting() & E_NOTICE )
-						error_log( "Notice: $errstr in $errfile on line $errline" );
-
-					return true;
 				}
 
 				return false;
@@ -109,8 +101,8 @@ class LLC_Public {
 			is_wp_error( $user )                            // there already is an authentication error
 			or ( defined( 'LIMIT_LOGIN_COUNTRIES_OVERRIDE' ) and true === LIMIT_LOGIN_COUNTRIES_OVERRIDE )    // override constant is defined
 			or empty( $this->options['countryList'] )       // there is no country set in options
-			or ! $this->geoLookUp()                         // there is no geo info available
-			or $this->isAllowedCountry()                    // the user's country is allowed
+			or ! $this->geo_look_up()                       // there is no geo info available
+			or $this->is_allowed_country()                  // the user's country is allowed
 		) {
 			return $user;
 		}
@@ -138,12 +130,12 @@ class LLC_Public {
 	 *
 	 * @return bool Returns TRUE on success and FALSE if there is no geo information available (e.g. localhost) or an error occurred.
 	 */
-	protected function geoLookUp() {
+	protected function geo_look_up() {
 
 		// we check whether geo info is already loaded
 		if ( ! is_object( $this->geoInfo ) ) {
 			require_once( dirname( __DIR__ ) . '/includes/LLC_GeoIP_Tools.class.php' );
-			$this->geoInfo = LLC_GeoIP_Tools::getGeoInfo( $this->options['geoip_database'] );
+			$this->geoInfo = LLC_GeoIP_Tools::get_geo_info( $this->options['geoip_database'] );
 		}
 
 		// return false if no info was found (e.g. localhost) or there was an error
@@ -157,7 +149,7 @@ class LLC_Public {
 	 *
 	 * @return bool Returns TRUE if visitor's country is allowed to login, FALSE if not.
 	 */
-	protected function isAllowedCountry() {
+	protected function is_allowed_country() {
 
 		return $this->options['blacklist'] xor in_array( $this->geoInfo->country_code, $this->options['countryList'] );
 	}
