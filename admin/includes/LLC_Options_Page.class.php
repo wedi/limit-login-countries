@@ -1,19 +1,21 @@
 <?php
 
 /**
- * Class LLC_Options_Page Contains helper functions for the plugin's settings page.
+ * Class LLC_Options_Page Contains helper functions for the plugin's settings
+ * page.
  *
  * This class encapsulates display and change of our plugin's options.
  *
  * @package Limit Login Countries
  * @author: Dirk Weise
- * @since: 0.3
+ * @since:  0.3
  *
  */
 class LLC_Options_Page {
 
 	/**
-	 * The constructor is declared private to make sure this helper class cannot be instantiated.
+	 * The constructor is declared private to make sure this helper class cannot
+	 * be instantiated.
 	 *
 	 * @since 0.3
 	 */
@@ -24,8 +26,7 @@ class LLC_Options_Page {
 	 * Check the current settings and display errors.
 	 * Fired on admin_init hook.
 	 *
-	 * @see LLC_Options_Page::init()
-	 * @see http://codex.wordpress.org/Settings_API
+	 * @see   LLC_Admin::__construct()
 	 * @since 0.3
 	 */
 	public static function check_settings() {
@@ -64,7 +65,7 @@ class LLC_Options_Page {
 	 * Registers all our settings with WP's settings API.
 	 * Callback function for WP's admin_init hook.
 	 *
-	 * @see LLC_Options_Page::init()
+	 * @see LLC_Admin::__construct()
 	 * @see http://codex.wordpress.org/Settings_API
 	 * @since 0.3
 	 */
@@ -261,7 +262,7 @@ class LLC_Options_Page {
 	 * Adds our options page to the admin area.
 	 * Callback function for WP's hook 'admin_menu'.
 	 *
-	 * @see LLC_Options_Page::init()
+	 * @see    LLC_Admin::__construct()
 	 * @since 0.3
 	 */
 	public static function settings_menu() {
@@ -280,7 +281,7 @@ class LLC_Options_Page {
 	 * Prints the actual settings page.
 	 * Callback function for add_option_page
 	 *
-	 * @see LLC_Options_Page::settings_menu()
+	 * @see   LLC_Options_Page::settings_menu()
 	 * @since 0.3
 	 *
 	 * @return bool

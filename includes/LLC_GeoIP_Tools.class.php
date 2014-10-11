@@ -1,7 +1,8 @@
 <?php
 
 /**
- * Class LLC_GeoIP_Tools Contains helper functions for handling the GeoIP database.
+ * Class LLC_GeoIP_Tools Contains helper functions for handling the GeoIP
+ * database.
  *
  * @package Limit Login Countries
  * @author: Dirk Weise
@@ -10,7 +11,8 @@
 class LLC_GeoIP_Tools {
 
 	/**
-	 *    The constructor is declared private to make sure this helper class cannot be instantiated.
+	 * The constructor is declared private to make sure this helper class
+	 * cannot be instantiated.
 	 *
 	 * @since 0.4
 	 */
@@ -18,13 +20,14 @@ class LLC_GeoIP_Tools {
 	}
 
 	/**
-	 * Looks up visitor's geo information in GeoIP database.
+     * Look up visitor geo information in GeoIP database.
 	 *
 	 * @since 0.4
 	 *
 	 * @param $geoIPDatabase
 	 *
-	 * @return bool|geoiprecord|null Returns geoiprecord on sucess, NULL if no geo info is available and FALSE on error.
+	 * @return geoiprecord|null|false Returns geoiprecord on sucess, NULL if no
+	 *                                geo info is available and FALSE on error.
 	 */
 	public static function getGeoInfo( $geoIPDatabase ) {
 
@@ -56,7 +59,8 @@ class LLC_GeoIP_Tools {
 	 *
 	 * @param $geoip_db_file string Path to GeoIP database file to check.
 	 * @param &$msg string Variable is set to a result message.
-	 * @param int &$build_date Variable is set to build date timestamp if GeoIP database is valid.
+	 * @param int &$build_date Variable is set to build date timestamp if GeoIP
+	 *                         database is valid.
 	 *
 	 * @return bool True if valid GeoIP database file given, false otherwise.
 	 */
@@ -90,11 +94,12 @@ class LLC_GeoIP_Tools {
 	}
 
 	/**
-	 * Return GeoIP database edition or false if no GeoIP database.
+	 * Return GeoIP database publish date or false if no GeoIP database.
 	 *
 	 * @param $geoip_db_file string Path to GeoIP database file to check.
 	 *
-	 * @return string|bool GeoIP database release date timestamp or false if no valid GeoIP database is recognized.
+	 * @return int|false GeoIP database release date timestamp or false if no
+	 *                     valid GeoIP database is recognized.
 	 */
 	public static function get_database_build_date( $geoip_db_file ) {
 
@@ -145,7 +150,7 @@ class LLC_GeoIP_Tools {
 	 *
 	 * @since 0.1
 	 *
-	 * @return bool Returns TRUE if user's IP address is an IPv4 address, FALSE otherwise.
+	 * @return bool True if user's IP address is IPv4, false otherwise.
 	 */
 	public static function isIPv4() {
 		return false !== filter_var( $_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 );
@@ -156,15 +161,17 @@ class LLC_GeoIP_Tools {
 	 *
 	 * @since 0.1
 	 *
-	 * @return bool Returns TRUE if user's IP address is an IPv6 address, FALSE otherwise.
+	 * @return bool True if user's IP address is IPv6, false otherwise.
 	 */
 	public static function isIPv6() {
 		return false !== filter_var( $_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6 );
 	}
 
 	/**
-	 * Searches for GeoIP database files
-	 * This function searches the current plugindirs folder as well as WordPress' upload folder for files with various geoip related names
+     * Search for GeoIP database files.
+	 *
+	 * This function searches the current plugindirs folder as well as
+	 * WordPress' upload folder for files with various geoip related names
 	 *
 	 * @since 0.4
 	 *
@@ -207,7 +214,8 @@ class LLC_GeoIP_Tools {
 }
 
 /**
- * A filter class for PHP's iterator that filters for typical GeoIP database file names.
+ * A filter class for PHP's iterator that filters for typical GeoIP database
+ * file names.
  *
  * @since 0.4
  *
@@ -221,7 +229,7 @@ class GeoIPDatabaseSearchFilter extends RecursiveFilterIterator {
 	 *
 	 * @since 0.4
 	 *
-	 * @return bool Return true if file passes our filter, false otherwise.
+	 * @return bool True if file passes our filter, false otherwise.
 	 */
 	public function accept() {
 
