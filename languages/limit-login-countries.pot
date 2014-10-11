@@ -24,48 +24,49 @@ msgstr ""
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
 
-#: admin/LLC_Admin.class.php:106 admin/includes/LLC_Options_Page.class.php:267
+#: admin/includes/LLC_Options_Page.class.php:60
+#: admin/includes/LLC_Options_Page.class.php:296
 msgid "Settings"
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:68
+#: admin/includes/LLC_Options_Page.class.php:82
 msgid "General Settings"
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:72
+#: admin/includes/LLC_Options_Page.class.php:86
 msgid "GeoIP Database"
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:78
+#: admin/includes/LLC_Options_Page.class.php:92
 msgid "Act as:"
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:85
-#: admin/includes/LLC_Options_Page.class.php:209
+#: admin/includes/LLC_Options_Page.class.php:99
+#: admin/includes/LLC_Options_Page.class.php:238
 msgid "Exclusive list of allowed countries:"
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:87
-#: admin/includes/LLC_Options_Page.class.php:210
+#: admin/includes/LLC_Options_Page.class.php:101
+#: admin/includes/LLC_Options_Page.class.php:239
 msgid "Exclusive list of rejected countries:"
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:94
+#: admin/includes/LLC_Options_Page.class.php:108
 msgid "GeoIP database file:"
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:102
+#: admin/includes/LLC_Options_Page.class.php:116
 msgid "Here you configure from which countries admin area logins are allowed."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:103
+#: admin/includes/LLC_Options_Page.class.php:117
 msgid ""
 "<strong>Remember:</strong> In case you lock yourself out of WP's admin area "
 "you can disable the country check by adding %s to your "
 "<code>wp-config.php</code> file."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:110
+#: admin/includes/LLC_Options_Page.class.php:124
 msgid ""
 "This plugin works with <a href=\"%1$s\" target=\"_blank\">Maxmind's GeoIP "
 "database</a>. If you are not a paying customer, you can download a lite "
@@ -73,13 +74,13 @@ msgid ""
 "Maxmind's GeoIP Lite database</a>."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:123
+#: admin/includes/LLC_Options_Page.class.php:149
 msgid ""
 "For your convenience we tried to find a database file. We searched this "
 "plugin's directory as well as your WordPress upload directory."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:131
+#: admin/includes/LLC_Options_Page.class.php:157
 msgid ""
 "Unfortunately we couldn't find any database file.<br/>If you are sure you "
 "uploaded (and unzipped) one, it is probably just named differently from "
@@ -87,65 +88,51 @@ msgid ""
 "database file above and we are all fine."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:143
-msgid ""
-"The specified GeoIP database file is outside the WordPress directory and "
-"thus not allowed for security reasons."
-msgstr ""
-
-#: admin/includes/LLC_Options_Page.class.php:145
-msgid "The specified GeoIP database file does not exist."
-msgstr ""
-
-#: admin/includes/LLC_Options_Page.class.php:147
-msgid "The specified GeoIP database file is not readable."
-msgstr ""
-
-#: admin/includes/LLC_Options_Page.class.php:170
+#: admin/includes/LLC_Options_Page.class.php:199
 msgid "Whitelist"
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:171
+#: admin/includes/LLC_Options_Page.class.php:200
 msgid "Blacklist"
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:175
+#: admin/includes/LLC_Options_Page.class.php:204
 msgid ""
 "<em>Whitelist</em> means login is allowed from the countries listed below "
 "only."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:176
+#: admin/includes/LLC_Options_Page.class.php:205
 msgid ""
 "<em>Blacklist</em> means login is not allowed from the countries listed "
 "below only."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:188
+#: admin/includes/LLC_Options_Page.class.php:217
 msgid "Invalid value. You must select either whitelist or blacklist."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:201
+#: admin/includes/LLC_Options_Page.class.php:230
 msgid "List of 2-digit country codes."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:202
+#: admin/includes/LLC_Options_Page.class.php:231
 msgid "Use a comma as delimiter."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:203
+#: admin/includes/LLC_Options_Page.class.php:232
 msgid "If list is empty, no login restriction applies."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:241
+#: admin/includes/LLC_Options_Page.class.php:270
 msgid "Limit Login Countries Options"
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:242
+#: admin/includes/LLC_Options_Page.class.php:271
 msgid "Login Countries"
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:262
+#: admin/includes/LLC_Options_Page.class.php:291
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
@@ -1681,6 +1668,28 @@ msgstr ""
 #: includes/LLC_GeoIP_Countries.class.php:803
 #: includes/LLC_GeoIP_Countries.class.php:1058
 msgid "Zimbabwe"
+msgstr ""
+
+#: includes/LLC_GeoIP_Tools.class.php:66
+msgid "You have not specified a GeoIP database."
+msgstr ""
+
+#: includes/LLC_GeoIP_Tools.class.php:69
+msgid ""
+"The specified GeoIP database file does not exist or your file access "
+"permissons aren't sufficient."
+msgstr ""
+
+#: includes/LLC_GeoIP_Tools.class.php:72
+msgid "The specified GeoIP database file is not readable."
+msgstr ""
+
+#: includes/LLC_GeoIP_Tools.class.php:75 includes/LLC_GeoIP_Tools.class.php:86
+msgid "The specified GeoIP database file is invalid."
+msgstr ""
+
+#: includes/LLC_GeoIP_Tools.class.php:79
+msgid "The GeoIP database file (published on %s) is valid."
 msgstr ""
 
 #: public/LLC_Public.class.php:123

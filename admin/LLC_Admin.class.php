@@ -35,6 +35,7 @@ class LLC_Admin {
 
 		// we add a callback on admin_init hook to register our settings
 		add_action( 'admin_init', array( 'LLC_Options_Page', 'register_settings' ) );
+		add_action( 'admin_init', array( 'LLC_Options_Page', 'check_settings' ) );
 
 		// we add a callback on admin_menu hook to add our options page
 		add_action( 'admin_menu', array( 'LLC_Options_Page', 'settings_menu' ) );
@@ -106,10 +107,8 @@ class LLC_Admin {
 	 */
 	public static function plugin_settings_link( $links ) {
 
-		$settings_link = sprintf( '<a href="' . admin_url( 'options-general.php?page=%s' ) . '">%s</a>', 'limit-login-countries', __( 'Settings', 'limit-login-countries' ) );
-		array_unshift( $links, $settings_link );
+		array_unshift( $links, LLC_Options_Page::get_link() );
 
 		return $links;
 	}
-
 }

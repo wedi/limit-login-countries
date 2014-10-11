@@ -21,6 +21,46 @@ class LLC_Options_Page {
 	}
 
 	/**
+	 * Check the current settings and display errors.
+	 * Fired on admin_init hook.
+	 *
+	 * @see LLC_Options_Page::init()
+	 * @see http://codex.wordpress.org/Settings_API
+	 * @since 0.3
+	 */
+	public static function check_settings() {
+
+		// check only if not just submitted
+		if ( ! isset( $_GET['settings-updated'] ) and ! isset( $_POST['llc_geoip_database_path'] ) ) {
+			// check llc_database_path
+			$db_path = get_option( 'llc_geoip_database_path' );
+			require_once( __DIR__ . '/../../includes/LLC_GeoIP_Tools.class.php' );
+			if ( ! LLC_GeoIP_Tools::is_valid_geoip_database( $db_path, $errmsg ) ) {
+				global $pagenow;
+				if ( 'options-general.php' === $pagenow and 'limit-login-countries' === $_GET['page'] ) {
+					add_settings_error( 'llc_geoip_database_path', 'geoip-database-not-existent', $errmsg );
+				} else {
+					require_once( __DIR__ . '/../../includes/LLC_Admin_Notice.class.php' );
+					LLC_Admin_Notice::add_notice( $errmsg . ' ' . self::get_link(), 'error' );
+				}
+			}
+		}
+		// TODO: check if admin will be locked out after logout
+	}
+
+	/**
+	 * Return link to the options page.
+	 *
+	 * @since 0.7
+	 *
+	 * @return string
+	 */
+	public static function get_link() {
+
+		return sprintf( '<a href="' . admin_url( 'options-general.php?page=%s' ) . '">%s</a>', 'limit-login-countries', __( 'Settings', 'limit-login-countries' ) );
+	}
+
+	/**
 	 * Registers all our settings with WP's settings API.
 	 * Callback function for WP's admin_init hook.
 	 *
@@ -88,8 +128,20 @@ class LLC_Options_Page {
 
 	public static function geoip_database_path_callback() {
 
-		$setting = esc_attr( get_option( 'llc_geoip_database_path' ) );
+		$geoip_database_path = get_option( 'llc_geoip_database_path' );
+
+		$setting = esc_attr( $geoip_database_path );
 		echo "<input type='text' id='llc_geoip_database_path' name='llc_geoip_database_path' value='$setting' size='60' />";
+
+		require_once( __DIR__ . '/../../includes/LLC_GeoIP_Tools.class.php' );
+		if ( LLC_GeoIP_Tools::is_valid_geoip_database( $geoip_database_path, $msg ) ) {
+			$dashicon = 'dashicons-yes';
+			$color    = '#7ad03a';
+		} else {
+			$dashicon = 'dashicons-no';
+			$color    = '#dd3d36';
+		}
+		echo sprintf( '<p><span style="color:%2$s;font-size:20px;" class="dashicons %3$s" title="%1$s"></span>&nbsp;<em>%1$s</em><br><br></p>', $msg, $color, $dashicon );
 
 		if ( '' === $setting ) {
 			require_once( dirname( dirname( __DIR__ ) ) . '/includes/LLC_GeoIP_Tools.class.php' );
@@ -108,22 +160,25 @@ class LLC_Options_Page {
 
 	}
 
-	public static function geoip_database_path_validate( $input ) {
+	public static function geoip_database_path_validate( $new_db_path ) {
 
-		$output = get_option( 'llc_geoip_database_path' );
-		$input  = realpath( $input );
+		$current_db_path = get_option( 'llc_geoip_database_path' );
 
-		if ( 0 !== stripos( $input, ABSPATH ) ) {
-			add_settings_error( 'llc_geoip_database_path', 'geoip-database-not-existent', __( 'The specified GeoIP database file is outside the WordPress directory and thus not allowed for security reasons.', 'limit-login-countries' ) );
-		} elseif ( ! file_exists( $input ) ) {
-			add_settings_error( 'llc_geoip_database_path', 'geoip-database-not-existent', __( 'The specified GeoIP database file does not exist.', 'limit-login-countries' ) );
-		} elseif ( ! is_readable( $input ) ) {
-			add_settings_error( 'llc_geoip_database_path', 'geoip-database-not-readable', __( 'The specified GeoIP database file is not readable.', 'limit-login-countries' ) );
+		require_once( __DIR__ . '/../../includes/LLC_GeoIP_Tools.class.php' );
+
+		if ( ! LLC_GeoIP_Tools::is_valid_geoip_database( $new_db_path, $errmsg ) ) {
+			add_settings_error( 'llc_geoip_database_path', 'geoip-database-not-existent', $errmsg );
+			if ( LLC_GeoIP_Tools::is_valid_geoip_database( $current_db_path ) ) {
+				return $current_db_path;
+			} elseif ( ! empty( $new_db_path ) ) {
+				return $new_db_path;
+    		} else {
+    				return '';
+    		}
 		} else {
-			$output = $input;
-		}
 
-		return $output;
+			return $new_db_path;
+		}
 	}
 
 	public static function blacklist_callback() {
@@ -250,5 +305,4 @@ class LLC_Options_Page {
 		<?php
 		return true;
 	}
-
 }
