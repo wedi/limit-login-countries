@@ -38,7 +38,7 @@ class LLC_Options_Page {
 			require_once( __DIR__ . '/../../includes/LLC_GeoIP_Tools.class.php' );
 			if ( ! LLC_GeoIP_Tools::is_valid_geoip_database( $db_path, $errmsg ) ) {
 				global $pagenow;
-				if ( 'options-general.php' === $pagenow and 'limit-login-countries' === $_GET['page'] ) {
+				if ( 'options-general.php' === $pagenow and isset( $_GET['page'] ) and 'limit-login-countries' === $_GET['page'] ) {
 					add_settings_error( 'llc_geoip_database_path', 'geoip-database-not-existent', $errmsg );
 				} else {
 					require_once( __DIR__ . '/../../includes/LLC_Admin_Notice.class.php' );
