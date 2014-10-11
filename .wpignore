@@ -3,3 +3,4 @@ tools*
 Gruntfile.js
 .csscomb.json
 node_modules
+.package.json

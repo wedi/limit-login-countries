@@ -1,5 +1,4 @@
-//Gruntfile
-// TODO: Add php lint tasks (grunt-phplint, grunt-phpcs, grunt-phpmd)
+//Gruntfile - http://gruntjs.com/
 
 module.exports = function( grunt ) {
     'use strict';
@@ -139,6 +138,31 @@ module.exports = function( grunt ) {
             },
             all: [ '**/*.php', '!vendor/**', '!node_modules/**' ]
         },
+        phpcs: {
+            options: {
+                standard: 'WordPress-Core'
+            },
+            all: {
+                dir: [ '**/*.php', '!vendor/**', '!node_modules/**' ]
+            }
+        },
+        phplint: {
+            options: {
+                phpArgs: {
+                    '-lf': null
+                }
+            },
+            all:  [ '**/*.php', '!vendor/**', '!node_modules/**' ]
+        },
+        phpmd: {
+            options: {
+                reportFormat: 'text',
+                excude: 'vendor, node_modules'
+            },
+            all: {
+                dir: '.'
+            }
+        },
         po2mo: {
             all: {
                 src: './languages/**/*.po',
@@ -170,7 +194,7 @@ module.exports = function( grunt ) {
                 tasks: [ 'po2mo' ]
             },
             php: {
-                files: [ './**/*.php' ],
+                files: [ '**/*.php' ],
                 tasks: [ 'php' ]
             },
             js: {
@@ -200,10 +224,11 @@ module.exports = function( grunt ) {
     grunt.registerTask( 'css', [ 'autoprefixer', 'csscomb', 'csslint' ] );
     grunt.registerTask( 'js', [ 'jshint:dev', 'jscs' ] );
     grunt.registerTask( 'l18n:dev', [ 'addtextdomain', 'makepot' ] );
-    grunt.registerTask( 'l18n:deploy', [ 'exec:updatePo', 'po2mo' ] );
+    grunt.registerTask( 'l18n:pull', [ 'exec:updatePo', 'po2mo' ] );
+    grunt.registerTask( 'php', [ 'phplint', 'phpcs' ] );
 
-    grunt.registerTask( 'dev', [ 'grunt', 'css', 'js', 'l18n:dev' ] );
-    grunt.registerTask( 'deploy', [ 'css', 'js', 'l18n:deploy' ] );
+    grunt.registerTask( 'dev', [ 'grunt', 'css', 'js', 'php', 'l18n:dev' ] );
+    grunt.registerTask( 'deploy', [ 'css', 'js', 'php', 'l18n:pull' ] );
 
     grunt.registerTask( 'default', [ 'dev', 'watch' ] );
 
