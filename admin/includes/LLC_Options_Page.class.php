@@ -146,18 +146,17 @@ class LLC_Options_Page {
 		if ( '' === $setting ) {
 			require_once( dirname( dirname( __DIR__ ) ) . '/includes/LLC_GeoIP_Tools.class.php' );
 			$gds = LLC_GeoIP_Tools::search_geoip_database();
-			echo '<p>' . __( 'For your convenience we tried to find a database file. We searched this plugin\'s directory as well as your WordPress upload directory.', 'limit-login-countries' ) . '</p>';
+			echo '<p>' . __( 'For your convenience we tried to find a database file.', 'limit-login-countries' ) . '</p>';
 			if ( count( $gds ) > 0 ) {
 				echo '<ul>';
 				foreach ( $gds as $gd ) {
-					echo '<li><code>' . $gd[0] . '</code> (' . strftime( '%x %T %Z', $gd[1] ) . ')</li>';
+					echo '<li><code>' . $gd['filepath'] . '</code>, published ' . date( 'd. M Y', $gd['publish_date'] ) . '.</li>';
 				}
 				echo '</ul>';
 			} else {
 				echo '<p>' . __( 'Unfortunately we couldn\'t find any database file.<br/>If you are sure you uploaded (and unzipped) one, it is probably just named differently from what we expected. No worries, just enter the correct absolute path to your database file above and we are all fine.', 'limit-login-countries' ) . '</p>';
 			}
 		}
-
 	}
 
 	public static function geoip_database_path_validate( $new_db_path ) {

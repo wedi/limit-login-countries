@@ -25,7 +25,7 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 
 #: admin/includes/LLC_Options_Page.class.php:60
-#: admin/includes/LLC_Options_Page.class.php:296
+#: admin/includes/LLC_Options_Page.class.php:295
 msgid "Settings"
 msgstr ""
 
@@ -42,12 +42,12 @@ msgid "Act as:"
 msgstr ""
 
 #: admin/includes/LLC_Options_Page.class.php:99
-#: admin/includes/LLC_Options_Page.class.php:238
+#: admin/includes/LLC_Options_Page.class.php:237
 msgid "Exclusive list of allowed countries:"
 msgstr ""
 
 #: admin/includes/LLC_Options_Page.class.php:101
-#: admin/includes/LLC_Options_Page.class.php:239
+#: admin/includes/LLC_Options_Page.class.php:238
 msgid "Exclusive list of rejected countries:"
 msgstr ""
 
@@ -75,9 +75,7 @@ msgid ""
 msgstr ""
 
 #: admin/includes/LLC_Options_Page.class.php:149
-msgid ""
-"For your convenience we tried to find a database file. We searched this "
-"plugin's directory as well as your WordPress upload directory."
+msgid "For your convenience we tried to find a database file."
 msgstr ""
 
 #: admin/includes/LLC_Options_Page.class.php:157
@@ -88,51 +86,51 @@ msgid ""
 "database file above and we are all fine."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:199
+#: admin/includes/LLC_Options_Page.class.php:198
 msgid "Whitelist"
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:200
+#: admin/includes/LLC_Options_Page.class.php:199
 msgid "Blacklist"
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:204
+#: admin/includes/LLC_Options_Page.class.php:203
 msgid ""
 "<em>Whitelist</em> means login is allowed from the countries listed below "
 "only."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:205
+#: admin/includes/LLC_Options_Page.class.php:204
 msgid ""
 "<em>Blacklist</em> means login is not allowed from the countries listed "
 "below only."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:217
+#: admin/includes/LLC_Options_Page.class.php:216
 msgid "Invalid value. You must select either whitelist or blacklist."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:230
+#: admin/includes/LLC_Options_Page.class.php:229
 msgid "List of 2-digit country codes."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:231
+#: admin/includes/LLC_Options_Page.class.php:230
 msgid "Use a comma as delimiter."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:232
+#: admin/includes/LLC_Options_Page.class.php:231
 msgid "If list is empty, no login restriction applies."
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:270
+#: admin/includes/LLC_Options_Page.class.php:269
 msgid "Limit Login Countries Options"
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:271
+#: admin/includes/LLC_Options_Page.class.php:270
 msgid "Login Countries"
 msgstr ""
 
-#: admin/includes/LLC_Options_Page.class.php:291
+#: admin/includes/LLC_Options_Page.class.php:290
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 

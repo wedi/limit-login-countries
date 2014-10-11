@@ -172,48 +172,75 @@ class LLC_GeoIP_Tools {
 	 */
 	public static function search_geoip_database() {
 
-		$wpud        = wp_upload_dir();
-		$try_paths[] = $wpud['basedir'];
-		$try_paths[] = dirname( __DIR__ );
+		$search_paths[] = $_SERVER['DOCUMENT_ROOT'];
+
+		$wpud = wp_upload_dir();
+		$wpud = $wpud['basedir'];
+		if ( false === strpos( $wpud, $search_paths[0] ) ){
+			$search_paths[] = $wpud;
+		}
 
 		$res = array();
+		foreach ( $search_paths as $p ) {
+			if ( ! is_readable( $p ) ) {
+				continue;
+			}
 
-		foreach ( $try_paths as $p ) {
-			$iterator = new RecursiveDirectoryIterator( $p, RecursiveDirectoryIterator::SKIP_DOTS | RecursiveDirectoryIterator::FOLLOW_SYMLINKS );
+			$iterator = new RecursiveDirectoryIterator( $p, FilesystemIterator::SKIP_DOTS | FilesystemIterator::FOLLOW_SYMLINKS );
 			$iterator = new GeoIPDatabaseSearchFilter( $iterator );
 			$iterator = new RecursiveIteratorIterator( $iterator );
 			foreach ( $iterator as $file ) {
-				// we don't want directories.
-				if ( $file->isDir() ) {
-					continue;
+				$filepath = $file->getPathInfo() . DIRECTORY_SEPARATOR . $file->getBasename();
+				$res[ realpath( $filepath ) ] = array( 'filepath' => $filepath, 'CTime' => $file->getCTime() );
 				}
-				$res[] = array( $file->getPathInfo() . DIRECTORY_SEPARATOR . $file->getBasename(), $file->getMTime() );
+			foreach( $res as $key => $r ) {
+				if ( self::is_valid_geoip_database( $r['filepath'], $msg, $ts ) ) {
+					$res[ $key ]['publish_date'] = $ts;
+				} else {
+					unset( $res[ $key ] );
+				}
 			}
 		}
-
 		return $res;
 	}
 
 }
 
 /**
- * Class GeoIPDatabaseSearchFilter extends RecursiveFilterIterator
- * A filter class for PHP's iterator that (hopefully) matches GeoIP database files.
+ * A filter class for PHP's iterator that filters for typical GeoIP database file names.
  *
  * @since 0.4
+ *
+ * @extends RecursiveFilterIterator
+ *
  */
 class GeoIPDatabaseSearchFilter extends RecursiveFilterIterator {
+
 	/**
-	 * Implements filter.
+	 * Check if readable files match a typical GeoIP database file name.
 	 *
 	 * @since 0.4
 	 *
-	 * @return bool Returns TRUE if file passes our filter, FALSE otherwise.
+	 * @return bool Return true if file passes our filter, false otherwise.
 	 */
 	public function accept() {
-		$names = array( 'geoip', 'geolite', 'geoiplite', 'geoipv6', 'geoipcity', 'geolitecity', 'geolitecityv6' );
 
-		return $this->current()->isReadable() and in_array( strtolower( $this->current()->getBasename( '.dat' ) ), $names ) and 'dat' === strtolower( $this->current()->getExtension() );
+		$filename = strtolower( $this->current()->getFilename() );
+
+		// skip everything starting with a dot, thinking of huge .git folders.
+		if ( '.' === $filename[0] ) {
+			return false;
+		}
+
+		// allow directories, otherwise we cannot recurse
+		if ( $this->current()->isDir() and $this->current()->isReadable() and $this->current()->isExecutable() )
+			return true;
+
+		if ( $this->current()->isReadable() and self::looks_like_geoip_db_file( $this->current()->getPathname() ) ) {
+			return true;
+		}
+
+		return false;
 	}
 
 	/**
