@@ -4,6 +4,7 @@ module.exports = function( grunt ) {
     'use strict';
 
     //Initializing the configuration object
+    //noinspection JSUnusedGlobalSymbols
     grunt.initConfig( {
 
         // Project configuration
@@ -57,7 +58,7 @@ module.exports = function( grunt ) {
             grunt: {
                 options: {
                     config: true,
-                    maximumLineLength: { 'value': 120 },
+                    maximumLineLength: { 'value': 130 },
                     validateQuoteMarks: { 'mark': '\'', 'escape': true }
                 },
                 src: [ 'Gruntfile.js' ]
@@ -163,9 +164,6 @@ module.exports = function( grunt ) {
         },
         phplint: {
             options: {
-                phpArgs: {
-                    '-lf': null
-                }
             },
             all:  [ '**/*.php', '!vendor/**', '!node_modules/**' ]
         },
@@ -240,11 +238,11 @@ module.exports = function( grunt ) {
     grunt.registerTask( 'js', [ 'jshint:dev', 'jscs' ] );
     grunt.registerTask( 'l18n:dev', [ 'addtextdomain', 'makepot' ] );
     grunt.registerTask( 'l18n:pull', [ 'exec:updatePo', 'po2mo' ] );
-    grunt.registerTask( 'php', [ 'phplint', 'phpcs' ] );
+    grunt.registerTask( 'php', [ 'phplint', 'phpcs', 'makepot' ] );
 
-    grunt.registerTask( 'dev', [ 'grunt', 'css', 'js', 'php', 'l18n:dev' ] );
+    grunt.registerTask( 'dev', [ 'css', 'js', 'php' ] );
     grunt.registerTask( 'deploy', [ 'css', 'js', 'php', 'l18n:pull' ] );
 
-    grunt.registerTask( 'default', [ 'dev', 'watch' ] );
+    grunt.registerTask( 'default', [ 'grunt', 'dev', 'watch' ] );
 
 };
