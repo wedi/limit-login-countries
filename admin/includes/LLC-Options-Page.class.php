@@ -264,8 +264,9 @@ class LLC_Options_Page {
 	public static function settings_menu() {
 
 		add_options_page(
-			__( 'Limit Login Countries Options', 'limit-login-countries' ),
-			// translators: this is the menu title for the plugin's settings page in the WordPress admin area.
+			// translators: this is the title of the plugin's settings page in the WordPress admin area.
+			__( 'Limit Login Countries Settings', 'limit-login-countries' ),
+			// translators: this is the menu entry title for the plugin's settings page in the WordPress admin area.
 			__( 'Login Countries', 'limit-login-countries' ),
 			'manage_options',
 			'limit-login-countries',
@@ -288,15 +289,10 @@ class LLC_Options_Page {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			wp_die( __( 'You do not have sufficient permissions to access this page.', 'limit-login-countries' ) );
 		}?>
-
 		<div class="wrap" id="llc-options-page">
-			<div id="icon-options-general" class="icon32"><br></div><?php // The icon is outdated with MP6 in WP 4.0 but we keep it for backwards compatibility. ?>
-			<h2><?php
-				echo __( 'Settings', 'limit-login-countries' ) . '&nbsp;&rsaquo;&nbsp;';
-				// translators: This translation of the plugin name is used as the title of the plugin's settings page in the WordPress Admin area
-				echo __( 'Limit Login Countries', 'limit-login-countries' );
-				?></h2>
-			<form action="<?php echo admin_url( 'options.php' ); ?>" method="post"><?php
+			<div id="icon-options-general" class="icon32"></div><?php // The icon is outdated with MP6 in WP 4.0 but we keep it for backwards compatibility. ?>
+			<h2><?php echo esc_html( get_admin_page_title(), 'limit-login-countries' ); ?></h2>
+			<form action="<?php echo esc_url( admin_url( 'options.php' ) ); ?>" method="post"><?php
 				settings_fields( 'limit-login-countries' );
 				do_settings_sections( 'limit-login-countries' );
 				submit_button();
