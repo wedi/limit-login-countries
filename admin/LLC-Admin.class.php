@@ -76,12 +76,15 @@ class LLC_Admin {
 		wp_register_script( 'textext-autocomplete', $url . 'vendor/TextExt/js/textext.plugin.autocomplete.js', array( 'textext-core' ), '1.3.1', true );
 		wp_register_script( 'textext-filter', $url . 'vendor/TextExt/js/textext.plugin.filter.js', array( 'textext-core' ), '1.3.1', true );
 		wp_register_script( 'textext-tags', $url . 'vendor/TextExt/js/textext.plugin.tags.js', array( 'textext-core' ), '1.3.1', true );
+		wp_register_script( 'are-you-sure', $url . 'vendor/are-you-sure/jquery.are-you-sure.js', array( 'jquery-core' ), '1.9.0', true );
+		wp_localize_script( 'are-you-sure', 'LLC_AYS', array( 'message' => esc_html__( 'The changes you made will be lost if you navigate away from this page.', 'limit-login-countries' ) ) );
 		//wp_register_script('textext-suggestions', $url . 'vendor/TextExt/js/textext.plugin.suggestions.js', array('textext-core'), '1.3.1', true);
 		wp_enqueue_script( 'limit-login-countries', $admin_url . 'js/limit-login-countries.js', array(
+			'are-you-sure',
 			'textext-autocomplete',
 			'textext-tags',
 			'textext-filter',
-		), '0.4', true );
+		), '0.7', true );
 
 		wp_register_style( 'textext-core', $url . 'vendor/TextExt/css/textext.core.css', array(), '0.4' );
 		wp_register_style( 'textext-autocomplete', $url . 'vendor/TextExt/css/textext.plugin.autocomplete.css', array( 'textext-core' ), '0.4' );

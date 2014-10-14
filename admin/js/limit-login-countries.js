@@ -10,7 +10,9 @@ jQuery( document ).ready( function( $ ) {
     "use strict";
 
     /* Define globals acceptable for JSHint */
-    /* global LLC_COUNTRIES_LABEL: false, LLC_COUNTRY_CODES: false */
+    /* global LLC_COUNTRIES_LABEL: false, LLC_COUNTRY_CODES: false, LLC_AYS: false */
+
+    $( "#llc-options-page form").areYouSure( { "message": LLC_AYS.message } );
 
     $( "#llc_blacklist" ).change( function() {
         // we change the label of country list according to whitelist or blacklist mode

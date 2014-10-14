@@ -24,8 +24,11 @@ msgstr ""
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
 
+#: admin/LLC-Admin.class.php:80
+msgid "The changes you made will be lost if you navigate away from this page."
+msgstr ""
+
 #: admin/includes/LLC-Options-Page.class.php:61
-#: admin/includes/LLC-Options-Page.class.php:295
 msgid "Settings"
 msgstr ""
 
@@ -122,17 +125,19 @@ msgstr ""
 msgid "If list is empty, no login restriction applies."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:267
-msgid "Limit Login Countries Options"
+#: admin/includes/LLC-Options-Page.class.php:268
+#. translators: this is the title of the plugin's settings page in the
+#. WordPress admin area.
+msgid "Limit Login Countries Settings"
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:269
-#. translators: this is the menu title for the plugin's settings page in the
-#. WordPress admin area.
+#: admin/includes/LLC-Options-Page.class.php:270
+#. translators: this is the menu entry title for the plugin's settings page in
+#. the WordPress admin area.
 msgid "Login Countries"
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:289
+#: admin/includes/LLC-Options-Page.class.php:290
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
