@@ -18,11 +18,8 @@ class LLC_Admin {
 	 */
 	protected function __construct() {
 
-		// we add a callback on the incredible admin_print_scripts-settings_limit-login-countries hook
-		// to register and enqueue our scripts only on our own settings page
-		add_action( 'admin_print_scripts-settings_page_limit-login-countries',
-			array( $this, 'enqueue_scripts' )
-		);
+		require_once( __DIR__ . '/includes/LLC-Options-Page.class.php' );
+		require_once( __DIR__ . '/../includes/LLC-Admin-Notice.class.php' );
 
 		// we add a link to the plugin settings on the plugin page
 		$meta            = new ReflectionClass( 'Limit_Login_Countries' );
@@ -31,16 +28,19 @@ class LLC_Admin {
 			array( $this, 'plugin_settings_link' ), 10, 1
 		);
 
-		require_once( __DIR__ . '/includes/LLC-Options-Page.class.php' );
+		// check current settings and display a admin notice on error.
+		add_action( 'admin_init', array( get_called_class(), 'check_settings' ) );
 
-		// we add a callback on admin_init hook to register our settings
-		add_action( 'admin_init', array( 'LLC_Options_Page', 'register_settings' ) );
-		add_action( 'admin_init', array( 'LLC_Options_Page', 'check_settings' ) );
+		// build the settings page when admin_menu hook fires.
+		add_action( 'admin_menu', array( 'LLC_Options_Page', 'register_settings' ) );
 
-		// we add a callback on admin_menu hook to add our options page
-		add_action( 'admin_menu', array( 'LLC_Options_Page', 'settings_menu' ) );
+		// we add a callback on the incredible admin_print_scripts-settings_limit-login-countries hook
+		// to register and enqueue our scripts only on our own settings page
+		add_action( 'admin_print_scripts-settings_page_limit-login-countries',
+			array( 'LLC_Options_Page', 'enqueue_scripts' )
+		);
 
-		require_once( __DIR__ . '/../includes/LLC-Admin-Notice.class.php' );
+		// hook in to display admin notices.
 		add_action( 'admin_notices', array( 'LLC_Admin_Notice', 'display_notices' ) );
 
 	}
@@ -61,38 +61,30 @@ class LLC_Admin {
 	}
 
 	/**
-	 * Registers and enqueues scripts and stylesheets on options page.
-	 * Callback function for automagically created WP hook 'admin_print_scripts-settings_page_limit-login-countries'
+	 * Check the current settings and display errors.
+	 * Fired on admin_init hook.
 	 *
-	 * @see LLC_Admin::__construct()
+	 * @see   LLC_Admin::__construct()
 	 * @since 0.7
-	 *
-	 * @return void
 	 */
-	public static function enqueue_scripts() {
-		$url       = plugins_url( '/', __DIR__ );
-		$admin_url = plugins_url( '/', __FILE__ );
-		wp_register_script( 'textext-core', $url . 'vendor/TextExt/js/textext.core.js', array( 'jquery-core' ), '1.3.1', true );
-		wp_register_script( 'textext-autocomplete', $url . 'vendor/TextExt/js/textext.plugin.autocomplete.js', array( 'textext-core' ), '1.3.1', true );
-		wp_register_script( 'textext-filter', $url . 'vendor/TextExt/js/textext.plugin.filter.js', array( 'textext-core' ), '1.3.1', true );
-		wp_register_script( 'textext-tags', $url . 'vendor/TextExt/js/textext.plugin.tags.js', array( 'textext-core' ), '1.3.1', true );
-		wp_register_script( 'are-you-sure', $url . 'vendor/are-you-sure/jquery.are-you-sure.js', array( 'jquery-core' ), '1.9.0', true );
-		wp_localize_script( 'are-you-sure', 'LLC_AYS', array( 'message' => esc_html__( 'The changes you made will be lost if you navigate away from this page.', 'limit-login-countries' ) ) );
-		//wp_register_script('textext-suggestions', $url . 'vendor/TextExt/js/textext.plugin.suggestions.js', array('textext-core'), '1.3.1', true);
-		wp_enqueue_script( 'limit-login-countries', $admin_url . 'js/limit-login-countries.js', array(
-			'are-you-sure',
-			'textext-autocomplete',
-			'textext-tags',
-			'textext-filter',
-		), '0.7', true );
+	public static function check_settings() {
 
-		wp_register_style( 'textext-core', $url . 'vendor/TextExt/css/textext.core.css', array(), '0.4' );
-		wp_register_style( 'textext-autocomplete', $url . 'vendor/TextExt/css/textext.plugin.autocomplete.css', array( 'textext-core' ), '0.4' );
-		wp_register_style( 'textext-tags', $url . 'vendor/TextExt/css/textext.plugin.tags.css', array( 'textext-core' ), '0.4' );
-		wp_enqueue_style( 'limit-login-countries', $admin_url . 'css/limit-login-countries.css', array(
-			'textext-autocomplete',
-			'textext-tags',
-		), '0.4' );
+		// check only if not just submitted
+		if ( ! isset( $_GET['settings-updated'] ) and ! isset( $_POST['llc_geoip_database_path'] ) ) {
+			// check llc_database_path
+			$db_path = get_option( 'llc_geoip_database_path' );
+			require_once( __DIR__ . '/../includes/LLC-GeoIP-Tools.class.php' );
+			if ( ! LLC_GeoIP_Tools::is_valid_geoip_database( $db_path, $errmsg ) ) {
+				global $pagenow;
+				if ( 'options-general.php' === $pagenow and isset( $_GET['page'] ) and 'limit-login-countries' === $_GET['page'] ) {
+					add_settings_error( 'llc_geoip_database_path', 'geoip-database-not-existent', $errmsg );
+				} else {
+					require_once( __DIR__ . '/../includes/LLC-Admin-Notice.class.php' );
+					LLC_Admin_Notice::add_notice( $errmsg . ' ' . LLC_Options_Page::get_link_tag(), 'error' );
+				}
+			}
+			// TODO: check if admin will be locked out after logout
+		}
 	}
 
 
@@ -109,7 +101,7 @@ class LLC_Admin {
 	 */
 	public static function plugin_settings_link( $links ) {
 
-		array_unshift( $links, LLC_Options_Page::get_link() );
+		array_unshift( $links, LLC_Options_Page::get_link_tag() );
 
 		return $links;
 	}

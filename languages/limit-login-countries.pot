@@ -24,52 +24,94 @@ msgstr ""
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
 
-#: admin/LLC-Admin.class.php:80
-msgid "The changes you made will be lost if you navigate away from this page."
+#: admin/includes/LLC-Options-Page.class.php:41
+#. translators: The title of the plugin settings page (page & browser title).
+msgid "Limit Login Countries Settings"
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:61
-msgid "Settings"
+#: admin/includes/LLC-Options-Page.class.php:43
+#. translators: The menu item of the settings page in the WordPress admin area.
+msgid "Login Countries"
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:83
-msgid "General Settings"
+#: admin/includes/LLC-Options-Page.class.php:57
+msgid "Login Country Settings"
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:87
-msgid "GeoIP Database"
-msgstr ""
-
-#: admin/includes/LLC-Options-Page.class.php:93
+#: admin/includes/LLC-Options-Page.class.php:70
 msgid "Act as:"
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:100
-#: admin/includes/LLC-Options-Page.class.php:235
+#: admin/includes/LLC-Options-Page.class.php:83
+#: admin/includes/LLC-Options-Page.class.php:256
 msgid "Exclusive list of allowed countries:"
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:102
-#: admin/includes/LLC-Options-Page.class.php:236
+#: admin/includes/LLC-Options-Page.class.php:85
+#: admin/includes/LLC-Options-Page.class.php:257
 msgid "Exclusive list of rejected countries:"
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:109
+#: admin/includes/LLC-Options-Page.class.php:118
+msgid "GeoIP Database Settings"
+msgstr ""
+
+#: admin/includes/LLC-Options-Page.class.php:127
 msgid "GeoIP database file:"
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:117
+#: admin/includes/LLC-Options-Page.class.php:156
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: admin/includes/LLC-Options-Page.class.php:183
 msgid "Here you configure from which countries admin area logins are allowed."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:118
+#: admin/includes/LLC-Options-Page.class.php:184
 msgid ""
 "<strong>Remember:</strong> In case you lock yourself out of WP's admin area "
 "you can disable the country check by adding %s to your "
 "<code>wp-config.php</code> file."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:125
+#: admin/includes/LLC-Options-Page.class.php:207
+msgid "Whitelist"
+msgstr ""
+
+#: admin/includes/LLC-Options-Page.class.php:208
+msgid "Blacklist"
+msgstr ""
+
+#: admin/includes/LLC-Options-Page.class.php:212
+msgid ""
+"<em>Whitelist</em> means login is allowed from the countries listed below "
+"only."
+msgstr ""
+
+#: admin/includes/LLC-Options-Page.class.php:213
+msgid ""
+"<em>Blacklist</em> means login is not allowed from the countries listed "
+"below only."
+msgstr ""
+
+#: admin/includes/LLC-Options-Page.class.php:233
+msgid "Invalid value. You must select either whitelist or blacklist."
+msgstr ""
+
+#: admin/includes/LLC-Options-Page.class.php:249
+msgid "List of 2-letter country codes."
+msgstr ""
+
+#: admin/includes/LLC-Options-Page.class.php:250
+msgid "Use a comma as delimiter."
+msgstr ""
+
+#: admin/includes/LLC-Options-Page.class.php:251
+msgid "If list is empty, no login restriction applies."
+msgstr ""
+
+#: admin/includes/LLC-Options-Page.class.php:298
 msgid ""
 "This plugin works with <a href=\"%1$s\" target=\"_blank\">Maxmind's GeoIP "
 "database</a>. If you are not a paying customer, you can download a lite "
@@ -77,11 +119,11 @@ msgid ""
 "Maxmind's GeoIP Lite database</a>."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:150
+#: admin/includes/LLC-Options-Page.class.php:326
 msgid "For your convenience we tried to find a database file."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:158
+#: admin/includes/LLC-Options-Page.class.php:334
 msgid ""
 "Unfortunately we couldn't find any database file.<br/>If you are sure you "
 "uploaded (and unzipped) one, it is probably just named differently from "
@@ -89,56 +131,12 @@ msgid ""
 "database file above and we are all fine."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:197
-msgid "Whitelist"
+#: admin/includes/LLC-Options-Page.class.php:384
+msgid "Settings"
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:198
-msgid "Blacklist"
-msgstr ""
-
-#: admin/includes/LLC-Options-Page.class.php:202
-msgid ""
-"<em>Whitelist</em> means login is allowed from the countries listed below "
-"only."
-msgstr ""
-
-#: admin/includes/LLC-Options-Page.class.php:203
-msgid ""
-"<em>Blacklist</em> means login is not allowed from the countries listed "
-"below only."
-msgstr ""
-
-#: admin/includes/LLC-Options-Page.class.php:215
-msgid "Invalid value. You must select either whitelist or blacklist."
-msgstr ""
-
-#: admin/includes/LLC-Options-Page.class.php:228
-msgid "List of 2-digit country codes."
-msgstr ""
-
-#: admin/includes/LLC-Options-Page.class.php:229
-msgid "Use a comma as delimiter."
-msgstr ""
-
-#: admin/includes/LLC-Options-Page.class.php:230
-msgid "If list is empty, no login restriction applies."
-msgstr ""
-
-#: admin/includes/LLC-Options-Page.class.php:268
-#. translators: this is the title of the plugin's settings page in the
-#. WordPress admin area.
-msgid "Limit Login Countries Settings"
-msgstr ""
-
-#: admin/includes/LLC-Options-Page.class.php:270
-#. translators: this is the menu entry title for the plugin's settings page in
-#. the WordPress admin area.
-msgid "Login Countries"
-msgstr ""
-
-#: admin/includes/LLC-Options-Page.class.php:290
-msgid "You do not have sufficient permissions to access this page."
+#: admin/includes/LLC-Options-Page.class.php:447
+msgid "The changes you made will be lost if you navigate away from this page."
 msgstr ""
 
 #: includes/LLC-Activator.class.php:23
