@@ -168,7 +168,7 @@ class LLC_GeoIP_Tools {
 	}
 
 	/**
-     * Search for GeoIP database files.
+	 * Search for GeoIP database files.
 	 *
 	 * This function searches the current plugindirs folder as well as
 	 * WordPress' upload folder for files with various geoip related names
