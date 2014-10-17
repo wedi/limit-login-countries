@@ -162,11 +162,11 @@ module.exports = function( grunt ) {
                 dir: [ '**/*.php', '!vendor/**', '!node_modules/**' ]
             }
         },
-        phplint: {
-            options: {
-            },
-            all:  [ '**/*.php', '!vendor/**', '!node_modules/**' ]
-        },
+		phplint: {
+			all: {
+				src: [ '**/*.php', '!vendor/**', '!node_modules/**' ]
+			}
+		},
         phpmd: {
             options: {
                 reportFormat: 'text',
@@ -226,6 +226,17 @@ module.exports = function( grunt ) {
                 tasks: [ 'grunt' ]
             }
         }
+    } );
+
+    var changedFiles = Object.create( null ),
+        onChange = grunt.util._.debounce( function() {
+            grunt.config( 'phplint.all.src', Object.keys( changedFiles ) );
+            grunt.config( 'phpcs.all.src', Object.keys( changedFiles ) );
+            changedFiles = Object.create( null );
+        }, 200 );
+    grunt.event.on( 'watch', function(action, filepath) {
+        changedFiles[ filepath ] = action;
+        onChange();
     } );
 
     // Plugin loading
