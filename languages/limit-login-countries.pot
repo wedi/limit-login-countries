@@ -1,4 +1,4 @@
-# Copyright (C) 2014 Limit Login Countries by Dirk Weise
+# Copyright (C) 2011-2014 Limit Login Countries by Dirk Weise
 # This file is distributed under the same license as the Limit Login Countries package.
 msgid ""
 msgstr ""

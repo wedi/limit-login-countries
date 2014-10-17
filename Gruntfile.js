@@ -80,6 +80,7 @@ module.exports = function( grunt ) {
                 noarg: true,
                 onevar: true,
                 quotmark: 'double',     // Varying. jQuery uses double quotes. uglify, too.
+                smarttabs: true,
                 trailing: true,
                 undef: true,
                 unused: true,
@@ -119,8 +120,8 @@ module.exports = function( grunt ) {
         makepot: {
             options: {
                 domainPath: '/languages',
-                potComments: 'Copyright (C) {year} <%= pkg.displayName %> by <%= pkg.author %>\n' +
-                'This file is distributed under the same license as the Limit Login Countries package.',
+				potComments: 'Copyright (C) 2011-{year} <%= pkg.displayName %> by <%= pkg.author %>\n' +
+				'This file is distributed under the same license as the Limit Login Countries package.',
                 potHeaders: {
                     poedit: true,
                     'x-poedit-keywordslist': true,
@@ -156,6 +157,7 @@ module.exports = function( grunt ) {
         },
         phpcs: {
             options: {
+				ignoreExitCode: true,
                 standard: 'WordPress-Core'
             },
             all: {
@@ -246,7 +248,7 @@ module.exports = function( grunt ) {
     grunt.registerTask( 'grunt', [ 'jshint:grunt', 'jscs:grunt' ] );
 
     grunt.registerTask( 'css', [ 'autoprefixer', 'csscomb', 'csslint' ] );
-    grunt.registerTask( 'js', [ 'jshint:dev', 'jscs' ] );
+	grunt.registerTask( 'js', [ 'jshint:dev', 'jscs:all' ] );
     grunt.registerTask( 'l18n:dev', [ 'addtextdomain', 'makepot' ] );
     grunt.registerTask( 'l18n:pull', [ 'exec:updatePo', 'po2mo' ] );
     grunt.registerTask( 'php', [ 'phplint', 'phpcs', 'makepot' ] );
