@@ -23,9 +23,6 @@ class LLC_Public {
 	 */
 	protected function __construct() {
 
-		// we add an init hook for loading options
-		add_action( 'init', array( $this, 'load_options' ) );
-
 		// We add the authentication filter
 		add_filter( 'wp_authenticate_user', array( $this, 'limit_login_countries' ), 31, 1 );
 
@@ -47,19 +44,6 @@ class LLC_Public {
 	}
 
 	/**
-	 * Loads the plugin's options
-	 *
-	 * @since 0.7
-	 *
-	 * @return void
-	 */
-	public function load_options() {
-		$this->options['geoip_database'] = get_option( 'llc_geoip_database_path' );
-		$this->options['blacklist']      = 'whitelist' === get_option( 'llc_blacklist', 'whitelist' ) ? false : true;
-		$this->options['countryList']    = explode( ',', get_option( 'llc_countries' ) );
-	}
-
-	/**
 	 * WP_Authenticate_User filter callback function. Here the magic is done: we stop authentication if needed.
 	 * This filter is registred with priority 31. We can prevent login by returning a WP_Error object.
 	 *
@@ -71,6 +55,32 @@ class LLC_Public {
 	 * @return Mixed We return WP_Error when the visitor's country is not allowed. In all other cases we pass on whatever we got via $user.
 	 */
 	public function limit_login_countries( $user ) {
+
+		// In these cases we don't interceot but pass on what we got:
+		//   - there already is an authentication error
+		//   - we allow the current user to login from his IP
+		if ( is_wp_error( $user ) or $this->is_allowed_country( $user ) ) {
+			return $user;
+		}
+
+		// we are still here, so we complain about the user's country
+		// translators: %s stands for the country name the user tries to login from
+		$user = new WP_Error( 'invalid_country', sprintf( __( 'Login not allowed from your country (%s)!', 'limit-login-countries' ), __( $this->geoInfo->country_name, 'limit-login-countries' ) ) );
+
+		return $user;
+	}
+
+	/**
+	 * Checks whether visitor is allowed to login from his country.
+	 *
+	 * @since 0.7
+	 *
+	 * @param WP_User $user Used for logging (and maybe later
+	 *                      for per user settings).
+	 *
+	 * @return bool Returns TRUE if visitor's country is allowed to login, FALSE if not.
+	 */
+	protected function is_allowed_country( WP_User $user = null ) {
 
 		# set own error handler to gracefully handle errors triggered by geoip lookup
 		set_error_handler(
@@ -89,8 +99,8 @@ class LLC_Public {
 					LLC_Admin_Notice::add_notice( $errstr, 'warning' );
 					error_log( "Warning: $errstr in $errfile on line $errline" );
 					return true;
-				} elseif ( ( $errno & E_NOTICE ) and ( 'geoip.inc' === substr( $errfile, - strlen( 'geoip.inc' ) ) ) ) {
-					# suppress notices usually preceding a E_USER_ERROR
+				} elseif ( $errno & ( E_NOTICE | E_USER_NOTICE ) ) {
+					# suppress notices usually preceding an E_USER_ERROR
 					if ( error_reporting() & E_NOTICE ) {
 						error_log( "Notice: $errstr in $errfile on line $errline" );
 					}
@@ -100,30 +110,52 @@ class LLC_Public {
 			}
 		);
 
-		// In these cases we don't throw an error, but pass on what we got:
-		if (
-			is_wp_error( $user )                            // there already is an authentication error
-			or ( defined( 'LIMIT_LOGIN_COUNTRIES_OVERRIDE' ) and true === LIMIT_LOGIN_COUNTRIES_OVERRIDE )    // override constant is defined
-			or empty( $this->options['countryList'] )       // there is no country set in options
-			or ! $this->geo_look_up()                       // there is no geo info available
-			or $this->is_allowed_country()                  // the user's country is allowed
-		) {
-			return $user;
+		$this->load_options();
+
+		$allow_login = false;
+
+		// check if override is active
+		if ( defined( 'LIMIT_LOGIN_COUNTRIES_OVERRIDE' ) and true == LIMIT_LOGIN_COUNTRIES_OVERRIDE ) {
+			$allow_login = true;
 		}
 
-		# own error handling not needed anymore
+		// check if plugin is deactivated
+		if ( empty( $this->options['countryList'] ) ) {
+			$allow_login = true;
+		}
+
+		// look up geo info
+		if ( ! $this->geo_look_up() ) {
+			$allow_login = true;
+
+			// we log the unresolved IP address
+			$log = get_option( 'llc_log_unresolved', array() );
+			$log[ $_SERVER['REMOTE_ADDR'] ] += 1;
+			update_option( 'llc_log_unresolved', $log );
+		} else {
+			$allow_login = ( $allow_login or $this->options['is_blacklist'] xor in_array( $this->geoInfo->country_code, $this->options['countryList'] ) );
+
+			if ( ! $allow_login ) {
+				// we log the forbidden country code
+				$log = get_option( 'limit_login_countries_log', array() );
+				$log[ $this->geoInfo->country_code ] += 1;
+				update_option( 'limit_login_countries_log', $log );
+			} else {
+				// we log the allowed country code
+				$log = get_option( 'llc_log_success', array() );
+				$log[ $this->geoInfo->country_code ] += 1;
+				update_option( 'llc_log_success', $log );
+
+				//hook: wp_login
+				// we keep track of each user's last login country to warn after locking someone out.
+				update_user_meta( $user->ID, 'llc_last_login_country', $this->geoInfo->country_code );
+			}
+		}
+
+		# stop own error handling
 		restore_error_handler();
 
-		// we are still here, so we complain about the user's country
-		// translators: %s stands for the country name the user tries to login from
-		$user = new WP_Error( 'country_error', sprintf( __( 'Login not allowed from your country (%s)!', 'limit-login-countries' ), __( $this->geoInfo->country_name, 'limit-login-countries' ) ) );
-
-		// we save the unsuccessful country code
-		$log = get_option( 'limit_login_countries_log', array() );
-		$log[ $this->geoInfo->country_code ] += 1;
-		update_option( 'limit_login_countries_log', $log );
-
-		return $user;
+		return $allow_login;
 	}
 
 	/**
@@ -143,19 +175,20 @@ class LLC_Public {
 		}
 
 		// return false if no info was found (e.g. localhost) or there was an error
-		return ! ( null === $this->geoInfo or false === $this->geoInfo or '' === $this->geoInfo->country_code );
+		return ! ( null === $this->geoInfo or false === $this->geoInfo or empty( $this->geoInfo->country_code ) );
 	}
 
 	/**
-	 * Checks whether visitor is allowed to login from his country.
+	 * Loads the plugin's options
 	 *
 	 * @since 0.7
 	 *
-	 * @return bool Returns TRUE if visitor's country is allowed to login, FALSE if not.
+	 * @return void
 	 */
-	protected function is_allowed_country() {
-
-		return $this->options['blacklist'] xor in_array( $this->geoInfo->country_code, $this->options['countryList'] );
+	public function load_options() {
+		$this->options['geoip_database'] = get_option( 'llc_geoip_database_path' );
+		// TODO: per user settings
+		$this->options['is_blacklist'] = 'whitelist' === get_option( 'llc_blacklist', 'whitelist' ) ? false : true;
+		$this->options['countryList']  = explode( ',', get_option( 'llc_countries' ) );
 	}
-
 }
