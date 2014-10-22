@@ -173,7 +173,9 @@ class LLC_Public {
 		// we check whether geo info is already loaded
 		if ( ! is_object( $this->geoInfo ) ) {
 			require_once( dirname( __DIR__ ) . '/includes/LLC-GeoIP-Tools.class.php' );
-			$this->geoInfo = LLC_GeoIP_Tools::get_geo_info( $this->options['geoip_database'] );
+			LLC_GeoIP_Tools::$geoIPDatabase = $this->options['geoip_database'];
+			LLC_GeoIP_Tools::$proxy_client_header = $this->options['proxy_client_header'];
+			$this->geoInfo = LLC_GeoIP_Tools::get_geo_info();
 		}
 
 		// return false if no info was found (e.g. localhost) or there was an error
@@ -189,6 +191,7 @@ class LLC_Public {
 	 */
 	public function load_options() {
 		$this->options['geoip_database'] = get_option( 'llc_geoip_database_path' );
+		$this->options['proxy_client_header'] = get_option( 'llc_proxy_client_header' );
 		// TODO: per user settings
 		$this->options['is_blacklist'] = 'whitelist' === get_option( 'llc_blacklist', 'whitelist' ) ? false : true;
 		$this->options['countryList']  = explode( ',', get_option( 'llc_countries' ) );

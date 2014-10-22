@@ -10,6 +10,10 @@
  */
 class LLC_GeoIP_Tools {
 
+	public static $geoIPDatabase;
+
+	public static $proxy_client_header = false;
+
 	/**
 	 * The constructor is declared private to make sure this helper class
 	 * cannot be instantiated.
@@ -24,28 +28,28 @@ class LLC_GeoIP_Tools {
 	 *
 	 * @since 0.4
 	 *
-	 * @param $geoIPDatabase
+	 * @param null $ip Optional IP address to retrieve info for. Uses the current
+	 *                 visitor's IP if not set.
 	 *
-	 * @return geoiprecord|null|false Returns geoiprecord on sucess, NULL if no
-	 *                                geo info is available and FALSE on error.
+	 * @return geoiprecord|null|false geoiprecord on sucess, null if no
+	 *                                record was found and false on error.
 	 */
-	public static function get_geo_info( $geoIPDatabase ) {
+	public static function get_geo_info( $ip = null ) {
 
-		require_once( dirname( __DIR__ ) . '/vendor/geoip/geoipcity.inc' );
-
-		if ( ! empty( $geoIPDatabase ) and is_readable( $geoIPDatabase ) ) {
-			$gi = geoip_open( $geoIPDatabase, GEOIP_STANDARD );
-		} else {
-			return false;
+		if ( ! $ip ) {
+			$ip = static::get_visitor_ip();
 		}
 
-		if ( self::is_ip_v4() ) {
-			$geoInfo = geoip_record_by_addr( $gi, $_SERVER['REMOTE_ADDR'] );
-		} elseif ( self::is_ip_v6() ) {
-			$geoInfo = geoip_record_by_addr_v6( $gi, $_SERVER['REMOTE_ADDR'] );
+		require_once( dirname( __DIR__ ) . '/vendor/geoip/geoipcity.inc' );
+		$gi = geoip_open( static::$geoIPDatabase, GEOIP_STANDARD );
+
+		if ( self::is_ip_v4( $ip ) ) {
+			$geoInfo = geoip_record_by_addr( $gi, $ip );
+		} elseif ( self::is_ip_v6( $ip ) ) {
+			$geoInfo = geoip_record_by_addr_v6( $gi, $ip );
 		} else {
 			$geoInfo = false;
-			trigger_error( 'Invalid IP address in $_SERVER[\'REMOTE_ADDR\']: [' . $_SERVER['REMOTE_ADDR'] . ']', E_USER_WARNING );
+			trigger_error( 'Invalid IP address [' . $ip . ']', E_USER_WARNING );
 		}
 		geoip_close( $gi );
 
@@ -146,25 +150,87 @@ class LLC_GeoIP_Tools {
 	}
 
 	/**
-	 * Check if user's IP address is v4.
+	 * Check if IP address is v4.
 	 *
 	 * @since 0.1
+	 *
+	 * @param $ip String IP address to check (since 0.7).
 	 *
 	 * @return bool True if user's IP address is IPv4, false otherwise.
 	 */
-	public static function is_ip_v4() {
-		return false !== filter_var( $_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 );
+	public static function is_ip_v4( $ip ) {
+		return false !== filter_var( $ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 );
 	}
 
 	/**
-	 * Check if user's IP address is v6.
+	 * Check if IP address is v6.
 	 *
 	 * @since 0.1
 	 *
+	 * @param $ip String IP address to check (since 0.7).
+	 *
 	 * @return bool True if user's IP address is IPv6, false otherwise.
 	 */
-	public static function is_ip_v6() {
-		return false !== filter_var( $_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6 );
+	public static function is_ip_v6( $ip ) {
+		return false !== filter_var( $ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6 );
+	}
+
+	/**
+	 * Return the current visitor's IP address according to proxy setting.
+	 *
+	 * @return string IP Address of current visitor.
+	 */
+	public static function get_visitor_ip() {
+		return
+			static::$proxy_client_header
+			? $_SERVER[ strtoupper( static::$proxy_client_header ) ]
+			: $_SERVER['REMOTE_ADDR'];
+	}
+
+	/**
+	 * Try to detect a proxy to notify the admin in settings.
+	 * Based on http://stackoverflow.com/a/21765661
+	 *
+	 * @return array|false array of proxy headers (might be empty) or
+	 *                     false if no proxy detected
+	 */
+	public static function detect_proxy() {
+		$proxy_headers = array(
+			'HTTP_X_FORWARDED_FOR',
+			'HTTP_CLIENT_IP',
+			'HTTP_X_CLUSTER_CLIENT_IP',
+			'HTTP_CF_CONNECTING_IP',
+			'HTTP_X_FORWARDED',
+			'HTTP_FORWARDED_FOR',
+			'HTTP_VIA',
+		);
+
+		$detected = false;
+
+		// check for common proxy set headers
+		$detected_headers = array();
+		foreach ( $proxy_headers as $proxy_header ) {
+			if ( isset( $_SERVER[ $proxy_header ] ) and $_SERVER[ $proxy_header ] != $_SERVER['REMOTE_ADDR'] ) {
+				$detected = true;
+				if ( filter_var( $_SERVER[ $proxy_header ], FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE ) ) {
+					$detected_headers[ $proxy_header ] = $_SERVER[ $proxy_header ];
+				}
+			}
+		}
+
+		// one last check
+		if ( ! $detected
+			and filter_var(
+				$_SERVER['REMOTE_ADDR'],
+				FILTER_VALIDATE_IP,
+				FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE
+			)
+			and fsockopen( $_SERVER['REMOTE_ADDR'], 80, $errno, $errstr, 8 )
+		) {
+			$detected = true;
+		};
+
+		return $detected ? $detected_headers : false;
 	}
 
 	/**
