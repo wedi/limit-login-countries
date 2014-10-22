@@ -26,6 +26,8 @@ class LLC_Public {
 		// We add the authentication filter
 		add_filter( 'wp_authenticate_user', array( $this, 'limit_login_countries' ), 31, 1 );
 
+		add_filter( 'shake_error_codes', array( $this, 'add_shake_error' ) );
+
 	}
 
 	/**
@@ -190,5 +192,19 @@ class LLC_Public {
 		// TODO: per user settings
 		$this->options['is_blacklist'] = 'whitelist' === get_option( 'llc_blacklist', 'whitelist' ) ? false : true;
 		$this->options['countryList']  = explode( ',', get_option( 'llc_countries' ) );
+	}
+
+	/**
+	 * Enable shaking of the login form on 'invalid_country' error.
+	 *
+	 * @param $shake_error_codes array List of error codes for shaking the
+	 *                           login form.
+	 *
+	 * @return array Extended list of error codes for shaking the login
+	 *               form.
+	 */
+	public function add_shake_error( $shake_error_codes ) {
+		$shake_error_codes[] = 'invalid_country';
+		return $shake_error_codes;
 	}
 }

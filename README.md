@@ -89,6 +89,7 @@ No worries! Just add `define('LIMIT_LOGIN_COUNTRIES_OVERRIDE', TRUE);` to your `
 * Add proper GeoIP database file checks
 * Add custom error handling during login geoip lookup to prevent lock out on error.
 * Joined the translators community on [WP-Translations.org](http://wp-translations.org).
+* Add login box shaking on error.
 
 ### Version 0.6.4 ###
 * Hotfix for settings link showing up for all plugins in the Plugins list table.
