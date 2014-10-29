@@ -38,7 +38,8 @@ module.exports = function( grunt ) {
         csslint: {
             options: {
                 ids: false,
-                'import': 2
+                'import': true,
+                'adjoining-classes': false
             },
             all: {
                 src: [ './admin/css/**/*.css', './public/css/**/*.css' ]
@@ -51,6 +52,7 @@ module.exports = function( grunt ) {
         },
         jscs: {
             options: {
+                force: true,
                 preset: 'jquery',
                 reporter: 'console'
             },
@@ -66,6 +68,7 @@ module.exports = function( grunt ) {
         },
         jshint: {
             options: {
+                force: 'true',
                 reporter: require( 'jshint-stylish' ),
 
                 // Using WordPress "official" options here
@@ -165,6 +168,9 @@ module.exports = function( grunt ) {
             }
         },
 		phplint: {
+            options: {
+                force: true
+            },
 			all: {
 				src: [ '**/*.php', '!vendor/**', '!node_modules/**' ]
 			}
@@ -221,9 +227,6 @@ module.exports = function( grunt ) {
                 tasks: [ 'css' ]
             },
             grunt: {
-                options: {
-                    atBegin: true
-                },
                 files: [ 'Gruntfile.js' ],
                 tasks: [ 'grunt' ]
             }
