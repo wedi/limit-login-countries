@@ -14,6 +14,11 @@ jQuery( document ).ready( function( $ ) {
 
     $( "#llc-options-page form").areYouSure( { "message": LLC_AYS.message } );
 
+    // Move .updated-nag alert boxes. Don't move boxes designed to be inline.
+    // copied from wp-admin/js/common.js:354
+    $( "div.wrap h2:first" ).nextAll( "div.update-nag" ).addClass( "below-h2" );
+    $( "div.update-nag" ).not( ".below-h2, .inline" ).insertAfter( $( "div.wrap h2:first" ) );
+
     $( "#llc_blacklist" ).change( function() {
         // we change the label of country list according to whitelist or blacklist mode
         $( "label[for='llc_countries_js']" ).text( LLC_COUNTRIES_LABEL[ $( this ).val() ] );
@@ -32,29 +37,32 @@ jQuery( document ).ready( function( $ ) {
 
     // we initialize the new country list input
     // TODO: Do this on element creation
-    $( "#llc_countries_js" )
-        .textext( {
-            plugins: "autocomplete tags",
-            tags: {
-                // we preset the list with the current value from no-js text input
-                items: $( "#llc_countries" ).val().split( "," )
-            }
-        } )
-        .bind( "getSuggestions", function( e, data ) {
-            var list = LLC_COUNTRY_CODES,
-                textext = $( e.target ).textext()[ 0 ],
-                query = (data ? data.query : "") || ""
-                ;
+    var countryInput = $( "#llc_countries" );
+    if ( countryInput.length ) {
+        $( "#llc_countries_js" )
+            .textext( {
+                plugins: "autocomplete tags",
+                tags: {
+                    // we preset the list with the current value from no-js text input
+                    items: countryInput.val().split( "," )
+                }
+            } )
+            .bind( "getSuggestions", function( e, data ) {
+                var list = LLC_COUNTRY_CODES,
+                    textext = $( e.target ).textext()[ 0 ],
+                    query = ( data ? data.query : "" ) || ""
+                    ;
 
-            $( this ).trigger(
-                "setSuggestions",
-                { result: textext.itemManager().filter( list, query ) }
-            );
-        } )
-        // we write all changes in our new input to the old one for submission
-        .bind( "setFormData", function( e ) {
-            var textext = $( e.target ).textext()[ 0 ];
-            textext = textext.hiddenInput().val();
-            $( "#llc_countries" ).val( textext );
-        } );
+                $( this ).trigger(
+                    "setSuggestions",
+                    { result: textext.itemManager().filter( list, query ) }
+                );
+            } )
+            // we write all changes in our new input to the old one for submission
+            .bind( "setFormData", function( e ) {
+                var textext = $( e.target ).textext()[ 0 ];
+                textext = textext.hiddenInput().val();
+                $( "#llc_countries" ).val( textext );
+            } );
+    } // if( country_input.length )
 } );
