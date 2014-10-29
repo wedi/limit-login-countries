@@ -20,8 +20,14 @@ Version 1.0
 - Enable GeoIP2 databases
 - Use GeoIP C extension if installed
 - login country settings per user
+- support tab in settings
+  - debug info (_SERVER, settings, versions etc.)
+  - howto report issues
+  - list of issues reported
+- akismet like message on dashboard (with setting to disable)
 
-Version 1.1
+Version x.y
 -----------
 - add country settings to posts
 - make continents selectable in black-/whitelists
+- dashboard meta-box
