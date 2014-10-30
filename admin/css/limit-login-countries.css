@@ -9,3 +9,27 @@
 #llc-options-page ul {
     list-style: disc inside;
 }
+
+#llc-options-page .update-nag,
+div.update-nag.admin-notice,
+div.update-nag.settings-error {
+    display: inherit;
+    padding: 1px 12px;
+    margin: 5px 0 15px;
+    font-size: 13px;
+    line-height: 1.4em;
+}
+
+#llc-options-page .update-nag p,
+div.update-nag.admin-notice p,
+div.update-nag.settings-error p {
+    padding: 2px;
+    margin: .5em 0;
+}
+
+#llc-options-page .error.inline,
+#llc-options-page .updated.inline,
+#llc-options-page .update-nag.inline {
+    display: inline-block;
+    margin: 0 0 15px;
+}
