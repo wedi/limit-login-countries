@@ -101,48 +101,55 @@ class LLC_GeoIP_Tools {
 	 * Return GeoIP database publish date or false if no GeoIP database.
 	 *
 	 * @param $geoip_db_file string Path to GeoIP database file to check.
+	 * @param string $db_id  Contains database ID string if found,
+	 *                       'No database identifier found.' otherwise.
 	 *
-	 * @return int|false GeoIP database release date timestamp or false if no
-	 *                     valid GeoIP database is recognized.
+	 * @return false|int     GeoIP database release date timestamp or false if
+	 *                       non found.
 	 */
-	public static function get_database_build_date( $geoip_db_file ) {
+	public static function get_database_build_date( $geoip_db_file, &$db_id = null ) {
 
-		$transient = 'llc_geoip_file_' . sha1_file( $geoip_db_file );
-		if ( $d = get_transient( $transient ) ) {
-			return $d;
-		}
+		$db_id = 'No database identifier found.';
 
 		if ( ! $h = fopen( $geoip_db_file, 'rb' ) ) {
+
 			return false;
 		}
-		if ( ! fseek( $h, -100, SEEK_END ) === -1 ) {
+		if ( 0 !== fseek( $h, -100, SEEK_END ) ) {
+
 			return false;
 		}
 		if ( ! $d = fread( $h, 100 ) ) {
+
 			return false;
 		}
 		fclose( $h );
 
-		if ( false === strpos( strtolower( $d ), 'maxmind inc' ) ) {
+		if ( false === stripos( $d, 'MaxMind Inc' ) ) {
+
 			return false;
 		}
 		if ( false === $d = substr( $d, strpos( $d, 'GEO-' ) ) ) {
+
 			return false;
 		}
-		if ( false === $d = substr( $d, 0, strpos( $d, 'Reserved' ) + 8 ) ) {
+		if ( false === $d = substr( $d, 0, stripos( $d, 'Reserved' ) + 8 ) ) {
+
 			return false;
 		}
-		// From now on we assume the file is valid and don't return false anymore.
+		// From now on we consider the file as valid and don't return false anymore.
 		// By now $d should look like:
 		// GEO-106FREE 20141007 Build 1 Copyright (c) 2014 MaxMind Inc All Rights Reserved
+		$db_id = $d;
 		$d = explode( ' ', $d );
-		try {
-			// Using 'America/New_York' because that's MaxMind's timezone.
-			if ( ! $d = DateTime::createFromFormat( '!Ymd', $d[1], new DateTimeZone( 'America/New_York' ) ) ) {
-				return 1;
-			}
-			set_transient( $transient, $d->getTimestamp(), 20 );
-		} catch ( Exception $e ) {
+		// Using 'America/New_York' because that's MaxMind's timezone - not that a few hours
+		// really matter but still...
+		if ( ! $d = DateTime::createFromFormat( '!Ymd', $d[1], new DateTimeZone( 'America/New_York' ) ) ) {
+			trigger_error(
+				'Unexpected format of GeoIP database identifier: [' . esc_html( trim( $d ) ) . ']',
+				E_USER_NOTICE
+			);
+
 			return 1;
 		}
 
