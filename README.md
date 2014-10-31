@@ -1,16 +1,16 @@
 
 # Limit Login Countries #
 
-**Tested up to:** 4.0   
-**Requires at least:** 3.5.0   
-**Stable tag:** 0.6.4   
-**Contributors:** wedi   
-**License:** GPLv2 or any later version   
-**License URI:** http://www.gnu.org/licenses/gpl-2.0.html   
+**Tested up to:** 4.0  
+**Requires at least:** 3.5.0  
+**Stable tag:** 0.6.4  
+**Contributors:** wedi  
+**License:** GPLv2 or any later version  
+**License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
-**Tags:** login, security   
+**Tags:** login, security  
 **Text Domain:** limit-login-countries
-**Domain Path:** /languages   
+**Domain Path:** /languages  
 **GitHub Plugin URI:** https://github.com/wedi/limit-login-countries/
 
 This plugin gives you the ability to limit WordPress admin logins based on the country the visitor's IP address is located in.
