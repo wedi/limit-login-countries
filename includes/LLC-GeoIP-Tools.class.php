@@ -71,13 +71,13 @@ class LLC_GeoIP_Tools {
 	public static function is_valid_geoip_database( $geoip_db_file, &$msg = '', &$build_date = 0 ) {
 
 		if ( empty( $geoip_db_file ) ) {
-			$msg = __( 'You have not specified a GeoIP database.', 'limit-login-countries' );
+			$msg = __( 'No GeoIP database set.', 'limit-login-countries' );
 
 		} elseif ( ! file_exists( $geoip_db_file ) ) {
 			$msg = __( 'The specified GeoIP database file does not exist or your file access permissons aren\'t sufficient.', 'limit-login-countries' );
 
 		} elseif ( ! is_readable( $geoip_db_file ) ) {
-			$msg = __( 'The specified GeoIP database file is not readable.', 'limit-login-countries' );
+			$msg = __( 'The specified GeoIP database file is not readable due to insufficient file permissions.', 'limit-login-countries' );
 
 		} elseif ( false === $ts = self::get_database_build_date( $geoip_db_file ) ) {
 			$msg = __( 'The specified GeoIP database file is invalid.', 'limit-login-countries' );

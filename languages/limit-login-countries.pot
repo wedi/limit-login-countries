@@ -1669,8 +1669,8 @@ msgstr ""
 msgid "Zimbabwe"
 msgstr ""
 
-#: includes/LLC-GeoIP-Tools.class.php:70
-msgid "You have not specified a GeoIP database."
+#: includes/LLC-GeoIP-Tools.class.php:78
+msgid "No GeoIP database set."
 msgstr ""
 
 #: includes/LLC-GeoIP-Tools.class.php:73
@@ -1679,8 +1679,10 @@ msgid ""
 "permissons aren't sufficient."
 msgstr ""
 
-#: includes/LLC-GeoIP-Tools.class.php:76
-msgid "The specified GeoIP database file is not readable."
+#: includes/LLC-GeoIP-Tools.class.php:84
+msgid ""
+"The specified GeoIP database file is not readable due to insufficient file "
+"permissions."
 msgstr ""
 
 #: includes/LLC-GeoIP-Tools.class.php:79 includes/LLC-GeoIP-Tools.class.php:90
