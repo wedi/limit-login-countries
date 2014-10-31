@@ -18,8 +18,10 @@ class LLC_Admin {
 	 */
 	protected function __construct() {
 
-		require_once( __DIR__ . '/includes/LLC-Options-Page.class.php' );
+		require_once( dirname( __DIR__ ) . '/includes/LLC-GeoIP-Tools.class.php' );
+		LLC_GeoIP_Tools::$geoIPDatabase       = get_option( 'llc_geoip_database_path' );
 		require_once( __DIR__ . '/../includes/LLC-Admin-Notice.class.php' );
+		require_once( __DIR__ . '/includes/LLC-Options-Page.class.php' );
 
 		// we add a link to the plugin settings on the plugin page
 		$meta            = new ReflectionClass( 'Limit_Login_Countries' );
@@ -73,13 +75,11 @@ class LLC_Admin {
 		if ( ! isset( $_GET['settings-updated'] ) and ! isset( $_POST['llc_geoip_database_path'] ) ) {
 			// check llc_database_path
 			$db_path = get_option( 'llc_geoip_database_path' );
-			require_once( __DIR__ . '/../includes/LLC-GeoIP-Tools.class.php' );
 			if ( ! LLC_GeoIP_Tools::is_valid_geoip_database( $db_path, $errmsg ) ) {
 				global $pagenow;
 				if ( 'options-general.php' === $pagenow and isset( $_GET['page'] ) and 'limit-login-countries' === $_GET['page'] ) {
 					add_settings_error( 'llc_geoip_database_path', 'geoip-database-not-existent', $errmsg );
 				} else {
-					require_once( __DIR__ . '/../includes/LLC-Admin-Notice.class.php' );
 					LLC_Admin_Notice::add_notice( $errmsg . ' ' . LLC_Options_Page::get_link_tag(), 'error' );
 				}
 			}
