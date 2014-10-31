@@ -191,18 +191,30 @@ class LLC_GeoIP_Tools {
 	 * Try to detect a proxy to notify the admin in settings.
 	 * Based on http://stackoverflow.com/a/21765661
 	 *
+	 * @param null $detected_headers array Optional. Gets filled with found
+	 *                               proxy headers.
+	 *
 	 * @return array|false array of proxy headers (might be empty) or
-	 *                     false if no proxy detected
 	 */
-	public static function detect_proxy() {
+	public static function proxy_detected( &$detected_headers = null ) {
 		$proxy_headers = array(
-			'HTTP_X_FORWARDED_FOR',
-			'HTTP_CLIENT_IP',
-			'HTTP_X_CLUSTER_CLIENT_IP',
-			'HTTP_CF_CONNECTING_IP',
-			'HTTP_X_FORWARDED',
+			'HTTP_X_FORWARDED_FOR',     # wikipedia says that's the de-facto standard
 			'HTTP_FORWARDED_FOR',
+			'HTTP_X_REAL_IP',           # nginx load balancer
+			'HTTP_REAL_IP',
+			'HTTP_X_CLIENT_IP',         # CloudFront
+			'HTTP_CLIENT_IP',
+			'HTTP_X_TRUE_CLIENT_IP',    # Level3
+			'HTTP_TRUE_CLIENT_IP',      # Akamai, EdgeCast
+			'HTTP_X_CLUSTER_CLIENT_IP', # Rackspace
+			'HTTP_CLUSTER_CLIENT_IP',
+			'HTTP_CF_CONNECTING_IP',    # CloudFlare
+			'HTTP_X_FORWARDED',         # no idea but many snippets use it
+			'HTTP_FORWARDED',
+			'HTTP_X_COMING_FROM',       # no idea but many snippets use it
+			'HTTP_COMING_FROM',
 			'HTTP_VIA',
+			'HTTP_X_PROXY_ID',
 		);
 
 		$detected = false;
@@ -210,27 +222,24 @@ class LLC_GeoIP_Tools {
 		// check for common proxy set headers
 		$detected_headers = array();
 		foreach ( $proxy_headers as $proxy_header ) {
-			if ( isset( $_SERVER[ $proxy_header ] ) and $_SERVER[ $proxy_header ] != $_SERVER['REMOTE_ADDR'] ) {
+			if (
+				isset( $_SERVER[ $proxy_header ] )
+				and $_SERVER[ $proxy_header ] != $_SERVER['REMOTE_ADDR']
+			) {
 				$detected = true;
-				if ( filter_var( $_SERVER[ $proxy_header ], FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE ) ) {
-					$detected_headers[ $proxy_header ] = $_SERVER[ $proxy_header ];
+				if (
+					filter_var(
+						$_SERVER[ $proxy_header ],
+						FILTER_VALIDATE_IP,
+						FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE
+					) and ! in_array( $proxy_header, array( 'HTTP_VIA', 'HTTP_X_PROXY_ID' ) )
+				) {
+					$detected_headers[ $proxy_header ] = $proxy_header;
 				}
 			}
 		}
 
-		// one last check
-		if ( ! $detected
-			and filter_var(
-				$_SERVER['REMOTE_ADDR'],
-				FILTER_VALIDATE_IP,
-				FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE
-			)
-			and fsockopen( $_SERVER['REMOTE_ADDR'], 80, $errno, $errstr, 8 )
-		) {
-			$detected = true;
-		};
-
-		return $detected ? $detected_headers : false;
+		return $detected;
 	}
 
 	/**
