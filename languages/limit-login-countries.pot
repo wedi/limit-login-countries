@@ -1673,7 +1673,7 @@ msgstr ""
 msgid "No GeoIP database set."
 msgstr ""
 
-#: includes/LLC-GeoIP-Tools.class.php:73
+#: includes/LLC-GeoIP-Tools.class.php:81
 msgid ""
 "The specified GeoIP database file does not exist or your file access "
 "permissons aren't sufficient."
@@ -1685,11 +1685,11 @@ msgid ""
 "permissions."
 msgstr ""
 
-#: includes/LLC-GeoIP-Tools.class.php:79 includes/LLC-GeoIP-Tools.class.php:90
+#: includes/LLC-GeoIP-Tools.class.php:87 includes/LLC-GeoIP-Tools.class.php:98
 msgid "The specified GeoIP database file is invalid."
 msgstr ""
 
-#: includes/LLC-GeoIP-Tools.class.php:83
+#: includes/LLC-GeoIP-Tools.class.php:91
 msgid "The GeoIP database file (published on %s) is valid."
 msgstr ""
 

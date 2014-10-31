@@ -36,6 +36,10 @@ class LLC_GeoIP_Tools {
 	 */
 	public static function get_geo_info( $ip = null ) {
 
+		if ( empty( static::$geoIPDatabase ) ) {
+			return false;
+		}
+
 		if ( ! $ip ) {
 			$ip = static::get_visitor_ip();
 		}
@@ -90,7 +94,7 @@ class LLC_GeoIP_Tools {
 		}
 
 		// we only expose whether a file exists / is readable if it looks like a geoip file to prevent arbitrary filesystem exploration
-		if ( ! GeoIPDatabaseSearchFilter::looks_like_geoip_db_file( $geoip_db_file ) ) {
+		if ( $geoip_db_file and ! GeoIPDatabaseSearchFilter::looks_like_geoip_db_file( $geoip_db_file ) ) {
 			$msg = __( 'The specified GeoIP database file is invalid.', 'limit-login-countries' );
 		}
 
