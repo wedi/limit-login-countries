@@ -54,7 +54,7 @@ class LLC_Options_Page {
 		// ID used to identify this section and with which to register options
 			'llc_country_settings',
 			// Title to be displayed on the administration page
-			__( 'Login Country Settings', 'limit-login-countries' ),
+			__( 'Login Countries', 'limit-login-countries' ),
 			// Callback used to render the description of the section
 			array( get_called_class(), 'country_settings_description' ),
 			// Page on which to add this section of options
@@ -67,7 +67,7 @@ class LLC_Options_Page {
 		// ID used to identify the field throughout the plugin
 			'llc_blacklist',
 			// The label to the left of the option interface element
-			__( 'Act as:', 'limit-login-countries' ),
+			__( 'Blocking mode:', 'limit-login-countries' ),
 			// The name of the function responsible for rendering the option interface
 			array( get_called_class(), 'country_list_type_callback' ),
 			// The page on which this option will be displayed
@@ -115,7 +115,7 @@ class LLC_Options_Page {
 
 		add_settings_section(
 			'llc_geoip_settings',
-			__( 'GeoIP Database Settings', 'limit-login-countries' ),
+			__( 'GeoIP Database', 'limit-login-countries' ),
 			array( get_called_class(), 'geoip_settings_description' ),
 			'limit-login-countries'
 		);
@@ -181,7 +181,8 @@ class LLC_Options_Page {
 	public static function country_settings_description() {
 
 		$r = '<p>' . __( 'Here you configure from which countries admin area logins are allowed.', 'limit-login-countries' ) . '</p>';
-		$r .= '<p><em>' . sprintf( __( '<strong>Remember:</strong> In case you lock yourself out of WP\'s admin area you can disable the country check by adding %s to your <code>wp-config.php</code> file.', 'limit-login-countries' ), '<code>define(\'LIMIT_LOGIN_COUNTRIES_OVERRIDE\', TRUE);</code>' ) . '</em></p>';
+		// translators: %s is a PHP statement already wrapped in <code>.
+		$r .= '<p><em>' . sprintf( __( '<strong>Remember:</strong> In case you lock yourself out of WP\'s admin area you can disable the country check by adding %s to your <code>wp-config.php</code> file.', 'limit-login-countries' ), '<code>define( \'LIMIT_LOGIN_COUNTRIES_OVERRIDE\', TRUE );</code>' ) . '</em></p>';
 
 		echo $r;
 	}
@@ -246,7 +247,9 @@ class LLC_Options_Page {
 		$r .= "<div id='llc_test' />";
 
 		$r .= '<ul>';
-		$r .= '<li>' . __( 'List of 2-letter country codes.', 'limit-login-countries' ) . '</li>';
+		$r .= '<li><a href="http://dev.maxmind.com/geoip/legacy/codes/iso3166/" target="_blank">'
+				. __( 'List of 2-letter country codes.', 'limit-login-countries' )
+				. '</a></li>';
 		$r .= '<li class="no-js">' . __( 'Use a comma as delimiter.', 'limit-login-countries' ) . '</li>';
 		$r .= '<li>' . __( 'If list is empty, no login restriction applies.', 'limit-login-countries' ) . '</li>';
 		$r .= '</ul>';
@@ -295,7 +298,7 @@ class LLC_Options_Page {
 	 */
 	public static function geoip_settings_description() {
 
-		$r = '<p>' . sprintf( __( 'This plugin works with <a href="%1$s" target="_blank">Maxmind\'s GeoIP database</a>. If you are not a paying customer, you can download a lite version for free: <a href="%2$s" title="Direct Download">Download Maxmind\'s GeoIP Lite database</a>.', 'limit-login-countries' ), 'http://dev.maxmind.com/geoip/', 'http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz' ) . '</p>';
+		$r = '<p>' . sprintf( __( 'This plugin works with <a href="%1$s" target="_blank">Maxmind\'s GeoIP databases</a>. Just grab <a href="%2$s" title="Direct Download">the free version</a>, and move it (unzipped!) to your WordPress uploads directory.', 'limit-login-countries' ), 'http://dev.maxmind.com/geoip/legacy/geolite/', 'http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz' ) . '</p>';
 
 		echo $r;
 	}
@@ -317,8 +320,7 @@ class LLC_Options_Page {
 			$dashicon = 'dashicons-no';
 			$color    = '#dd3d36';
 		}
-		echo sprintf( '<p><span style="color:%2$s;font-size:20px;" class="dashicons %3$s" title="%1$s"></span>&nbsp;<em>%1$s</em><br><br></p>', $msg, $color, $dashicon );
-
+		echo sprintf( '<p><span style="color:%2$s;font-size:20px;" class="dashicons %3$s" title="%1$s"></span>&nbsp;<em>%1$s</em></p>', $msg, $color, $dashicon );
 		if ( '' === $setting ) {
 			$gds = LLC_GeoIP_Tools::search_geoip_database();
 			echo '<p>' . __( 'For your convenience we tried to find a database file.', 'limit-login-countries' ) . '</p>';
@@ -345,7 +347,7 @@ class LLC_Options_Page {
 
 		$current_db_path = get_option( 'llc_geoip_database_path', '' );
 		if ( ! LLC_GeoIP_Tools::is_valid_geoip_database( $new_db_path, $errmsg ) ) {
-			add_settings_error( 'llc_geoip_database_path', 'geoip-database-not-existent', $errmsg );
+			add_settings_error( 'llc_geoip_database_path', 'geoip-database-invalid', $errmsg );
 			if ( LLC_GeoIP_Tools::is_valid_geoip_database( $current_db_path ) ) {
 				return $current_db_path;
 			} elseif ( ! empty( $new_db_path ) ) {

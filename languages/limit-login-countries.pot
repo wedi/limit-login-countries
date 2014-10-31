@@ -30,30 +30,27 @@ msgid "Limit Login Countries Settings"
 msgstr ""
 
 #: admin/includes/LLC-Options-Page.class.php:43
+#: admin/includes/LLC-Options-Page.class.php:57
 #. translators: The menu item of the settings page in the WordPress admin area.
 msgid "Login Countries"
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:57
-msgid "Login Country Settings"
-msgstr ""
-
 #: admin/includes/LLC-Options-Page.class.php:70
-msgid "Act as:"
+msgid "Blocking mode:"
 msgstr ""
 
 #: admin/includes/LLC-Options-Page.class.php:83
-#: admin/includes/LLC-Options-Page.class.php:256
+#: admin/includes/LLC-Options-Page.class.php:259
 msgid "Exclusive list of allowed countries:"
 msgstr ""
 
 #: admin/includes/LLC-Options-Page.class.php:85
-#: admin/includes/LLC-Options-Page.class.php:257
+#: admin/includes/LLC-Options-Page.class.php:260
 msgid "Exclusive list of rejected countries:"
 msgstr ""
 
 #: admin/includes/LLC-Options-Page.class.php:118
-msgid "GeoIP Database Settings"
+msgid "GeoIP Database"
 msgstr ""
 
 #: admin/includes/LLC-Options-Page.class.php:127
@@ -68,62 +65,63 @@ msgstr ""
 msgid "Here you configure from which countries admin area logins are allowed."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:184
+#: admin/includes/LLC-Options-Page.class.php:185
+#. translators: %s is a PHP statement already wrapped in <code>.
 msgid ""
 "<strong>Remember:</strong> In case you lock yourself out of WP's admin area "
 "you can disable the country check by adding %s to your "
 "<code>wp-config.php</code> file."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:207
+#: admin/includes/LLC-Options-Page.class.php:208
 msgid "Whitelist"
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:208
+#: admin/includes/LLC-Options-Page.class.php:209
 msgid "Blacklist"
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:212
+#: admin/includes/LLC-Options-Page.class.php:213
 msgid ""
 "<em>Whitelist</em> means login is allowed from the countries listed below "
 "only."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:213
+#: admin/includes/LLC-Options-Page.class.php:214
 msgid ""
 "<em>Blacklist</em> means login is not allowed from the countries listed "
 "below only."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:233
+#: admin/includes/LLC-Options-Page.class.php:234
 msgid "Invalid value. You must select either whitelist or blacklist."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:249
+#: admin/includes/LLC-Options-Page.class.php:251
 msgid "List of 2-letter country codes."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:250
+#: admin/includes/LLC-Options-Page.class.php:253
 msgid "Use a comma as delimiter."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:251
+#: admin/includes/LLC-Options-Page.class.php:254
 msgid "If list is empty, no login restriction applies."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:298
+#: admin/includes/LLC-Options-Page.class.php:301
 msgid ""
 "This plugin works with <a href=\"%1$s\" target=\"_blank\">Maxmind's GeoIP "
-"database</a>. If you are not a paying customer, you can download a lite "
-"version for free: <a href=\"%2$s\" title=\"Direct Download\">Download "
-"Maxmind's GeoIP Lite database</a>."
+"databases</a>. Just grab <a href=\"%2$s\" title=\"Direct Download\">the "
+"free version</a>, and move it (unzipped!) to your WordPress uploads "
+"directory."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:324
+#: admin/includes/LLC-Options-Page.class.php:326
 msgid "For your convenience we tried to find a database file."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:332
+#: admin/includes/LLC-Options-Page.class.php:334
 msgid ""
 "Unfortunately we couldn't find any database file.<br/>If you are sure you "
 "uploaded (and unzipped) one, it is probably just named differently from "
@@ -131,11 +129,11 @@ msgid ""
 "database file above and we are all fine."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:381
+#: admin/includes/LLC-Options-Page.class.php:383
 msgid "Settings"
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:449
+#: admin/includes/LLC-Options-Page.class.php:451
 msgid "The changes you made will be lost if you navigate away from this page."
 msgstr ""
 
