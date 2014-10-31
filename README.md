@@ -21,6 +21,8 @@ This plugin gives you the ability to limit WordPress admin logins based on the c
 
 You can choose between a white- and blacklist mode. In whitelist mode only visitors with IP addresses from the configured countries are allowed. In blacklist mode visitors with IPs from the configured countries are not allowed to login.
 
+The effect of this plugin can of course be bypassed with a proxy or VPN end node in an allowed country but it requires much more effort than those everyday bots usually make while trying to guess your admin password.
+
 
 ### Translations ###
 Big thanks to all the WP-Translations Team Members!
