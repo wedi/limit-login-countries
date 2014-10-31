@@ -3,7 +3,6 @@ TODO: Limit Login Countries
 
 Version 0.7
 -----------
-- Proxy settings
 - save last login country for all users. Warn if anyone will be locked out.
 - check if current user will be locked out on save.
 - tabify settings

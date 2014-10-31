@@ -138,6 +138,36 @@ class LLC_Options_Page {
 			'llc_geoip_database_path',
 			array( get_called_class(), 'geoip_database_path_sanitize' )
 		);
+
+		/* -------------------------------------------------------------------
+		 * Add 'Proxy Settings' - llc_proxy_settings
+		 * ---------------------------------------------------------------- */
+
+		add_settings_section(
+			'llc_proxy_settings',
+			__( 'Proxy', 'limit-login-countries' ),
+			array( get_called_class(), 'proxy_settings_description' ),
+			'limit-login-countries'
+		);
+
+		// Add fields to section ---------------------------------------------
+
+		add_settings_field(
+			'proxy_header',
+			__( 'Client IP HTTP header:', 'limit-login-countries' ),
+			array( get_called_class(), 'proxy_header_callback' ),
+			'limit-login-countries',
+			'llc_proxy_settings',
+			array( 'label_for' => 'proxy_header' )
+		);
+
+		// Register section --------------------------------------------------
+
+		register_setting(
+			'limit-login-countries',
+			'llc_proxy_settings',
+			array( get_called_class(), 'proxy_settings_sanitize' )
+		);
 	}
 
 	/**
@@ -359,6 +389,238 @@ class LLC_Options_Page {
 
 			return $new_db_path;
 		}
+	}
+
+	/* -----------------------------------------------------------------------
+	 * Section 'Proxy Settings' functions - llc_proxy_settings
+	 * -------------------------------------------------------------------- */
+
+	/**
+	 * Render the description for the Proxy settings.
+	 */
+	public static function proxy_settings_description() {
+
+		echo '<p>';
+		_e( 'Here you can adjust how the plugin retrieves the client IP to use for geo information look up.', 'limit-login-countries' );
+		echo '</p><p>';
+		_e( 'In most cases everything will work out of the box, but sometimes a so-called <a href="http://en.wikipedia.org/wiki/Reverse_proxy" target="_blank">reverse proxy</a> blocks the easy way (e.g., for CDNs or load balancing).', 'limit-login-countries' );
+		echo '</p>';
+
+		if ( LLC_GeoIP_Tools::proxy_detected( $headers ) ) {
+			echo '<div class="update-nag inline"><p><strong>';
+			_e(
+				'It seems that your WordPress installation lives behind a proxy.',
+				'limit-login-countries'
+			);
+			echo '</strong></p><p>';
+			_e( "You should ask your hosting or CDN provider which HTTP header contains the client's real IP address.",
+				'limit-login-countries'
+			);
+
+			if ( count( $headers ) > 0 ) {
+				echo '<br>';
+				_e( 'However, here is a list of relevant HTTP headers found. <a href="http://ipaddress.com/" target="_blank">Look up your current IP address</a>. If any of the following headers match, it\'s probably the correct setting.', 'limit-login-countries' );
+
+				echo '</p><ul><li><code>' .
+					'REMOTE_ADDR = ' . esc_html( $_SERVER['REMOTE_ADDR'] ) .
+					'</code></li>';
+				foreach ( $headers as $header ) {
+					printf(
+						'<li><code>%1$s = "%2$s"</code></li>',
+						esc_html( $header ),
+						esc_html( $_SERVER[ $header ] )
+					);
+				}
+				echo '</ul>';
+			}
+			$proxy_settings = static::proxy_get_options();
+			$proxy_disable_warning = $proxy_settings['disable_warning'] ? ' checked' : '';
+			printf(
+				'<p><input type="checkbox" id="%1$s" name="%1$s" value="%1$s"%2$s><label for="%1$s">%3$s</label></p>',
+				'proxy_disable_warning',
+				$proxy_disable_warning,
+				__( 'Stop nagging me. My settings are all ok and I accept full responsibility!', 'limit-login-countries' )
+			);
+			echo '</div>';
+		} else {
+			echo '<div class="updated inline"><p><strong>';
+			_e( 'Cool. Chances are high that your WordPress installation does <em>not</em> need any special settings to deal with your proxy.', 'limit-login-countries' );
+			echo '</strong></p><p>';
+
+			_e( "However, that guess might be incorrect. If, as a matter of fact, your WordPress installation is behind a proxy, you should ask your hosting or CDN provider which HTTP header contains the client's real IP address.", 'limit-login-countries' );
+			echo '</p></div>';
+		}
+	}
+
+	/**
+	 * Render the proxy header input field.
+	 */
+	public static function proxy_header_callback() {
+		$proxy_settings = self::proxy_get_options();
+		$proxy_header = esc_attr( $proxy_settings['header'] );
+
+		echo "<input type='text' id='proxy_header' name='proxy_header' value='$proxy_header' size='30' />";
+
+		// display feedback for setting
+		if ( $proxy_header ) {
+			static::proxy_check_header( $proxy_header, $msg, $status, true );
+
+			if ( 'error' === $status ) {
+				$dashicon = 'dashicons-no';
+				$color    = '#dd3d36';
+			} elseif ( 'warning' === $status ) {
+				$dashicon = 'dashicons-info';
+				$color    = '#ffba00';
+			} else {
+				$dashicon = 'dashicons-yes';
+				$color    = '#7ad03a';
+			}
+			printf(
+				'<p><span style="color:%2$s;font-size:20px;" class="dashicons %3$s" title="%1$s"></span>&nbsp;<em>%1$s</em></p>',
+				$msg,
+				$color,
+				$dashicon
+			);
+		}
+	}
+
+	/**
+	 * Sanitize submitted proxy settings.
+	 *
+	 * @param array $proxy_settings The proxy settings to satitize.
+	 *
+	 * @return array The sanitized proxy settings
+	 */
+	public static function proxy_settings_sanitize() {
+
+		$proxy_settings         = array();
+		$current_proxy_settings = self::proxy_get_options();
+
+		$msg = $status = '';
+		if ( isset( $_POST['proxy_header'] ) and ! static::proxy_check_header( $_POST['proxy_header'], $msg, $status ) ) {
+			add_settings_error( 'settings', 'proxy-header-invalid', '<label for="proxy_header">' . __( 'Client IP HTTP header:', 'limit-login-countries' ) . ' ' . $msg . '</label>' );
+			$proxy_settings['header'] = $current_proxy_settings['header'];
+		} elseif ( 'warning' === $status and ! isset( $_POST['proxy_disable_warning'] ) ) {
+			add_settings_error( 'settings', 'proxy-header-warning', '<label for="proxy_header">' . __( 'Client IP HTTP header:', 'limit-login-countries' ) . ' ' . $msg . '</label>' , 'update-nag' );
+			$proxy_settings['header'] = $_POST['proxy_header'];
+		} else {
+			$proxy_settings['header'] = $_POST['proxy_header'];
+		}
+
+		// reset to false if a proxy header is set
+		if ( ! $proxy_settings['header'] and isset( $_POST['proxy_disable_warning'] ) and ! empty( $_POST['proxy_disable_warning'] ) ) {
+			$proxy_settings['disable_warning'] = true;
+		} else {
+			$proxy_settings['disable_warning'] = false;
+		}
+
+		return $proxy_settings;
+	}
+
+	/**
+	 * Check if $proxy_header is a valid proxy header.
+	 *
+	 * The HTTP header $proxy_header must be set to a valid non private IP address.
+	 *
+	 * @since 0.7
+	 *
+	 * @param string $proxy_header HTTP header to check.
+	 * @param bool $geocheck Perform geoIP Lookup during check. default: false.
+	 * @param string $msg Contains result as text message.
+	 * @param string $status error|warning|success
+	 *
+	 * @return bool Return true if given proxy header is valid, false otherwise (true on warning).
+	 */
+	public static function proxy_check_header( &$proxy_header, &$msg = null, &$status = null, $geocheck = false ) {
+
+		$proxy_header = str_replace( '-', '_', strtoupper( $proxy_header ) );
+		$proxy_header = filter_var( $proxy_header, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH );
+
+		if ( empty( $proxy_header ) ) {
+			if ( LLC_GeoIP_Tools::proxy_detected() ) {
+				$status = 'warning';
+				$msg = 'Reverse proxy detected but no Client IP header set.';
+			} else {
+				$status = 'success';
+				$msg    = '';
+			}
+			return true;
+		}
+		elseif ( ! isset( $_SERVER[ $proxy_header ] ) or empty( $_SERVER[ $proxy_header ] ) ) {
+			$status = 'error';
+			$msg = __( 'The specified HTTP header is not set on the server!', 'limit-login-countries' );
+
+			return false;
+
+		} elseif ( ! filter_var( $_SERVER[ $proxy_header ], FILTER_VALIDATE_IP ) ) {
+			$status = 'error';
+			// translators: %s is any string.
+			$msg = sprintf(
+				__(
+					'The specified HTTP header does not contain a valid IP address!<br>Header content: <code>%s</code>.',
+					'limit-login-countries'
+				),
+				esc_html( $_SERVER[ $proxy_header ] )
+			);
+
+			return false;
+
+		} elseif ( ! filter_var( $_SERVER[ $proxy_header ], FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE ) ) {
+			$status = 'warning';
+			// translators: %s is a IP address.
+			$msg = sprintf(
+				__(
+					'Found a private IP address (<code>%s</code>)!',
+					'limit-login-countries'
+				),
+				$_SERVER[ $proxy_header ]
+			);
+
+			return true;
+
+		} elseif ( $geocheck and ! $geoInfo = LLC_GeoIP_Tools::get_geo_info( $_SERVER[ $proxy_header ] ) ) {
+			$status = 'warning';
+			$msg      = sprintf(
+			// translators: %1$s is an IP address.
+				__(
+					'Found IP <code>%1$s</code> which could not be resolved to a country.',
+					'limit-login-countries'
+				),
+				$_SERVER[ $proxy_header ]
+			);
+
+			return true;
+
+		} else {
+			$status = 'success';
+			if ( $geocheck ) {
+				/** @noinspection PhpUndefinedVariableInspection */
+				$msg      = sprintf(
+				// translators: %1$s is an IP address, %2$s a country name and %3$s the corresponding 2-letter country code.
+					__(
+						'Found IP <code>%1$s</code> which is located in %2$s (%3$s).',
+						'limit-login-countries'
+					),
+					$_SERVER[ $proxy_header ],
+					$geoInfo->country_name,
+					$geoInfo->country_code
+				);
+			} else {
+				$msg = '';
+			}
+
+			return true;
+		}
+	}
+
+	/**
+	 * @return array
+	 */
+	public static function proxy_get_options() {
+		return get_option(
+			'llc_proxy_settings',
+			array( 'header' => '', 'disable_warning' => false )
+		);
 	}
 
 	/**

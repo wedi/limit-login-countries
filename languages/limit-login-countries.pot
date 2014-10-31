@@ -24,6 +24,12 @@ msgstr ""
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
 
+#: admin/LLC-Admin.class.php:94
+msgid ""
+"You need to adjust your proxy settings for Limit Login Countries to work "
+"correctly."
+msgstr ""
+
 #: admin/includes/LLC-Options-Page.class.php:41
 #. translators: The title of the plugin settings page (page & browser title).
 msgid "Limit Login Countries Settings"
@@ -40,12 +46,12 @@ msgid "Blocking mode:"
 msgstr ""
 
 #: admin/includes/LLC-Options-Page.class.php:83
-#: admin/includes/LLC-Options-Page.class.php:259
+#: admin/includes/LLC-Options-Page.class.php:289
 msgid "Exclusive list of allowed countries:"
 msgstr ""
 
 #: admin/includes/LLC-Options-Page.class.php:85
-#: admin/includes/LLC-Options-Page.class.php:260
+#: admin/includes/LLC-Options-Page.class.php:290
 msgid "Exclusive list of rejected countries:"
 msgstr ""
 
@@ -57,15 +63,25 @@ msgstr ""
 msgid "GeoIP database file:"
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:156
+#: admin/includes/LLC-Options-Page.class.php:148
+msgid "Proxy"
+msgstr ""
+
+#: admin/includes/LLC-Options-Page.class.php:157
+#: admin/includes/LLC-Options-Page.class.php:501
+#: admin/includes/LLC-Options-Page.class.php:504
+msgid "Client IP HTTP header:"
+msgstr ""
+
+#: admin/includes/LLC-Options-Page.class.php:186
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:183
+#: admin/includes/LLC-Options-Page.class.php:213
 msgid "Here you configure from which countries admin area logins are allowed."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:185
+#: admin/includes/LLC-Options-Page.class.php:215
 #. translators: %s is a PHP statement already wrapped in <code>.
 msgid ""
 "<strong>Remember:</strong> In case you lock yourself out of WP's admin area "
@@ -73,43 +89,43 @@ msgid ""
 "<code>wp-config.php</code> file."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:208
+#: admin/includes/LLC-Options-Page.class.php:238
 msgid "Whitelist"
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:209
+#: admin/includes/LLC-Options-Page.class.php:239
 msgid "Blacklist"
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:213
+#: admin/includes/LLC-Options-Page.class.php:243
 msgid ""
 "<em>Whitelist</em> means login is allowed from the countries listed below "
 "only."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:214
+#: admin/includes/LLC-Options-Page.class.php:244
 msgid ""
 "<em>Blacklist</em> means login is not allowed from the countries listed "
 "below only."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:234
+#: admin/includes/LLC-Options-Page.class.php:264
 msgid "Invalid value. You must select either whitelist or blacklist."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:251
+#: admin/includes/LLC-Options-Page.class.php:281
 msgid "List of 2-letter country codes."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:253
+#: admin/includes/LLC-Options-Page.class.php:283
 msgid "Use a comma as delimiter."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:254
+#: admin/includes/LLC-Options-Page.class.php:284
 msgid "If list is empty, no login restriction applies."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:301
+#: admin/includes/LLC-Options-Page.class.php:331
 msgid ""
 "This plugin works with <a href=\"%1$s\" target=\"_blank\">Maxmind's GeoIP "
 "databases</a>. Just grab <a href=\"%2$s\" title=\"Direct Download\">the "
@@ -117,11 +133,11 @@ msgid ""
 "directory."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:326
+#: admin/includes/LLC-Options-Page.class.php:356
 msgid "For your convenience we tried to find a database file."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:334
+#: admin/includes/LLC-Options-Page.class.php:364
 msgid ""
 "Unfortunately we couldn't find any database file.<br/>If you are sure you "
 "uploaded (and unzipped) one, it is probably just named differently from "
@@ -129,11 +145,87 @@ msgid ""
 "database file above and we are all fine."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:383
+#: admin/includes/LLC-Options-Page.class.php:404
+msgid ""
+"Here you can adjust how the plugin retrieves the client IP to use for geo "
+"information look up."
+msgstr ""
+
+#: admin/includes/LLC-Options-Page.class.php:406
+msgid ""
+"In most cases everything will work out of the box, but sometimes a "
+"so-called <a href=\"http://en.wikipedia.org/wiki/Reverse_proxy\" "
+"target=\"_blank\">reverse proxy</a> blocks the easy way (e.g., for CDNs or "
+"load balancing)."
+msgstr ""
+
+#: admin/includes/LLC-Options-Page.class.php:411
+msgid "It seems that your WordPress installation lives behind a proxy."
+msgstr ""
+
+#: admin/includes/LLC-Options-Page.class.php:416
+msgid ""
+"You should ask your hosting or CDN provider which HTTP header contains the "
+"client's real IP address."
+msgstr ""
+
+#: admin/includes/LLC-Options-Page.class.php:422
+msgid ""
+"However, here is a list of relevant HTTP headers found. <a "
+"href=\"http://ipaddress.com/\" target=\"_blank\">Look up your current IP "
+"address</a>. If any of the following headers match, it's probably the "
+"correct setting."
+msgstr ""
+
+#: admin/includes/LLC-Options-Page.class.php:442
+msgid "Stop nagging me. My settings are all ok and I accept full responsibility!"
+msgstr ""
+
+#: admin/includes/LLC-Options-Page.class.php:447
+msgid ""
+"Cool. Chances are high that your WordPress installation does <em>not</em> "
+"need any special settings to deal with your proxy."
+msgstr ""
+
+#: admin/includes/LLC-Options-Page.class.php:450
+msgid ""
+"However, that guess might be incorrect. If, as a matter of fact, your "
+"WordPress installation is behind a proxy, you should ask your hosting or "
+"CDN provider which HTTP header contains the client's real IP address."
+msgstr ""
+
+#: admin/includes/LLC-Options-Page.class.php:551
+msgid "The specified HTTP header is not set on the server!"
+msgstr ""
+
+#: admin/includes/LLC-Options-Page.class.php:559
+#. translators: %s is any string.
+msgid ""
+"The specified HTTP header does not contain a valid IP address!<br>Header "
+"content: <code>%s</code>."
+msgstr ""
+
+#: admin/includes/LLC-Options-Page.class.php:572
+#. translators: %s is a IP address.
+msgid "Found a private IP address (<code>%s</code>)!"
+msgstr ""
+
+#: admin/includes/LLC-Options-Page.class.php:585
+#. translators: %1$s is an IP address.
+msgid "Found IP <code>%1$s</code> which could not be resolved to a country."
+msgstr ""
+
+#: admin/includes/LLC-Options-Page.class.php:600
+#. translators: %1$s is an IP address, %2$s a country name and %3$s the
+#. corresponding 2-letter country code.
+msgid "Found IP <code>%1$s</code> which is located in %2$s (%3$s)."
+msgstr ""
+
+#: admin/includes/LLC-Options-Page.class.php:645
 msgid "Settings"
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:451
+#: admin/includes/LLC-Options-Page.class.php:713
 msgid "The changes you made will be lost if you navigate away from this page."
 msgstr ""
 

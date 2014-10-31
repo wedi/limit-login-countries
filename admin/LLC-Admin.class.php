@@ -20,6 +20,7 @@ class LLC_Admin {
 
 		require_once( dirname( __DIR__ ) . '/includes/LLC-GeoIP-Tools.class.php' );
 		LLC_GeoIP_Tools::$geoIPDatabase       = get_option( 'llc_geoip_database_path' );
+		LLC_GeoIP_Tools::$proxy_client_header = get_option( 'llc_proxy_client_header' );
 		require_once( __DIR__ . '/../includes/LLC-Admin-Notice.class.php' );
 		require_once( __DIR__ . '/includes/LLC-Options-Page.class.php' );
 
@@ -85,6 +86,19 @@ class LLC_Admin {
 					LLC_Admin_Notice::add_notice( $errmsg . ' ' . LLC_Options_Page::get_link_tag(), 'error' );
 				}
 			}
+
+			// check proxy settings ------------------------------------------
+
+			$proxy_settings = LLC_Options_Page::proxy_get_options();
+			if ( LLC_GeoIP_Tools::proxy_detected() and ! $proxy_settings['header'] and ! $proxy_settings['disable_warning'] ) {
+				$errmsg = __( 'You need to adjust your proxy settings for Limit Login Countries to work correctly.', 'limit-login-countries' );
+				if ( static::is_settings_page() ) {
+					LLC_Admin_Notice::add_notice( $errmsg, 'warning', array( 'prefix' => '' ) );
+				} else {
+					LLC_Admin_Notice::add_notice( $errmsg . ' ' . LLC_Options_Page::get_link_tag(), 'warning' );
+				}
+			}
+
 			// TODO: check if admin will be locked out after logout
 		}
 	}
