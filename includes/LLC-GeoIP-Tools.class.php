@@ -245,12 +245,18 @@ class LLC_GeoIP_Tools {
 	 */
 	public static function search_geoip_database() {
 
-		$search_paths[] = $_SERVER['DOCUMENT_ROOT'];
-
+		$search_paths[] = WP_CONTENT_DIR;
+		$search_paths[] = dirname( __DIR__ );
 		$wpud = wp_upload_dir();
 		$wpud = $wpud['basedir'];
 		if ( false === strpos( $wpud, $search_paths[0] ) ) {
 			$search_paths[] = $wpud;
+		}
+		if ( defined( 'LIMIT_LOGIN_COUNTRIES_SEARCH_PATH' ) ) {
+			$search_paths =
+				is_array( LIMIT_LOGIN_COUNTRIES_SEARCH_PATH )
+				? LIMIT_LOGIN_COUNTRIES_SEARCH_PATH
+				: array( LIMIT_LOGIN_COUNTRIES_SEARCH_PATH );
 		}
 
 		$res = array();
@@ -258,13 +264,15 @@ class LLC_GeoIP_Tools {
 			if ( ! is_readable( $p ) ) {
 				continue;
 			}
+			$p = realpath( $p );
 
-			$iterator = new RecursiveDirectoryIterator( $p, FilesystemIterator::SKIP_DOTS | FilesystemIterator::FOLLOW_SYMLINKS );
+			$iterator = new RecursiveDirectoryIterator( $p, FilesystemIterator::SKIP_DOTS | FilesystemIterator::CURRENT_AS_SELF | FilesystemIterator::KEY_AS_PATHNAME );
 			$iterator = new GeoIPDatabaseSearchFilter( $iterator );
 			$iterator = new RecursiveIteratorIterator( $iterator );
+			$iterator->setMaxDepth( 5 );
 			foreach ( $iterator as $file ) {
-				$filepath = $file->getPathInfo() . DIRECTORY_SEPARATOR . $file->getBasename();
-				$res[ realpath( $filepath ) ] = array( 'filepath' => $filepath, 'CTime' => $file->getCTime() );
+				$filepath = $file->key();
+				$res[ $filepath ] = array( 'filepath' => $filepath, 'CTime' => filectime( $filepath ) );
 			}
 			foreach ( $res as $key => $r ) {
 				if ( self::is_valid_geoip_database( $r['filepath'], $msg, $ts ) ) {
@@ -291,6 +299,8 @@ class LLC_GeoIP_Tools {
  */
 class GeoIPDatabaseSearchFilter extends RecursiveFilterIterator {
 
+	static $cache = array();
+
 	/**
 	 * Check if readable files match a typical GeoIP database file name.
 	 *
@@ -300,19 +310,21 @@ class GeoIPDatabaseSearchFilter extends RecursiveFilterIterator {
 	 */
 	public function accept() {
 
-		$filename = strtolower( $this->current()->getFilename() );
-
+		$file = $this->current()->key();
+		$filename = strtolower( basename( $file ) );
 		// skip everything starting with a dot, thinking of huge .git folders.
 		if ( '.' === $filename[0] ) {
 			return false;
 		}
-
-		// allow directories, otherwise we cannot recurse
-		if ( $this->current()->isDir() and $this->current()->isReadable() and $this->current()->isExecutable() ) {
+		if ( isset( self::$cache[ $file ] ) ) {
+			return false;
+		} else {
+			self::$cache[ $file ] = 1;
+		}
+		if ( is_dir( $file ) ) {
 			return true;
 		}
-
-		if ( $this->current()->isReadable() and self::looks_like_geoip_db_file( $this->current()->getPathname() ) ) {
+		if ( '.dat' == substr( $filename, -4 ) and self::looks_like_geoip_db_file( $file, $filename ) and is_readable( $file ) ) {
 			return true;
 		}
 
@@ -327,18 +339,20 @@ class GeoIPDatabaseSearchFilter extends RecursiveFilterIterator {
 	 *  - Given path contains either 'geoip' or 'geolite' or
 	 *    filename contains 'geo'.
 	 *
-	 * @since 0.7
+	 * @since    0.7
 	 *
-	 * @param $geoip_db_file
+	 * @param $full_path
+	 * @param $filename
+	 *
+	 * @internal param $geoip_db_file
 	 *
 	 * @return bool
 	 */
-	public static function looks_like_geoip_db_file( $geoip_db_file ) {
-		$geoip_db_file = strtolower( $geoip_db_file );
-		return ( '.dat' === substr( $geoip_db_file, - 4, 4 ) and (
-			strpos( $geoip_db_file, 'geoip' ) !== false
-			or strpos( $geoip_db_file, 'geolite' ) !== false
-			or strpos( basename( $geoip_db_file ), 'geo' ) !== false )
+	public static function looks_like_geoip_db_file( $full_path, $filename = null ) {
+		return (
+			stripos( $filename, 'geoip' ) !== false
+			or stripos( $filename, 'geolite' ) !== false
+			or stripos( basename( $full_path ), 'geo' ) !== false
 		);
 	}
 }
