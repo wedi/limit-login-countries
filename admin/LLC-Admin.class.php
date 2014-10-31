@@ -30,20 +30,21 @@ class LLC_Admin {
 			array( $this, 'plugin_settings_link' ), 10, 1
 		);
 
-		// check current settings and display a admin notice on error.
-		add_action( 'admin_init', array( get_called_class(), 'check_settings' ) );
+		if ( static::is_settings_page( true ) ) {
+			// check current settings and display a admin notice on error.
+			add_action( 'admin_init', array( get_called_class(), 'check_settings' ) );
+		}
 
 		// build the settings page when admin_menu hook fires.
 		add_action( 'admin_menu', array( 'LLC_Options_Page', 'register_settings' ) );
 
-		// we add a callback on the incredible admin_print_scripts-settings_limit-login-countries hook
-		// to register and enqueue our scripts only on our own settings page
-		add_action( 'admin_print_scripts-settings_page_limit-login-countries',
+		// register and enqueue our scripts on admin_print_scripts hook execution.
+		add_action( 'admin_print_scripts',
 			array( 'LLC_Options_Page', 'enqueue_scripts' )
 		);
 
 		// hook in to display admin notices.
-		add_action( 'admin_notices', array( 'LLC_Admin_Notice', 'display_notices' ) );
+		add_action( 'admin_notices', array( get_called_class(), 'display_admin_notices' ) );
 
 	}
 
@@ -72,13 +73,14 @@ class LLC_Admin {
 	public static function check_settings() {
 
 		// check only if not just submitted
-		if ( ! isset( $_GET['settings-updated'] ) and ! isset( $_POST['llc_geoip_database_path'] ) ) {
-			// check llc_database_path
+		if ( ! ( isset( $_POST['option_page'] ) and 'limit-login-countries' == $_POST['option_page'] ) ) {
+
+			// check llc_database_path ---------------------------------------
+
 			$db_path = get_option( 'llc_geoip_database_path' );
 			if ( ! LLC_GeoIP_Tools::is_valid_geoip_database( $db_path, $errmsg ) ) {
-				global $pagenow;
-				if ( 'options-general.php' === $pagenow and isset( $_GET['page'] ) and 'limit-login-countries' === $_GET['page'] ) {
-					add_settings_error( 'llc_geoip_database_path', 'geoip-database-not-existent', $errmsg );
+				if ( static::is_settings_page() ) {
+					add_settings_error( 'llc_geoip_database_path', 'geoip-database-error', $errmsg );
 				} else {
 					LLC_Admin_Notice::add_notice( $errmsg . ' ' . LLC_Options_Page::get_link_tag(), 'error' );
 				}
@@ -105,4 +107,17 @@ class LLC_Admin {
 
 		return $links;
 	}
+
+	public static function is_settings_page( $or_dashboard = false ) {
+		global $pagenow;
+		return ( 'options-general.php' === $pagenow and isset( $_GET['page'] ) and 'limit-login-countries' === $_GET['page'] )
+			or $or_dashboard and 'index.php' === $pagenow;
+	}
+
+	public static function display_admin_notices() {
+		if ( static::is_settings_page( true ) ) {
+			LLC_Admin_Notice::display_notices();
+		}
+	}
+
 }

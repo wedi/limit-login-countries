@@ -393,6 +393,11 @@ class LLC_Options_Page {
 	 */
 	public static function enqueue_scripts() {
 
+		global $pagenow;
+		if ( ! LLC_Admin::is_settings_page( true ) ) {
+			return;
+		}
+
 		$url       = plugins_url( '/', dirname( __DIR__ ) );
 		$admin_url = plugins_url( '/', __DIR__ );
 

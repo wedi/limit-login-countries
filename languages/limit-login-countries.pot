@@ -119,11 +119,11 @@ msgid ""
 "Maxmind's GeoIP Lite database</a>."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:326
+#: admin/includes/LLC-Options-Page.class.php:324
 msgid "For your convenience we tried to find a database file."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:334
+#: admin/includes/LLC-Options-Page.class.php:332
 msgid ""
 "Unfortunately we couldn't find any database file.<br/>If you are sure you "
 "uploaded (and unzipped) one, it is probably just named differently from "
@@ -131,11 +131,11 @@ msgid ""
 "database file above and we are all fine."
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:384
+#: admin/includes/LLC-Options-Page.class.php:381
 msgid "Settings"
 msgstr ""
 
-#: admin/includes/LLC-Options-Page.class.php:447
+#: admin/includes/LLC-Options-Page.class.php:449
 msgid "The changes you made will be lost if you navigate away from this page."
 msgstr ""
 
